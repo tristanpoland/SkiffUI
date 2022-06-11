@@ -1,0 +1,5 @@
+.gradient_card {
+    color: rgba(255, 255, 255, 1);
+    border: 0.07em solid gray;
+    backdrop-filter: blur(0.5em);
+}

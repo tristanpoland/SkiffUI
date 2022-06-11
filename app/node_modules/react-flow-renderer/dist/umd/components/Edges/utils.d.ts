@@ -1,0 +1,11 @@
+import { MarkerType, Position } from '../../types';
+export declare const getMarkerEnd: (markerType?: MarkerType | undefined, markerEndId?: string | undefined) => string;
+export interface GetCenterParams {
+    sourceX: number;
+    sourceY: number;
+    targetX: number;
+    targetY: number;
+    sourcePosition?: Position;
+    targetPosition?: Position;
+}
+export declare const getCenter: ({ sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, }: GetCenterParams) => [number, number, number, number];
