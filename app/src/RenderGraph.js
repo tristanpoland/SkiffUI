@@ -16,7 +16,7 @@ const UpdatableEdge = (props) => {
 
     const postDelete = async (idxId) => {
         const edge = props.initialEdges[idxId]
-        await fetch('https://serverhackathon.prakshal.repl.co/deleteEdge', {
+        await fetch('https://skiffdemo.gameplexsoftware.com/deleteEdge', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
