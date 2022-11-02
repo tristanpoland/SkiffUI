@@ -28,7 +28,7 @@ def processCommand():
     return jsonify(response)
 
   if request.method == 'POST':
-    return "wrong API call"
+    return "Error: Malformed request was sent to server"
 
 
 @app.route('/summary')
