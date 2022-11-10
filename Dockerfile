@@ -1,27 +1,28 @@
+# Grab the base image from Docker Hub
 FROM node:latest
 
-#Set up development environment...
+# Set up development environment...
 WORKDIR /app/public
 
-#Update package database
+# Update package database
 RUN apt-get update -y
 
-#Install some useful tools
+# Install some useful tools
 RUN apt install htop -y
 
-#Install Flask on Python...
+# Install Flask on Python...
 RUN apt install python3-pip -y
 RUN pip install Flask
 
 
-#Install Node Package Manager (NPM)...
+# Install Node Package Manager (NPM)...
 RUN curl -qL https://www.npmjs.com/install.sh | sh
 
-#Install react-bootstrap module...
+# Install react-bootstrap module...
 RUN npm install --save react-bootstrap bootstrap@3
 
-#Install your personal copy of docker
-# Let's start with some basic stuff.
+# Install your personal copy of docker
+#   Start with basic dependencies for Docker.
 RUN apt-get update -qq && apt-get install -qqy \
     apt-transport-https \
     ca-certificates \
@@ -29,17 +30,19 @@ RUN apt-get update -qq && apt-get install -qqy \
     lxc \
     iptables
     
-# Install Docker from Docker Inc. repositories.
+#   Next we will install Docker from toe official Docker Inc. repositories.
 RUN curl -sSL https://get.docker.com/ | sh
 
-# Install the magic wrapper.
+#   Install the docker wrapper.
+#   Do a hand stand
 ADD ./wrapdocker /usr/local/bin/wrapdocker
 RUN chmod +x /usr/local/bin/wrapdocker
 
 # Define additional metadata for our image.
+#   Mount storage for the container
 VOLUME /var/lib/docker
 
-#Install Code server
+# Install Code server
 RUN echo "**** install runtime dependencies ****" && \
   apt-get install -y \
     git \
@@ -77,11 +80,11 @@ RUN echo "**** install runtime dependencies ****" && \
     /etc/apt/sources.list.d/nodesource.list
 
 
-#Add source code to image, this may take up to 4 minutes...
+# Add source code to image, this may take several minutes...
 COPY /app ./
 
-#Start the frontend server with NPM, this may take up to 4 minutes...
+# Start the frontend server with NPM, this may take up to 4 minutes...
 CMD /app/public/services.sh
 
-# ports and volumes
+# Define network properties
 EXPOSE 8443

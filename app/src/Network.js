@@ -21,8 +21,7 @@ const Network = () => {
         }
       }
     )
-      .then(response => response.json())
-      .then((response) => setnumDeployments(response["count"]))
+      .then(response => setnumDeployments(response))
       .catch((error) => {
         console.log(error)
       })
