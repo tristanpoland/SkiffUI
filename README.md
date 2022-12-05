@@ -1,5 +1,7 @@
-![skiffui-transparent](https://user-images.githubusercontent.com/34868944/205726457-355d7d05-63c5-4695-bf15-0172d5f67926.png)
-
+<p align="center">
+!<img width="460" height="300"https://user-images.githubusercontent.com/34868944/205726457-355d7d05-63c5-4695-bf15-0172d5f67926.png></img>
+</p>
+   
 ## _Contents_
 * [Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
 * [How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
