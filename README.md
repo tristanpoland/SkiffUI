@@ -1,7 +1,19 @@
+## __Contents__
+[Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
+[How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
+[Installation](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
+    [Stable](https://github.com/Gameplex-Software/SkiffUI/#latest-stable)
+        [Windows]()
+        [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos)
+        [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux)
+    [Beta](https://github.com/Gameplex-Software/SkiffUI/#latest-beta)
+        [Windows]()
+        [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos-1)
+        [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux-1)
+
+
 # The worlds first container network manager
 Development is a work in progress, please follow us on social media for updates (socials are in the footer of our website)
-  
-  
   
 ## Why Use SkiffUI
 SkiffUI provides the first easy to use, Drag-and-Drop user interface for modifying, or networking containers after creation. SkiffUI currently supports only Docker but could easily be expanded to interact with Docker Swarms and Kubernetes clusters later on.
