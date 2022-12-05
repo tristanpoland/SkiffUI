@@ -1,15 +1,15 @@
-## __Contents__
-[Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
-[How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
-[Installation](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
-    [Stable](https://github.com/Gameplex-Software/SkiffUI/#latest-stable)
-        [Windows]()
-        [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos)
-        [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux)
-    [Beta](https://github.com/Gameplex-Software/SkiffUI/#latest-beta)
-        [Windows]()
-        [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos-1)
-        [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux-1)
+## _Contents_
+* [Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
+* [How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
+* [Installation](https://github.com/Gameplex-Software/SkiffUI/#installation)
+    * [Stable](https://github.com/Gameplex-Software/SkiffUI/#latest-stable)
+        * [Windows]()
+        * [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos)
+        * [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux)
+    * [Beta](https://github.com/Gameplex-Software/SkiffUI/#latest-beta)
+        * [Windows]()
+        * [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos-1)
+        * [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux-1)
 
 
 # The worlds first container network manager
