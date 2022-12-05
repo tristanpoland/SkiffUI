@@ -24,5 +24,15 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 
 # Installation
 
-## Linux
-```sudo sh get.docker.com```
+## Linux (Latest Stable)
+```sudo sh get.docker.com
+docker run -p 8443:8443 -p 1027:1027 gameplexsoftware/skiffui```
+
+
+## Linux (Latest Beta)
+```sudo sh get.docker.com
+mkdir ./SkiffUI
+git clone https://github.com/Gameplex-Software/SkiffUI/blob/master/app/services.sh
+cd ./skiffui/
+docker build .
+docker-compose up -d```
