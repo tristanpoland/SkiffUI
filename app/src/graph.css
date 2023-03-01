@@ -1,0 +1,12 @@
+.backbtn{
+    padding: 1.5em;
+    color: rgba(255, 255, 255, 1);
+    border: 0.07em solid gray;
+    backdrop-filter: blur(0.5em);
+    z-index: 1000;
+    position: fixed;
+    border-radius: 1em;
+    top: 2em;
+    left: 2em;
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+{
+  "name": "skiffUI-frontend",
+  "version": "0.1.0",
+  "proxy": "https://skiffapi.gameplexsoftware.com",
+  "homepage": "https://skiffdev.gameplexsoftware.com",
+  "private": false,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^3.4.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.2.3",
+    "react-dom": "^17.0.2",
+    "react-flow-renderer": "^10.0.8",
+    "react-scripts": "5.0.0",
+    "rete": "^1.4.7",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "PORT=1027 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prakshal-Jain/hackathon"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
