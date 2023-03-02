@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from nodezator import Node, Connection, NodeZator
 
 app = Flask(__name__)
