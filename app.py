@@ -1,43 +1,24 @@
-from flask import Flask, render_template, request
-from nodezator import Node, Connection, NodeZator
+from flask import Flask, render_template
+from nodezator import *
 
 app = Flask(__name__)
-node_zator = NodeZator()
+
+class Node:
+    def __init__(self, name, children):
+        self.name = name
+        self.children = children
+
+
+# Define the nodes
+node1 = Node('Node 1', [])
+node2 = Node('Node 2', [])
+node3 = Node('Node 3', [node1, node2])
+node4 = Node('Node 4', [node3])
+nodes = [node1, node2, node3, node4]
 
 @app.route('/')
 def index():
-    nodes = node_zator.get_nodes()
-    connections = node_zator.get_connections()
-    return render_template('index.html', nodes=nodes, connections=connections)
-
-@app.route('/add_node', methods=['POST'])
-def add_node():
-    node_id = request.form['node_id']
-    node = Node(node_id)
-    node_zator.add_node(node)
-    return jsonify({'success': True})
-
-@app.route('/delete_node', methods=['POST'])
-def delete_node():
-    node_id = request.form['node_id']
-    node_zator.delete_node(node_id)
-    return jsonify({'success': True})
-
-@app.route('/connect', methods=['POST'])
-def connect():
-    node_id_1 = request.form['node_id_1']
-    node_id_2 = request.form['node_id_2']
-    connection = Connection(node_id_1, node_id_2)
-    node_zator.add_connection(connection)
-    return jsonify({'success': True})
-
-@app.route('/disconnect', methods=['POST'])
-def disconnect():
-    node_id_1 = request.form['node_id_1']
-    node_id_2 = request.form['node_id_2']
-    connection = Connection(node_id_1, node_id_2)
-    node_zator.delete_connection(connection)
-    return jsonify({'success': True})
+    return render_template('index.html', nodes=nodes)
 
 if __name__ == '__main__':
     app.run(debug=True)
