@@ -1,113 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Node Graph</title>
-    <style>
-        /* CSS styling for the node graph */
-        .node {
-            border: 1px solid black;
-            padding: 10px;
-            margin: 10px;
-            display: inline-block;
-            vertical-align: middle;
-            background-color: grey;
-            border-radius: 10px;
-        }
-        .node:after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-        .node .name {
-            font-weight: bold;
-        }
-        .node .children {
-            margin-top: 10px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .node .children:before {
-            content: "";
-            display: inline-block;
-            height: 50%;
-            margin-left: -10px;
-            border-left: 1px solid black;
-            border-bottom: 1px solid black;
-        }
-        .node:first-child .children:before {
-            display: none;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <meta charset="utf-8">
+    <title>My Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/@ryven/graph@1.0.0-beta.3/dist/ryvengraph.min.js"></script>
 </head>
 <body>
-    <h1>Node Graph</h1>
-    {% for node in nodes %}
-        <div class="node" id="{{ node.name }}">
-            <div class="name">{{ node.name }}</div>
-            {% if node.children %}
-                <div class="children">
-                    {% for child in node.children %}
-                        <div class="node" id="{{ child.name }}">
-                            <div class="name">{{ child.name }}</div>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-    {% endfor %}
-
+    <div id="graph-container"></div>
     <script>
-        // Make nodes draggable and droppable
-        interact('.node').draggable({
-            onmove: function (event) {
-                var target = event.target;
-                var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-                var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-                // translate the element
-                target.style.webkitTransform =
-                    target.style.transform =
-                    'translate(' + x + 'px, ' + y + 'px)';
-
-                // update the position attributes
-                target.setAttribute('data-x', x);
-                target.setAttribute('data-y', y);
-            }
-        }).dropzone({
-            accept: '.node',
-            overlap: 0.75,
-            ondropactivate: function (event) {
-                event.target.classList.add('drop-active');
-            },
-            ondragenter: function (event) {
-                var draggableElement = event.relatedTarget;
-                var dropzoneElement = event.target;
-
-                // feedback the possibility of a drop
-                dropzoneElement.classList.add('drop-target');
-                draggableElement.classList.add('can-drop');
-            },
-            ondragleave: function (event) {
-                // remove the drop feedback style
-                event.target.classList.remove('drop-target');
-                event.relatedTarget.classList.remove('can-drop');
-            },
-            ondrop: function (event) {
-                var draggableElement = event.relatedTarget;
-                var dropzoneElement = event.target;
-
-                // move the draggable element into the drop zone
-                dropzoneElement.appendChild(draggableElement);
-                // remove the drop feedback style
-                event.target.classList.remove('drop-target');
-                event.relatedTarget.classList.remove('can-drop');
-            },
-            ondropdeactivate: function (event) {
-            event.target.classList.remove('drop-active');
-            event.target.classList.remove('drop-target');
-        }
-    });
+        var container = document.getElementById("graph-container");
+        var graph = new RyvenGraph(container, {{ graph_data|safe }});
     </script>
-  </body>
+</body>
 </html>
