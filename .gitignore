@@ -1,11 +1,35 @@
-# Ignore PyPI stuff
-build
-dist
-gsnodegraph.egg-info
-pypi.txt
 
-# Ignore python misc.
+# Ignore .pyc folders/files
 __pycache__
+*.pyc
 
-# Ignore test files
-testing.py
+# Ignore build folders/files
+.conda
+.tools
+.vscode
+build/*
+dist/*
+*.spec
+.vs
+
+# Ignore test images
+src/*.jpg
+src/*.png
+src/*.jpeg
+src/*.exr
+
+# Ignore the local version of libs
+gsnodegraph
+gswidgetkit
+tests
+
+# Ignore test Gimel Studio project files
+*gimel
+
+# Ignore .sketch files
+*.sketch
+
+# Ignore other misc.
+.vscode
+env
+.DS_Store

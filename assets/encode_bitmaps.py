@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# gsnodegraph Copyright 2019-2022 by Noah Rahm and contributors
+# Gimel Studio Copyright 2019-2022 by Noah Rahm and contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,26 +16,26 @@
 
 """
 Utility script to generate PyEmbeddedImage bitmap icons and write into
-'bitmaps.py' file from images in the assets_source directory.
+'icons.py' file from images in the icons_source directory.
 
-1. Just run this file in-place and an 'bitmaps.py' file should be
+1. Just run this file in-place and an 'icons.py' file should be
 generated.
-2. Place the bitmaps.py file in the 'gsnodegraph/bitmaps' directory.
+2. Place the icons file in the Gimel Studio 'datafiles' directory.
 """
 
 import os
 from wx.tools import img2py
 
 
-def PrepareIconCommands(dest_file='bitmaps.py'):
+def PrepareIconCommands(dest_file='icons.py'):
     filelist = []
-    for file in os.listdir("assets_source/"):
+    for file in os.listdir("icons_source/"):
         if file.endswith('.png'):
             filelist.append(file)
 
     commandlines = []
     for icon in filelist:
-        ico_path = "assets_source/{}".format(icon)
+        ico_path = "icons_source/{}".format(icon)
         ico_name = icon.split('.')[0]
         cmd = "-a -n ICON_{} {} {}".format(ico_name, ico_path, dest_file)
         commandlines.append(cmd)
@@ -49,6 +49,6 @@ if __name__ == "__main__":
         img2py.main(args)
 
     # Add import statement to top
-    with open("bitmaps.py", "r+") as file:
+    with open("icons.py", "r+") as file:
         file.write("from wx.lib.embeddedimage import PyEmbeddedImage\n#")
     print("Done!")

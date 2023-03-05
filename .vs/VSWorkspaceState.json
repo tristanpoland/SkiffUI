@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\gimelstudio",
+    "\\src\\gimelstudio\\core",
+    "\\src\\gimelstudio\\interface"
   ],
-  "SelectedNode": "\\main.py",
+  "SelectedNode": "\\src\\gimelstudio\\core\\datatypes.py",
   "PreviewInSolutionExplorer": false
 }
