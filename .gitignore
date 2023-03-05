@@ -1,0 +1,11 @@
+# Ignore PyPI stuff
+build
+dist
+gsnodegraph.egg-info
+pypi.txt
+
+# Ignore python misc.
+__pycache__
+
+# Ignore test files
+testing.py
