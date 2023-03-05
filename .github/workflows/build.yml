@@ -1,4 +1,4 @@
-name: Build Gimel Studio
+name: Build SkiffUI Client
 
 # Controls when the action will run
 on:
@@ -28,16 +28,16 @@ jobs:
     - name: Prepare release
       uses: papeloto/action-zip@v1
       with:
-        files: ./dist/GimelStudio/
-        dest: GimelStudio-Linux64.zip
+        files: ./dist/SkiffUIClient/
+        dest: SkiffUI-Linux64.zip
 
     # Actually make the release
     - name: Uploading release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./GimelStudio-Linux64.zip
-        asset_name: GimelStudio-Linux64.zip
+        file: ./SkiffUIClient-Linux64.zip
+        asset_name: SkiffUIClient-Linux64.zip
         tag: ${{ github.ref }}
 
 
@@ -58,15 +58,15 @@ jobs:
     - name: Prepare release
       uses: papeloto/action-zip@v1
       with:
-        files: ./dist/GimelStudio/
-        dest: GimelStudio-MacOs64.zip
+        files: ./dist/SkiffUIClient/
+        dest: SkiffUIClient-MacOs64.zip
 
     # Actually make the release
     - name: Uploading release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ./GimelStudio-MacOs64.zip
-        asset_name: GimelStudio-MacOs64.zip
+        file: ./SkiffUIClient-MacOs64.zip
+        asset_name: SkiffUIClient-MacOs64.zip
         tag: ${{ github.ref }}
         
