@@ -76,7 +76,7 @@ class MainApp(wx.App):
         self.frame.Show(True)
 
         # Show the startup splash screen
-        if APP_FROZEN is True:
+        if 1 == 1 :
             splash = StartupSplashScreen()
             splash.Show()
 
