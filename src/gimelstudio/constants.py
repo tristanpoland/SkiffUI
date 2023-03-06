@@ -23,20 +23,20 @@ import os.path
 APP_FROZEN = getattr(sys, "frozen", False)
 APP_DIR = os.path.dirname(os.path.abspath(sys.argv[0]))
 
-APP_VERSION = "0.6.0"
-APP_VERSION_TAG = " pre-alpha 2"
+APP_VERSION = "0.0.1"
+APP_VERSION_TAG = " pre-alpha 1"
 APP_VERSION_FULL = "{0}{1}".format(APP_VERSION, APP_VERSION_TAG)
 
-APP_NAME = "Gimel Studio"
-APP_DESCRIPTION = "Non-destructive, node-based 2D image graphics editor focused on simplicity, speed, elegance and usability"
-APP_COPYRIGHT = "© 2019–2022 Noah Rahm and contributors"
+APP_NAME = "SkiffUI"
+APP_DESCRIPTION = "Container management made easy"
+APP_COPYRIGHT = "© 2019–2023 Gameplex Software, Noah Rahm, and contributors"
 
-APP_WEBSITE_URL = "https://gimelstudio.github.io"
-APP_LICENSE_URL = "https://github.com/GimelStudio/GimelStudio/blob/master/LICENSE"
-APP_GITHUB_URL = "https://github.com/GimelStudio/GimelStudio"
-APP_CREDITS_URL = "https://github.com/GimelStudio/GimelStudio/graphs/contributors"
-APP_DISCORD_URL = "https://discord.gg/Rqw-bDr-VDpK"  # Remove dashes when using this
-APP_YOUTUBE_URL = "https://www.youtube.com/channel/UCP9CNtBPMPRwOR4jUiMMkhQ"
+APP_WEBSITE_URL = "https://gameplexsoftware.com/SkiffUI"
+APP_LICENSE_URL = "https://github.com/Gameplex-Software/SkiffUI/blob/master/LICENSE"
+APP_GITHUB_URL =  "https://github.com/Gameplex-Software/SkiffUI"
+APP_CREDITS_URL = "https://github.com/Gameplex-Software/SkiffUI/graphs/contributors"
+APP_DISCORD_URL = "[Discord URL]"  # Remove dashes when using this
+APP_YOUTUBE_URL = ""
 
 APP_FULL_TITLE = "{0} v{1}".format(APP_NAME, APP_VERSION_FULL)
 
@@ -85,7 +85,7 @@ SUPPORTED_FT_SAVE_WILDCARD = \
     "TIFF file (*.tiff)|*.tiff|" \
     "All files (*.*)|*.*"
 
-PROJECT_FILE_WILDCARD = "GIMEL file (*.gimel)|*.gimel"
+PROJECT_FILE_WILDCARD = "SkiffUI file (*.skf)|*.skf"
 
 # Colors
 AREA_BG_COLOR = "#242528"

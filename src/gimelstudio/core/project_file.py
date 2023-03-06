@@ -30,7 +30,7 @@ class ProjectFileIO(object):
 
     def InitFileStructure(self):
         self.contents["application"] = self.app_config.app_name
-        self.contents["file_type"] = "Gimel Studio Project"
+        self.contents["file_type"] = "SkiffUI Network Map"
         self.contents["app_version"] = self.app_config.app_version
         self.contents["app_version_tag"] = self.app_config.app_version_tag
         self.contents["app_version_full"] = self.app_config.app_version_full

@@ -19,6 +19,6 @@ import wx
 
 def ShowNotImplementedDialog():
     dlg = wx.MessageDialog(None,
-                           _("Sorry, that feature has not been implemented yet.\nPlease consider helping to implement this feature."),
+                           _("Sorry, that feature has not been implemented yet.\nThe SkiffUI project is ongoing and we are always looking\nfor help, see the Help > About menu to find our discord link\nif you want to contibute or have questions."),
                            _("Not yet implemented!"), style=wx.ICON_INFORMATION)
     dlg.ShowModal()

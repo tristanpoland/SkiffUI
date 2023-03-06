@@ -74,9 +74,15 @@ class ApplicationFrame(wx.Frame):
         file_menu = flatmenu.FlatMenu()
         edit_menu = flatmenu.FlatMenu()
         view_menu = flatmenu.FlatMenu()
+        connect_menu = flatmenu.FlatMenu()
+        edit_menu = flatmenu.FlatMenu()
         render_menu = flatmenu.FlatMenu()
         window_menu = flatmenu.FlatMenu()
+        engine_menu = flatmenu.FlatMenu()
         help_menu = flatmenu.FlatMenu()
+        edit_menu = flatmenu.FlatMenu()
+        null_menu = flatmenu.FlatMenu()
+
 
         # Separator
         separator = flatmenu.FlatMenuItem(file_menu, id=wx.ID_SEPARATOR,
@@ -117,7 +123,7 @@ class ApplicationFrame(wx.Frame):
             file_menu,
             id=wx.ID_ANY,
             label="{0}{1}".format(_("Save Project As…"), "\tCtrl+Shift+S"),
-            helpString=_("Save the current project as a Gimel Studio project"),
+            helpString=_("Save the current project as a .sfk (Skiff) file"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_SAVE.GetBitmap()
@@ -137,7 +143,7 @@ class ApplicationFrame(wx.Frame):
             file_menu,
             id=wx.ID_ANY,
             label="{0}{1}".format(_("Quit"), "\tShift+Q"),
-            helpString=_("Quit Gimel Studio"),
+            helpString=_("Quit SkiffUI Client"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_CLOSE.GetBitmap()
@@ -236,7 +242,7 @@ class ApplicationFrame(wx.Frame):
             help_menu,
             id=wx.ID_ANY,
             label=_("Visit Website"),
-            helpString=_("Open the offical Gimel Studio website in your browser"),
+            helpString=_("Open the offical SkiffUI website in your browser"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_WEBSITE.GetBitmap()
@@ -246,7 +252,7 @@ class ApplicationFrame(wx.Frame):
             help_menu,
             id=wx.ID_ANY,
             label=_("Report a Bug"),
-            helpString=_("Report a bug in Gimel Studio"),
+            helpString=_("Report a bug in SkiffUI"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_BUG.GetBitmap()
@@ -255,8 +261,8 @@ class ApplicationFrame(wx.Frame):
         self.about_menuitem = flatmenu.FlatMenuItem(
             help_menu,
             id=wx.ID_ANY,
-            label=_("About Gimel Studio"),
-            helpString=_("Information about Gimel Studio"),
+            label=_("About SkiffUI"),
+            helpString=_("Information about the SkiffUI client"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_INFO.GetBitmap()
@@ -301,9 +307,12 @@ class ApplicationFrame(wx.Frame):
         self.menubar.Append(file_menu, _("File"))
         self.menubar.Append(edit_menu, _("Edit"))
         self.menubar.Append(view_menu, _("View"))
+        self.menubar.Append(connect_menu, _("Connect"))
         self.menubar.Append(render_menu, _("Render"))
         self.menubar.Append(window_menu, _("Window"))
+        self.menubar.Append(engine_menu, _("Engine"))
         self.menubar.Append(help_menu, _("Help"))
+        self.menubar.Append(null_menu, _("NULL"))
         
         # Adds vertical spacing to the menubar popups
         for item in self.menubar._items:
@@ -329,7 +338,6 @@ class ApplicationFrame(wx.Frame):
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnQuit,
                   self.quit_menuitem)
-
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnCopyImageToClipboard,
                   self.copytoclipboard_menuitem)
@@ -497,7 +505,7 @@ class ApplicationFrame(wx.Frame):
 
     def OnSaveProjectFileAs(self, event):
         dlg = wx.FileDialog(self, message=_("Save project file as…"),
-                            defaultFile="untitled.gimel",
+                            defaultFile="my_network.skf",
                             wildcard=PROJECT_FILE_WILDCARD, 
                             style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT)
 
@@ -523,7 +531,7 @@ class ApplicationFrame(wx.Frame):
     def OnQuit(self, event):
         quitdialog = wx.MessageDialog(self,
                                       _("Do you really want to quit? You will lose any unsaved data."),
-                                      _("Quit Gimel Studio?"),
+                                      _("Quit SkiffUI Client?"),
                                       wx.YES_NO | wx.YES_DEFAULT)
 
         if quitdialog.ShowModal() == wx.ID_YES:
@@ -565,7 +573,7 @@ class ApplicationFrame(wx.Frame):
                 "System",
                 "File Paths"
                 ]
-        dlg = PreferencesDialog(self, title=_("Gimel Studio Preferences"),
+        dlg = PreferencesDialog(self, title=_("SkiffUI Preferences"),
                                 app_config=self.appconfig, categories=categories)
         dlg.Show()
 
@@ -599,15 +607,15 @@ class ApplicationFrame(wx.Frame):
         self.Maximize()
 
     def OnOnlineManual(self, event):
-        url = ("https://gimelstudio.readthedocs.io/en/latest/")
+        url = ("https://github.com/Gameplex-Software/SkiffUI/wiki")
         webbrowser.open(url)
 
     def OnReportABug(self, event):
-        url = ("https://github.com/GimelStudio/GimelStudio/issues/new/choose")
+        url = ("https://github.com/Gameplex-Software/SkiffUI/issues/new/choose")
         webbrowser.open(url)
 
     def OnVisitWebsite(self, event):
-        url = ("https://gimelstudio.github.io")
+        url = ("https://gameplexsoftware.com/SkiffUI")
         webbrowser.open(url)
 
     def OnAboutDialog(self, event):
