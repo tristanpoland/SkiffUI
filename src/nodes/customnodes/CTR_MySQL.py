@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Gimel Studio Copyright 2019-2022 by Noah Rahm and contributors
+# SkiffUI Copyright 2020-2023 by Gameplex Software and contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,18 +18,18 @@ import numpy as np
 from gimelstudio import api
 
 
-class Example1Node(api.Node):
+class MysqlNode(api.Node):
     def __init__(self, nodegraph, _id):
         api.Node.__init__(self, nodegraph, _id)
 
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "{Container name}",
+            "label": "MySQL",
             "author": "Gameplex Software",
             "version": (0, 5, 0),
             "category": "TRANSFORM",
-            "description": "Controls a container",
+            "description": "Controls a MySQL container",
         }
         return meta_info
 
@@ -66,4 +66,4 @@ class Example1Node(api.Node):
         return image
 
 
-api.RegisterNode(Example1Node, "node_example1")
+api.RegisterNode(MysqlNode, "Mysql_Node")

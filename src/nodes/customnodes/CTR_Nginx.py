@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Gimel Studio Copyright 2019-2022 by Noah Rahm and contributors
+# SkiffUI Copyright 2020-2023 by Gameplex Software and contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,11 +25,11 @@ class NginxNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "Example Node 1",
-            "author": "Gimel Studio",
+            "label": "Nginx",
+            "author": "Gameplex Software",
             "version": (0, 5, 0),
             "category": "TRANSFORM",
-            "description": "Show an example node.",
+            "description": "Controls an Nginx container",
         }
         return meta_info
 
@@ -41,18 +41,31 @@ class NginxNode(api.Node):
             fpb_label="Flip Direction"
         )
         self.NodeAddProp(flip_direction)
+        imageid = api.ChoiceProp(
+            idname="dockerImage",
+            default="test/testimage",
+            choices=["text/testimage", "test/testimage2"],
+            fpb_label="Docker Image"
+        )
+        self.NodeAddProp(imageid)
 
     def NodeInitParams(self):
-        image = api.RenderImageParam("image", "Image")
+        port0 = api.RenderImageParam("port0", "Port 1092")
+        port1 = api.RenderImageParam("port1", "Port 1093")
+        port2 = api.RenderImageParam("port2", "Port 1094")
+        port3 = api.RenderImageParam("port3", "Port 1095")
 
-        self.NodeAddParam(image)
+        self.NodeAddParam(port0)
+        self.NodeAddParam(port1)
+        self.NodeAddParam(port2)
+        self.NodeAddParam(port3)
 
     def MutedNodeEvaluation(self, eval_info):
         return self.EvalMutedNode(eval_info)
 
     def NodeEvaluation(self, eval_info):
         flip_direction = self.EvalProperty(eval_info, "direction")
-        image1 = self.EvalParameter(eval_info, "image")
+        image1 = self.EvalParameter(eval_info, "port")
 
         image = api.RenderImage()
         img = image1.Image("numpy")
@@ -66,4 +79,4 @@ class NginxNode(api.Node):
         return image
 
 
-api.RegisterNode(Example1Node, "node_example1")
+api.RegisterNode(NginxNode, "Nginx_Node")
