@@ -6,6 +6,6 @@
     "\\src\\gimelstudio\\core",
     "\\src\\gimelstudio\\interface"
   ],
-  "SelectedNode": "\\src\\gimelstudio\\core\\datatypes.py",
+  "SelectedNode": "\\src\\gimelstudio\\interface\\nodegraph_pnl.py",
   "PreviewInSolutionExplorer": false
 }
