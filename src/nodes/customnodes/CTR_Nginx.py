@@ -65,7 +65,7 @@ class NginxNode(api.Node):
 
     def NodeEvaluation(self, eval_info):
         flip_direction = self.EvalProperty(eval_info, "direction")
-        image1 = self.EvalParameter(eval_info, "port")
+        image1 = self.EvalParameter(eval_info, "port0")
 
         image = api.RenderImage()
         img = image1.Image("numpy")
