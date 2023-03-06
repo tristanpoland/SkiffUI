@@ -30,7 +30,7 @@ class OutputNode(api.Node):
     def NodeMeta(self):
         meta_info = {
             "label": "Output",
-            "author": "Gimel Studio",
+            "author": "Gameplex Software",
             "version": (0, 1, 3),
             "category": "OUTPUT",
             "description": """The most important node of them all. :)
@@ -50,8 +50,11 @@ class OutputNode(api.Node):
         self.NodeAddProp(self.export_button)
 
     def NodeInitParams(self):
-        p = api.RenderImageParam('Image', 'Image')
-        self.NodeAddParam(p)
+        p0 = api.RenderImageParam('Image', 'Forward port')
+        p1 = api.RenderImageParam('Image', 'Forward port')
+        self.NodeAddParam(p0)
+        self.NodeAddParam(p1)
+
 
     def NodeEvaluation(self, eval_info):
         pass

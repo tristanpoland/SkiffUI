@@ -60,7 +60,7 @@ class MainApp(wx.App):
         self.installDir = os.path.split(os.path.abspath(sys.argv[0]))[0]
 
         # Used to identify app in $HOME/
-        self.SetAppName("GimelStudio")
+        self.SetAppName("SkiffUI")
 
         # Controls the current interface language
         self.language_prefix = "LANGUAGE_"
@@ -91,8 +91,6 @@ class MainApp(wx.App):
     def Setlang(self, language):
         supported_langs = {
             "LANGUAGE_ENGLISH": "en",
-            "LANGUAGE_FRENCH": "fr",
-            "LANGUAGE_GERMAN": "de",
         }
 
         # To get some language settings to display properly on Linux

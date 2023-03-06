@@ -68,7 +68,7 @@ class AppConfiguration(AppData):
 
     def Load(self):
         try:
-            os.makedirs(os.path.expanduser("~/.gimelstudio/"),
+            os.makedirs(os.path.expanduser("~/.Skiffui/"),
                         exist_ok=True)
 
             if not os.path.exists(self.app_config_file):
