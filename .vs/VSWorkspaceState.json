@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.github",
+    "\\.github\\ISSUE_TEMPLATE",
+    "\\.github\\workflows",
+    "\\assets\\banner",
+    "\\assets\\splash_source",
+    "\\OpenImageIO\\build",
     "\\src",
     "\\src\\gimelstudio",
-    "\\src\\gimelstudio\\core",
-    "\\src\\gimelstudio\\interface"
+    "\\src\\gimelstudio\\core"
   ],
-  "SelectedNode": "\\src\\gimelstudio\\interface\\nodegraph_pnl.py",
+  "SelectedNode": "\\src\\gimelstudio\\application.py",
   "PreviewInSolutionExplorer": false
 }
