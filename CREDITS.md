@@ -2,7 +2,8 @@
 
 * gigiboss56
 * Prakshal Jain
-* Tristan James Poland
+* Tristan James Poland (tristanpoland)
+* Tyler Poland (tpoland)
 
 # GimelStudio/GSNodeEditor (App layout and node library)
 

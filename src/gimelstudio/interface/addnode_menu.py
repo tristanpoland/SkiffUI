@@ -14,6 +14,23 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# SkiffUI Copyright 2020-2023 by Gameplex Software and contributors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ----------------------------------------------------------------------------
+
+
 import wx
 import wx.adv
 import wx.stc
@@ -175,13 +192,10 @@ class AddNodeMenu(wx.PopupTransientWindow):
         main_sizer.Add(header_lbl, flag=wx.EXPAND | wx.ALL, border=14)
         main_sizer.AddSpacer(5)
 
-        # Search bar
-        # self.search_bar = TextCtrl(self, #style=wx.BORDER_SIMPLE,
-        #                            #placeholder=_("Search nodes…"), 
-        #                            size=(-1, 26))
-        # self.search_bar.SetFocus()
+        self.search_bar = TextCtrl(self, style=wx.BORDER_SIMPLE, placeholder=_("Search nodes…"), size=(-1, 26))
+        self.search_bar.SetFocus()
 
-        # main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
+        main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
         main_sizer.AddSpacer(5)
 
         # Nodes list box
