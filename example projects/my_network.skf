@@ -1,0 +1,282 @@
+{
+    "application": "SkiffUI",
+    "file_type": "SkiffUI Network Map",
+    "app_version": "0.0.1",
+    "app_version_tag": " pre-alpha 1",
+    "app_version_full": "0.0.1 pre-alpha 1",
+    "node_graph": {
+        "nodes": {
+            "ce27f5e033d14a22aac7ccf827a223a7": {
+                "idname": "corenode_outputcomposite",
+                "pos": [
+                    927,
+                    289
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "Image": {
+                        "idname": "Image",
+                        "binding": "78c172ef3a5d4ec2b2c035b7ebb6dd2d"
+                    }
+                },
+                "properties": {
+                    "export": {
+                        "idname": "export",
+                        "value": ""
+                    }
+                }
+            },
+            "dec7136a216a4ec59e6728095383bd18": {
+                "idname": "corenode_outputcomposite",
+                "pos": [
+                    927,
+                    189
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "Image": {
+                        "idname": "Image",
+                        "binding": "cb86b950d4564d78b936393378c426ff"
+                    }
+                },
+                "properties": {
+                    "export": {
+                        "idname": "export",
+                        "value": ""
+                    }
+                }
+            },
+            "ddc3caedaf96444b9cc848f745cfe4c6": {
+                "idname": "corenode_outputcomposite",
+                "pos": [
+                    927,
+                    89
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "Image": {
+                        "idname": "Image",
+                        "binding": "4e9e206a5c57488185f6f8e056bdaaf1"
+                    }
+                },
+                "properties": {
+                    "export": {
+                        "idname": "export",
+                        "value": ""
+                    }
+                }
+            },
+            "4e9e206a5c57488185f6f8e056bdaaf1": {
+                "idname": "Nginx_Node",
+                "pos": [
+                    697,
+                    7
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "port0": {
+                        "idname": "port0",
+                        "binding": "d65108adf58849d5a28aeb0805e8c167"
+                    },
+                    "port1": {
+                        "idname": "port1",
+                        "binding": "16a48c105bf64b00acf5e1e54fc47f3a"
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "binding": "39b6138d644a4314958c313a5db6fe06"
+                    },
+                    "port3": {
+                        "idname": "port3",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
+                    },
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "test/testimage"
+                    }
+                }
+            },
+            "cb86b950d4564d78b936393378c426ff": {
+                "idname": "Nginx_Node",
+                "pos": [
+                    698,
+                    170
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "port0": {
+                        "idname": "port0",
+                        "binding": "d65108adf58849d5a28aeb0805e8c167"
+                    },
+                    "port1": {
+                        "idname": "port1",
+                        "binding": "16a48c105bf64b00acf5e1e54fc47f3a"
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "binding": "39b6138d644a4314958c313a5db6fe06"
+                    },
+                    "port3": {
+                        "idname": "port3",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
+                    },
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "test/testimage"
+                    }
+                }
+            },
+            "78c172ef3a5d4ec2b2c035b7ebb6dd2d": {
+                "idname": "Nginx_Node",
+                "pos": [
+                    695,
+                    335
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "port0": {
+                        "idname": "port0",
+                        "binding": "d65108adf58849d5a28aeb0805e8c167"
+                    },
+                    "port1": {
+                        "idname": "port1",
+                        "binding": "16a48c105bf64b00acf5e1e54fc47f3a"
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "binding": "39b6138d644a4314958c313a5db6fe06"
+                    },
+                    "port3": {
+                        "idname": "port3",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
+                    },
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "test/testimage"
+                    }
+                }
+            },
+            "16a48c105bf64b00acf5e1e54fc47f3a": {
+                "idname": "Nginx_Node",
+                "pos": [
+                    418,
+                    4
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "port0": {
+                        "idname": "port0",
+                        "binding": "d65108adf58849d5a28aeb0805e8c167"
+                    },
+                    "port1": {
+                        "idname": "port1",
+                        "binding": "39b6138d644a4314958c313a5db6fe06"
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "binding": ""
+                    },
+                    "port3": {
+                        "idname": "port3",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
+                    },
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "test/testimage"
+                    }
+                }
+            },
+            "d65108adf58849d5a28aeb0805e8c167": {
+                "idname": "Mysql_Node",
+                "pos": [
+                    209,
+                    211
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "image": {
+                        "idname": "image",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
+                    }
+                }
+            },
+            "39b6138d644a4314958c313a5db6fe06": {
+                "idname": "Mysql_Node",
+                "pos": [
+                    209,
+                    328
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "image": {
+                        "idname": "image",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
+                    }
+                }
+            }
+        }
+    }
+}
