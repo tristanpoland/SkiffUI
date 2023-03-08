@@ -192,10 +192,10 @@ class AddNodeMenu(wx.PopupTransientWindow):
         main_sizer.Add(header_lbl, flag=wx.EXPAND | wx.ALL, border=14)
         main_sizer.AddSpacer(5)
 
-        self.search_bar = TextCtrl(self, style=wx.BORDER_SIMPLE, placeholder=_("Search nodes…"), size=(-1, 26))
-        self.search_bar.SetFocus()
+        # self.search_bar = TextCtrl(self, style=wx.BORDER_SIMPLE, placeholder=_("Search nodes…"), size=(-1, 26))
+        # self.search_bar.SetFocus()
 
-        main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
+        #main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
         main_sizer.AddSpacer(5)
 
         # Nodes list box
