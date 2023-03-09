@@ -1,16 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
-    "\\.github\\ISSUE_TEMPLATE",
-    "\\.github\\workflows",
-    "\\assets\\banner",
-    "\\assets\\splash_source",
-    "\\OpenImageIO\\build",
     "\\src",
     "\\src\\gimelstudio",
-    "\\src\\gimelstudio\\core"
+    "\\src\\gimelstudio\\api",
+    "\\src\\gimelstudio\\core",
+    "\\src\\gimelstudio\\core\\node",
+    "\\src\\gimelstudio\\locale",
+    "\\src\\gimelstudio\\locale\\de_DE",
+    "\\src\\gimelstudio\\locale\\de_DE\\LC_MESSAGES"
   ],
-  "SelectedNode": "\\src\\gimelstudio\\application.py",
+  "SelectedNode": "\\src\\gimelstudio\\core\\renderer.py",
   "PreviewInSolutionExplorer": false
 }

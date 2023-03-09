@@ -16,7 +16,7 @@
 
 from .output_eval import OutputNodeEval
 from .datatypes import RenderImage
-
+import 
 
 class Renderer(object):
     """
@@ -62,6 +62,7 @@ class Renderer(object):
         return image
 
     def RenderNodeGraph(self, output_node, nodes):
+        print ("Renderer called")
         """ Render the image, starting from the output node.
 
         :param output_node: the output node object
