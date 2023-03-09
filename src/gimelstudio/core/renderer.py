@@ -16,7 +16,10 @@
 
 from .output_eval import OutputNodeEval
 from .datatypes import RenderImage
-import 
+import shiphelm
+from shiphelm import *
+
+client = shiphelm.DockerClient()
 
 class Renderer(object):
     """
