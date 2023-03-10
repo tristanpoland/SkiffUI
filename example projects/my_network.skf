@@ -40,9 +40,9 @@
                 "active": false,
                 "expanded": false,
                 "parameters": {
-                    "Image": {
-                        "idname": "Image",
-                        "binding": "4e9e206a5c57488185f6f8e056bdaaf1"
+                    "Port 8080": {
+                        "idname": "port1",
+                        "binding": ""
                     }
                 },
                 "properties": {
@@ -78,8 +78,8 @@
             "4e9e206a5c57488185f6f8e056bdaaf1": {
                 "idname": "Nginx_Node",
                 "pos": [
-                    697,
-                    7
+                    562,
+                    273
                 ],
                 "muted": false,
                 "selected": false,
@@ -104,6 +104,10 @@
                     }
                 },
                 "properties": {
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "test/testimage"
+                    },
                     "port": {
                         "idname": "port",
                         "value": 8080
@@ -119,10 +123,6 @@
                     "port4": {
                         "idname": "port4",
                         "value": 8080
-                    },
-                    "dockerImage": {
-                        "idname": "dockerImage",
-                        "value": "test/testimage"
                     }
                 }
             }

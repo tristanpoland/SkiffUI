@@ -17,28 +17,49 @@
 from tkinter import SEL
 import numpy as np
 from gimelstudio import api
+import docker
+from joblib import Parallel, delayed
 
+def slice_from_string(slice_string):
+    slices = slice_string.split(',')
+    if len(slices) > 1:
+        return [slice_from_string(s.strip()) for s in slices]
+        return slice(*[int(x) for x in slice_string.split(':')])
+
+def __init__(self, nodegraph, _id):
+    api.Node.__init__(self, nodegraph, _id)
 
 class NginxNode(api.Node):
-    def __init__(self, nodegraph, _id):
-        api.Node.__init__(self, nodegraph, _id)
-
     @property
+    
     def NodeMeta(self):
         meta_info = {
-            "label": "Nginx",
+            "label": "Select a docker image",
             "author": "Gameplex Software",
             "version": (0, 5, 0),
             "category": "TRANSFORM",
-            "description": "Controls an Nginx container",
+            "description": "Controls docker containers",
         }
         return meta_info
+    
+    def NodeInitProps(self):        
+        client = docker.from_env()
+        query="nginx"
+        #results = client.images.search(query, limit=2)
+        #image_list = []
+        #for result in results:
+        #    image_list.append(result["name"])
 
-    def NodeInitProps(self):
         imageid = api.ChoiceProp(
             idname="dockerImage",
-            default="test/testimage",
-            choices=["text/testimage", "test/testimage2"],
+            default="nginx",
+        #    choices=image_list,
+            choices=[
+                "Normal", "Darken", "Multiply", "Color Burn", 
+                "Lighten", "Screen", "Color Dodge", "Add",
+                "Overlay", "Soft Light", "Difference", "Subtract",
+                "Divide", "Reflect", "Glow", "Average", "Exclusion"
+                ],
             fpb_label="Docker Image"
         )
         self.NodeAddProp(imageid)
@@ -77,7 +98,7 @@ class NginxNode(api.Node):
             show_p=False,
             fpb_label="Container Port 4"
         )
-        self.NodeAddProp(port4)        
+        self.NodeAddProp(port4)              
 
     def NodeInitParams(self):
         port0 = api.RenderImageParam("port0", "Port 1092")
