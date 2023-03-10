@@ -174,6 +174,7 @@ class AddNodeMenu(wx.PopupTransientWindow):
         self.InitAddNodeMenuUI()
 
     def InitRegistryMapping(self):
+        print ("[Debug] Node ID needed")
         i = 0
         for item in self._nodeRegistry:
             if item != "corenode_outputcomposite":

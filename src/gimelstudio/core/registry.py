@@ -23,6 +23,7 @@ NODE_REGISTRY = {}
 
 
 def RegisterNode(node, idname=""):
+    OnUpdated()
     """ Attempts to register a new node with the Node Registry.
 
     :param nodedef: subclass of NodeBase defining the node to be registered
@@ -38,6 +39,7 @@ def RegisterNode(node, idname=""):
 
 
 def UnregisterNode(idname):
+    OnUpdated()
     """ Attempts to unregister a node in the Node Registry.
 
     :param idname: type identifier of the node to be unregistered
@@ -49,3 +51,6 @@ def UnregisterNode(idname):
             raise NodeNotFoundError(idname)
         else:
             del NODE_REGISTRY[idname]
+
+def OnUpdated():
+    print("[Debug] Registry called")

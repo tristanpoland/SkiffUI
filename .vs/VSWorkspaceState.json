@@ -4,12 +4,14 @@
     "\\src",
     "\\src\\gimelstudio",
     "\\src\\gimelstudio\\api",
-    "\\src\\gimelstudio\\core",
-    "\\src\\gimelstudio\\core\\node",
+    "\\src\\gimelstudio\\interface",
     "\\src\\gimelstudio\\locale",
     "\\src\\gimelstudio\\locale\\de_DE",
-    "\\src\\gimelstudio\\locale\\de_DE\\LC_MESSAGES"
+    "\\src\\gimelstudio\\locale\\de_DE\\LC_MESSAGES",
+    "\\src\\nodes",
+    "\\src\\nodes\\customnodes",
+    "\\src\\nodes\\customnodes\\example2_node"
   ],
-  "SelectedNode": "\\src\\gimelstudio\\core\\renderer.py",
+  "SelectedNode": "\\src\\nodes\\customnodes\\CTR_Nginx.py",
   "PreviewInSolutionExplorer": false
 }

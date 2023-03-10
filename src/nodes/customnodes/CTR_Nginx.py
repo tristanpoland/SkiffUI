@@ -14,6 +14,7 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+from tkinter import SEL
 import numpy as np
 from gimelstudio import api
 
@@ -34,13 +35,6 @@ class NginxNode(api.Node):
         return meta_info
 
     def NodeInitProps(self):
-        flip_direction = api.ChoiceProp(
-            idname="direction",
-            default="Vertically",
-            choices=["Vertically", "Horizontally"],
-            fpb_label="Flip Direction"
-        )
-        self.NodeAddProp(flip_direction)
         imageid = api.ChoiceProp(
             idname="dockerImage",
             default="test/testimage",
@@ -48,6 +42,42 @@ class NginxNode(api.Node):
             fpb_label="Docker Image"
         )
         self.NodeAddProp(imageid)
+        port = api.PositiveIntegerProp(
+            idname="port",
+            default=8080,
+            min_val=1000,
+            max_val=10000,
+            show_p=False,
+            fpb_label="Container Port 1"
+        )
+        self.NodeAddProp(port)
+        port2 = api.PositiveIntegerProp(
+            idname="port2",
+            default=8080,
+            min_val=1000,
+            max_val=10000,
+            show_p=False,
+            fpb_label="Container Port 2"
+        )
+        self.NodeAddProp(port2)        
+        port3 = api.PositiveIntegerProp(
+            idname="port3",
+            default=8080,
+            min_val=1000,
+            max_val=10000,
+            show_p=False,
+            fpb_label="Container Port 3"
+        )
+        self.NodeAddProp(port3)        
+        port4 = api.PositiveIntegerProp(
+            idname="port4",
+            default=8080,
+            min_val=1000,
+            max_val=10000,
+            show_p=False,
+            fpb_label="Container Port 4"
+        )
+        self.NodeAddProp(port4)        
 
     def NodeInitParams(self):
         port0 = api.RenderImageParam("port0", "Port 1092")
@@ -64,19 +94,6 @@ class NginxNode(api.Node):
         return self.EvalMutedNode(eval_info)
 
     def NodeEvaluation(self, eval_info):
-        flip_direction = self.EvalProperty(eval_info, "direction")
-        image1 = self.EvalParameter(eval_info, "port0")
-
-        image = api.RenderImage()
-        img = image1.Image("numpy")
-
-        if flip_direction == "Vertically":
-            output_img = np.flipud(img)
-        elif flip_direction == "Horizontally":
-            output_img = np.fliplr(img)
-
-        image.SetAsImage(output_img)
-        return image
-
+        print("Nginx Eval called")
 
 api.RegisterNode(NginxNode, "Nginx_Node")

@@ -65,7 +65,7 @@ class Renderer(object):
         return image
 
     def RenderNodeGraph(self, output_node, nodes):
-        print ("Renderer called")
+        print ("[Debug] Renderer called")
         """ Render the image, starting from the output node.
 
         :param output_node: the output node object
