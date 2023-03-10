@@ -14,11 +14,16 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-from tkinter import SEL
+from tkinter import SEL, image_types
 import numpy as np
 from gimelstudio import api
 import docker
-from joblib import Parallel, delayed
+import os
+import json
+from collections import OrderedDict
+
+# Initialize Docker client
+client = docker.from_env()
 
 def slice_from_string(slice_string):
     slices = slice_string.split(',')
@@ -31,7 +36,7 @@ def __init__(self, nodegraph, _id):
 
 class NginxNode(api.Node):
     @property
-    
+
     def NodeMeta(self):
         meta_info = {
             "label": "Select a docker image",
@@ -41,25 +46,78 @@ class NginxNode(api.Node):
             "description": "Controls docker containers",
         }
         return meta_info
-    
-    def NodeInitProps(self):        
-        client = docker.from_env()
-        query="nginx"
-        #results = client.images.search(query, limit=2)
+    def NodeInitProps(self):   
+        
+        # Set cache directory
+        cache_dir = 'image_cache'
+        if not os.path.exists(cache_dir):
+            os.makedirs(cache_dir)
+        
+        # Set cache size
+        max_cache_size = 20
+        
+        # Define cache class
+        class LRUCache:
+            def __init__(self, maxsize):
+                self.cache = OrderedDict()
+                self.maxsize = maxsize
+        
+            def __getitem__(self, key):
+                # Move item to end of cache to indicate recent use
+                value = self.cache.pop(key)
+                self.cache[key] = value
+                return value
+        
+            def __setitem__(self, key, value):
+                # Add item to cache, removing oldest item if necessary
+                if len(self.cache) >= self.maxsize:
+                    self.cache.popitem(last=False)
+                self.cache[key] = value
+        
+            def __contains__(self, key):
+                return key in self.cache
+        
+        # Initialize cache
+        cache_file = os.path.join(cache_dir, 'cache.json')
+        if os.path.exists(cache_file):
+            with open(cache_file, 'r') as f:
+                cache = LRUCache(max_cache_size)
+                cache.cache = OrderedDict(json.load(f))
+        else:
+            with open(cache_file, 'w') as f:
+                f.write('{}')
+            cache = LRUCache(max_cache_size)
+        
+        # Define search function
+        def search_images(query, max_results=20):
+            # Check if results are in cache
+            if query in cache:
+                results = cache[query]
+            else:
+                # Search Docker Hub
+                results = client.images.search(query, limit=max_results)
+                # Cache results
+                cache[query] = results
+                # Update cache file
+                with open(cache_file, 'w') as f:
+                    json.dump(list(cache.cache.items()), f)
+            # Output list of image names
+            print(f"Results for '{query}':")
+            for result in results:
+                print(result['name'])
+                return result['name']
+            return result['name']
+        
+
+        result = search_images("nginx")
         #image_list = []
         #for result in results:
         #    image_list.append(result["name"])
-
+        
         imageid = api.ChoiceProp(
             idname="dockerImage",
             default="nginx",
-        #    choices=image_list,
-            choices=[
-                "Normal", "Darken", "Multiply", "Color Burn", 
-                "Lighten", "Screen", "Color Dodge", "Add",
-                "Overlay", "Soft Light", "Difference", "Subtract",
-                "Divide", "Reflect", "Glow", "Average", "Exclusion"
-                ],
+            choices=result,
             fpb_label="Docker Image"
         )
         self.NodeAddProp(imageid)

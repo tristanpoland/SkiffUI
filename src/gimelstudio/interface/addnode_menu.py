@@ -217,9 +217,9 @@ class AddNodeMenu(wx.PopupTransientWindow):
         """ Get the Node Graph. """
         return self.parent
 
-    def OnDoSearch(self, event):
-        """ Event handler for when something is typed into the search bar, etc. """
-        self.nodes_listbox.UpdateForSearch(event.GetString())
+    # def OnDoSearch(self, event):
+    #    """ Event handler for when something is typed into the search bar, etc. """
+    #    self.nodes_listbox.UpdateForSearch(event.GetString())
 
     def OnClickSelectItem(self, event):
         pass
