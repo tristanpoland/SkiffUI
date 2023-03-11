@@ -4,7 +4,7 @@
 <img width=100% src='https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png'>
 </p>
 
-## _Contents_
+## Contents
 * [Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
 * [How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
 * [Installation](https://github.com/Gameplex-Software/SkiffUI/#installation)
