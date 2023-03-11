@@ -1,0 +1,18 @@
+{
+    "idname": "nginx-Im9B",
+    "pos": [
+        0,
+        0
+    ],
+    "muted": false,
+    "selected": false,
+    "active": false,
+    "expanded": false,
+    "parameters": {},
+    "properties": {
+        "image": {
+            "idname": "image",
+            "value": "nginx:latest"
+        }
+    }
+}
