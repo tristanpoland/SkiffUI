@@ -38,10 +38,10 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 [SkiffUI Website](https://skiffdev.gameplexsoftware.com)
 
 # Beta UI
-[Screenshot (1)](https://user-images.githubusercontent.com/34868944/224494906-09ae9370-d2da-475e-bb34-a9e86545cc28.png)
+![Screenshot (1)](https://user-images.githubusercontent.com/34868944/224494906-09ae9370-d2da-475e-bb34-a9e86545cc28.png)
 
 
-# Installation!
+# Installation
 
 
 ## Latest Beta
