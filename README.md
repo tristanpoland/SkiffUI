@@ -9,7 +9,7 @@
 * [How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
 * [Installation](https://github.com/Gameplex-Software/SkiffUI/#installation)
     * [InDev](https://github.com/Gameplex-Software/SkiffUI/#latest-stable)
-        * [Windows](https://github.com/Gameplex-Software/SkiffUI/#macos)
+        * [Windows](https://github.com/Gameplex-Software/SkiffUI/#windows)
         * [Mac](https://github.com/Gameplex-Software/SkiffUI/#macos)
         * [Linux](https://github.com/Gameplex-Software/SkiffUI/#linux)
 
