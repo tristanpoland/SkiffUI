@@ -45,8 +45,15 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 ## Latest Beta
 
 ### Windows
+Note: you need python 3.8 for this project
 
-###
+```
+git clone https://github.com/Gameplex-Software/SkiffUI/
+cd .\SkiffUI-master\
+pip3.8 install -r requirements.txt
+cd .\src
+python3.8 main.py
+```
 
 ### Linux
 ```
