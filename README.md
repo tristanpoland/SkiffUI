@@ -1,6 +1,8 @@
 # Warning!: ITS ALL broken, this is VERY VERY VEEEERRY In-dev and nothing is for sure, use with care!
 
-![skiffheader](https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png)
+<p align=center>
+<img width=100% src='https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png'>
+</p>
 
 ## _Contents_
 * [Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
