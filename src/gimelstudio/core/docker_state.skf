@@ -1,0 +1,33 @@
+{
+    "application": "SkiffUI",
+    "file_type": "SkiffUI Network Map",
+    "app_version": "0.0.1",
+    "app_version_tag": " pre-alpha 1",
+    "app_version_full": "0.0.1 pre-alpha 1",
+    "node_graph": {
+        "nodes": {
+            "49688df1-a73f-4eb5-ade2-2cd0c19562af": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "nginx-Im9B"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            }
+        }
+    }
+}

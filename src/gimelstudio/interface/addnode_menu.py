@@ -37,7 +37,6 @@ import wx.stc
 
 import gimelstudio.constants as const
 
-
 class NodesVListBox(wx.VListBox):
     def __init__(self, *args, **kw):
         self.parent = args[0]
@@ -179,6 +178,7 @@ class AddNodeMenu(wx.PopupTransientWindow):
         for item in self._nodeRegistry:
             if item != "corenode_outputcomposite":
                 self._nodeRegistryMapping[i] = item
+                print("Menu item placed")
                 i += 1
 
     def InitAddNodeMenuUI(self):

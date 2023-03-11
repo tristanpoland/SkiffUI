@@ -43,6 +43,7 @@ from gimelstudio.core.node.property import ThumbProp
 from .message_dlgs import ShowNotImplementedDialog
 from .panel_base import PanelBase
 
+print("Panel render called")
 
 class NodePropertiesPanel(PanelBase):
     def __init__(self, parent, idname, menu_item, *args, **kwargs):

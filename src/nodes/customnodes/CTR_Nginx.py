@@ -46,37 +46,37 @@ class NginxNode(api.Node):
             "description": "Controls docker containers",
         }
         return meta_info
-    def NodeInitProps(self):   
-        
+    
+    def NodeInitProps(self):
         # Set cache directory
         cache_dir = 'image_cache'
         if not os.path.exists(cache_dir):
             os.makedirs(cache_dir)
-        
+
         # Set cache size
         max_cache_size = 20
-        
+
         # Define cache class
         class LRUCache:
             def __init__(self, maxsize):
                 self.cache = OrderedDict()
                 self.maxsize = maxsize
-        
+
             def __getitem__(self, key):
                 # Move item to end of cache to indicate recent use
                 value = self.cache.pop(key)
                 self.cache[key] = value
                 return value
-        
+
             def __setitem__(self, key, value):
                 # Add item to cache, removing oldest item if necessary
                 if len(self.cache) >= self.maxsize:
                     self.cache.popitem(last=False)
                 self.cache[key] = value
-        
+
             def __contains__(self, key):
                 return key in self.cache
-        
+
         # Initialize cache
         cache_file = os.path.join(cache_dir, 'cache.json')
         if os.path.exists(cache_file):
@@ -90,34 +90,34 @@ class NginxNode(api.Node):
         
         # Define search function
         def search_images(query, max_results=20):
+            try:
+                result
+            except:
+                result=[]
             # Check if results are in cache
-            if query in cache:
-                results = cache[query]
-            else:
-                # Search Docker Hub
-                results = client.images.search(query, limit=max_results)
-                # Cache results
-                cache[query] = results
-                # Update cache file
-                with open(cache_file, 'w') as f:
-                    json.dump(list(cache.cache.items()), f)
+            if query in cache.cache:
+                for section in cache.cache[query]:
+                    result.append(section['name'])
+                else:
+                    # Search Docker Hub
+                    results = client.images.search(query, limit=max_results)
+                    # Cache results
+                    cache[query] = results
+                    # Update cache file
+                    with open(cache_file, 'w') as f:
+                        json.dump(list(cache.cache.items()), f)
             # Output list of image names
-            print(f"Results for '{query}':")
-            for result in results:
-                print(result['name'])
-                return result['name']
-            return result['name']
+            for r in result:
+                return result
+            return result
         
 
-        result = search_images("nginx")
-        #image_list = []
-        #for result in results:
-        #    image_list.append(result["name"])
-        
+        searchresult=search_images("nginx")
+        print(searchresult)
         imageid = api.ChoiceProp(
             idname="dockerImage",
             default="nginx",
-            choices=result,
+            choices=searchresult,
             fpb_label="Docker Image"
         )
         self.NodeAddProp(imageid)
@@ -138,25 +138,7 @@ class NginxNode(api.Node):
             show_p=False,
             fpb_label="Container Port 2"
         )
-        self.NodeAddProp(port2)        
-        port3 = api.PositiveIntegerProp(
-            idname="port3",
-            default=8080,
-            min_val=1000,
-            max_val=10000,
-            show_p=False,
-            fpb_label="Container Port 3"
-        )
-        self.NodeAddProp(port3)        
-        port4 = api.PositiveIntegerProp(
-            idname="port4",
-            default=8080,
-            min_val=1000,
-            max_val=10000,
-            show_p=False,
-            fpb_label="Container Port 4"
-        )
-        self.NodeAddProp(port4)              
+        self.NodeAddProp(port2)                    
 
     def NodeInitParams(self):
         port0 = api.RenderImageParam("port0", "Port 1092")

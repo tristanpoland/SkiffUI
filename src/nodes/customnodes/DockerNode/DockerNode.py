@@ -17,18 +17,18 @@
 from gimelstudio import api
 
 
-class Example2Node(api.Node):
+class DockerNode(api.Node):
     def __init__(self, nodegraph, _id):
         api.Node.__init__(self, nodegraph, _id)
 
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "Example Node 2",
-            "author": "Gimel Studio",
+            "label": "Docker Node",
+            "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show an example node.",
+            "description": "Show containers on the node graph",
         }
         return meta_info
 
@@ -62,11 +62,11 @@ class Example2Node(api.Node):
         props = {
             "opacity_value": opacity_value
         }
-        shader_src = "nodes/customnodes/example2_node/example2.glsl"
+        shader_src = "nodes/customnodes/DockerNode/DockerNode.glsl"
         result = self.RenderGLSL(shader_src, props, image1)
 
         render_image.SetAsImage(result)
         return render_image
 
 
-api.RegisterNode(Example2Node, "node_example2")
+api.RegisterNode(DockerNode, "DockerNode")
