@@ -1,10 +1,10 @@
 # Warning!: ITS ALL broken, this is VERY VERY VEEEERRY In-dev and nothing is for sure, use with care!
 
-<p align="center">
-<img width="280" height="200" src="https://user-images.githubusercontent.com/34868944/205726457-355d7d05-63c5-4695-bf15-0172d5f67926.png"></img>
+<p align=center>
+<img width=100% src='https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png'>
 </p>
-   
-## _Contents_
+
+## Contents
 * [Why SkiffUI](https://github.com/Gameplex-Software/SkiffUI/#why-use-skiffui)
 * [How it works](https://github.com/Gameplex-Software/SkiffUI/#how-it-works)
 * [Installation](https://github.com/Gameplex-Software/SkiffUI/#installation)
@@ -37,45 +37,35 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 
 [SkiffUI Website](https://skiffdev.gameplexsoftware.com)
 
-# Sketch for Version 2.0!
-![SkiffUI drawio](https://user-images.githubusercontent.com/34868944/152663999-d0b31fe7-ea31-44b4-ab12-3b73e9e6d9b9.png)
+# Beta UI
+![Screenshot (1)](https://user-images.githubusercontent.com/34868944/224494906-09ae9370-d2da-475e-bb34-a9e86545cc28.png)
+![Screenshot (2)](https://user-images.githubusercontent.com/34868944/224495095-54104bb8-45ff-4528-acd5-1f9f9c1d40b3.png)
+
 
 # Installation
 
-## Latest Stable
-
-### Linux
-```
-sudo sh get.docker.com
-docker run -p 8443:8443 -p 1027:1027 gameplexsoftware/skiffui
-```
-
-### MacOS
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew cask install docker
-docker run -p 8443:8443 -p 1027:1027 gameplexsoftware/skiffui
-```
 
 ## Latest Beta
 
+### Windows
+Note: you need python 3.8 for this project
+
+```
+git clone https://github.com/Gameplex-Software/SkiffUI/
+cd .\SkiffUI-master\
+pip3.8 install -r requirements.txt
+cd .\src
+python3.8 main.py
+```
+
 ### Linux
 ```
-sudo sh get.docker.com
-mkdir ./SkiffUI
-git clone https://github.com/Gameplex-Software/SkiffUI/blob/master/app/services.sh
-cd ./skiffui/
-docker build .
-docker-compose up -d
+coming soon
 ```
 
 ### MacOS
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew cask install docker
-mkdir ./SkiffUI
-git clone https://github.com/Gameplex-Software/SkiffUI/blob/master/app/services.sh
-cd ./skiffui/
-docker build .
-docker-compose up -d
+coming soon
 ```
+
+
