@@ -24,6 +24,8 @@ import wx.adv
 from gimelstudio import AppConfiguration, ApplicationFrame
 from gimelstudio.interface import StartupSplashScreen
 from gimelstudio.constants import APP_FROZEN
+sys.path.append('/src/nodes')
+from nodes import state_tracker
 
 # Fix blurry text on Windows 10
 import ctypes
@@ -47,6 +49,8 @@ def _displayHook(obj):
 import builtins
 builtins.__dict__['_'] = wx.GetTranslation
 
+# Start docker state scanning
+state_tracker.build_docker_state()
 
 class MainApp(wx.App):
 
