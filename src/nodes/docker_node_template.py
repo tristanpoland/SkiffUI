@@ -27,33 +27,37 @@ class DockerNode(api.Node):
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show {{container_name}} container in the 'Add Node' menu",
+            "description": "Show {{container_name}} container on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
-        container_id = api.TextProp(
+        container_id = api.LabelProp(
             idname="container_id",
-            default="{{container_id}}"
+            default="{{container_id}}",
+            show_p=False
         )
         self.NodeAddProp(container_id)
 
-        container_name = api.TextProp(
+        container_name = api.LabelProp(
             idname="container_name",
-            default="{{container_name}}"
+            default="{{container_name}}",
+            show_p=False
         )
         self.NodeAddProp(container_name)
 
-        container_status = api.TextProp(
+        container_status = api.LabelProp(
             idname="container_status",
             default="{{container_status}}",
+            show_p=True,
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
 
-        container_image = api.TextProp(
+        container_image = api.LabelProp(
             idname="container_image",
             default="{{container_image}}",
+            show_p=True,
             fpb_label="Image"
         )
         self.NodeAddProp(container_image)

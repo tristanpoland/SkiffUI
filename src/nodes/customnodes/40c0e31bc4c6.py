@@ -23,41 +23,37 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "busy_beaver",
+            "label": "nginx-75g3",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show busy_beaver container in the 'Add Node' menu",
+            "description": "Show nginx-75g3 container on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
         container_id = api.LabelProp(
             idname="container_id",
-            default="dd74dbff3e52",
-            show_p=False
+            default="40c0e31bc4c6"
         )
         self.NodeAddProp(container_id)
 
         container_name = api.LabelProp(
             idname="container_name",
-            default="busy_beaver",
-            show_p=False
+            default="nginx-75g3"
         )
         self.NodeAddProp(container_name)
 
         container_status = api.LabelProp(
             idname="container_status",
             default="running",
-            show_p=True,
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
 
         container_image = api.LabelProp(
             idname="container_image",
-            default="docker/getting-started:latest",
-            show_p=True,
+            default="nginx:latest",
             fpb_label="Image"
         )
         self.NodeAddProp(container_image)
@@ -72,4 +68,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "dd74dbff3e52")
+api.RegisterNode(DockerNode, "40c0e31bc4c6")
