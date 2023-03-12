@@ -6,11 +6,11 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "ce27f5e033d14a22aac7ccf827a223a7": {
+            "da79c6986dec4aa7b35ba177b4581546": {
                 "idname": "corenode_outputcomposite",
                 "pos": [
-                    927,
-                    289
+                    829,
+                    299
                 ],
                 "muted": false,
                 "selected": false,
@@ -19,7 +19,7 @@
                 "parameters": {
                     "Image": {
                         "idname": "Image",
-                        "binding": ""
+                        "binding": "7812a8c636cd4cb28a3ea96bd1cee956"
                     }
                 },
                 "properties": {
@@ -29,34 +29,11 @@
                     }
                 }
             },
-            "dec7136a216a4ec59e6728095383bd18": {
+            "5b664a8a8fd640c8a78d66a31d955afd": {
                 "idname": "corenode_outputcomposite",
                 "pos": [
-                    927,
-                    189
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {
-                    "Port 8080": {
-                        "idname": "port1",
-                        "binding": ""
-                    }
-                },
-                "properties": {
-                    "export": {
-                        "idname": "export",
-                        "value": ""
-                    }
-                }
-            },
-            "ddc3caedaf96444b9cc848f745cfe4c6": {
-                "idname": "corenode_outputcomposite",
-                "pos": [
-                    927,
-                    89
+                    921,
+                    187
                 ],
                 "muted": false,
                 "selected": false,
@@ -65,7 +42,7 @@
                 "parameters": {
                     "Image": {
                         "idname": "Image",
-                        "binding": "4e9e206a5c57488185f6f8e056bdaaf1"
+                        "binding": "b259468a0064477691bfaf88f0a3ca44"
                     }
                 },
                 "properties": {
@@ -75,28 +52,94 @@
                     }
                 }
             },
-            "4e9e206a5c57488185f6f8e056bdaaf1": {
+            "437cc1b41dd9485999ce094dcc62a9da": {
+                "idname": "corenode_outputcomposite",
+                "pos": [
+                    836,
+                    91
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "Image": {
+                        "idname": "Image",
+                        "binding": "b259468a0064477691bfaf88f0a3ca44"
+                    }
+                },
+                "properties": {
+                    "export": {
+                        "idname": "export",
+                        "value": ""
+                    }
+                }
+            },
+            "7812a8c636cd4cb28a3ea96bd1cee956": {
                 "idname": "Nginx_Node",
                 "pos": [
-                    562,
-                    273
+                    600,
+                    300
                 ],
                 "muted": false,
                 "selected": false,
-                "active": true,
+                "active": false,
                 "expanded": false,
                 "parameters": {
                     "port0": {
                         "idname": "port0",
-                        "binding": ""
+                        "binding": "522531a2b9f14e52bd366a51e4931a77"
                     },
                     "port1": {
                         "idname": "port1",
-                        "binding": ""
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
                     },
                     "port2": {
                         "idname": "port2",
-                        "binding": ""
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
+                    },
+                    "port3": {
+                        "idname": "port3",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
+                    }
+                },
+                "properties": {
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "nginx"
+                    },
+                    "port": {
+                        "idname": "port",
+                        "value": 8080
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "value": 8080
+                    }
+                }
+            },
+            "b259468a0064477691bfaf88f0a3ca44": {
+                "idname": "Nginx_Node",
+                "pos": [
+                    598,
+                    91
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "port0": {
+                        "idname": "port0",
+                        "binding": "522531a2b9f14e52bd366a51e4931a77"
+                    },
+                    "port1": {
+                        "idname": "port1",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
                     },
                     "port3": {
                         "idname": "port3",
@@ -106,7 +149,7 @@
                 "properties": {
                     "dockerImage": {
                         "idname": "dockerImage",
-                        "value": "test/testimage"
+                        "value": "nginx"
                     },
                     "port": {
                         "idname": "port",
@@ -115,14 +158,72 @@
                     "port2": {
                         "idname": "port2",
                         "value": 8080
+                    }
+                }
+            },
+            "522531a2b9f14e52bd366a51e4931a77": {
+                "idname": "Nginx_Node",
+                "pos": [
+                    400,
+                    31
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {
+                    "port0": {
+                        "idname": "port0",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
+                    },
+                    "port1": {
+                        "idname": "port1",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
+                    },
+                    "port2": {
+                        "idname": "port2",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
                     },
                     "port3": {
                         "idname": "port3",
+                        "binding": "74901f51e78e477eb0cb6bbfc3a40a4d"
+                    }
+                },
+                "properties": {
+                    "dockerImage": {
+                        "idname": "dockerImage",
+                        "value": "nginx"
+                    },
+                    "port": {
+                        "idname": "port",
                         "value": 8080
                     },
-                    "port4": {
-                        "idname": "port4",
+                    "port2": {
+                        "idname": "port2",
                         "value": 8080
+                    }
+                }
+            },
+            "74901f51e78e477eb0cb6bbfc3a40a4d": {
+                "idname": "Mysql_Node",
+                "pos": [
+                    178,
+                    261
+                ],
+                "muted": false,
+                "selected": false,
+                "active": true,
+                "expanded": false,
+                "parameters": {
+                    "image": {
+                        "idname": "image",
+                        "binding": ""
+                    }
+                },
+                "properties": {
+                    "direction": {
+                        "idname": "direction",
+                        "value": "Vertically"
                     }
                 }
             }

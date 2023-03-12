@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Gimel Studio Copyright 2019-2022 by Noah Rahm and contributors
+# Gimel Studio Copyright 2019-2023 by the Gimel Studio project contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,10 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-# Nothing here yet...
+
+class Output(object):
+    def __init__(self, idname, datatype, label, visible=True):
+        self.idname = idname
+        self.datatype = datatype
+        self.label = label 
+        self.visible = visible

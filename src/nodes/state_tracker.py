@@ -3,6 +3,9 @@ import docker
 import time
 import threading
 import uuid
+import sys
+sys.path.append('/src/nodes')
+from nodes import node_generator
 
 def generate_node_id():
     return str(uuid.uuid4())
@@ -54,6 +57,8 @@ def get_node_data():
     return data
 
 def write_json():
+    print("Generating custom nodes")
+    node_generator.main()
     data = get_node_data()
     formatted_json = json.dumps(data, indent=4)
     with open('docker_state.skf', 'w') as f:
@@ -61,6 +66,6 @@ def write_json():
         print("Docker state built")
 
     # Schedule the function to run again after 2 seconds
-    threading.Timer(2.0, write_json).start()
-
-write_json()
+    timer = threading.Timer(2.0, write_json)
+    timer.start()
+    return timer

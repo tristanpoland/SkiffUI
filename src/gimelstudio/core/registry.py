@@ -34,7 +34,7 @@ def RegisterNode(node, idname=""):
         raise TypeError("Please specify the idname of the node you want to register!")
     else:
         if idname in NODE_REGISTRY:
-            raise NodeExistsError(idname)
+            print("[Warn] You Tried to register a node that already exists, usually this is fine, but if you encounter bugs please share this with the SkiffUI support team")
 
         NODE_REGISTRY[idname] = node
 

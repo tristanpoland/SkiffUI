@@ -2,16 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\gimelstudio",
     "\\src\\gimelstudio\\api",
-    "\\src\\gimelstudio\\interface",
     "\\src\\gimelstudio\\locale",
     "\\src\\gimelstudio\\locale\\de_DE",
     "\\src\\gimelstudio\\locale\\de_DE\\LC_MESSAGES",
-    "\\src\\nodes",
-    "\\src\\nodes\\customnodes",
-    "\\src\\nodes\\customnodes\\example2_node"
+    "\\src\\nodes\\customnodes"
   ],
-  "SelectedNode": "\\src\\nodes\\customnodes\\CTR_Nginx.py",
+  "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false
 }

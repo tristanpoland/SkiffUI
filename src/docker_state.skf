@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "29e609db-1ae4-445a-a4f2-8ae7194a6a8c": {
+            "0aed7d3b-1e88-47b6-bef0-4a21c95f4d7b": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "nginx-Im9B"
+                        "value": "nginx-75g3"
                     },
                     "status": {
                         "idname": "status",

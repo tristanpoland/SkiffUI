@@ -99,6 +99,9 @@ class MainApp(wx.App):
         if 1 == 1 :
             splash = StartupSplashScreen()
             splash.Show()
+        
+        #Start the Docker state tracking
+        state_tracker.write_json()
 
         return True
 
