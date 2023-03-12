@@ -23,41 +23,37 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "{container_name}",
+            "label": "nginx-75g3",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show {container_name} container on the node graph",
+            "description": "Show nginx-75g3 container on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
-        container_id = api.StringProp(
+        container_id = api.LabelProp(
             idname="container_id",
-            default="{container_id}",
-            show_p=False
+            default="40c0e31bc4c6"
         )
         self.NodeAddProp(container_id)
 
-        container_name = api.StringProp(
+        container_name = api.LabelProp(
             idname="container_name",
-            default="{container_name}",
-            show_p=False
+            default="nginx-75g3"
         )
         self.NodeAddProp(container_name)
 
-        container_status = api.StringProp(
+        container_status = api.LabelProp(
             idname="container_status",
-            default="{container_status}",
-            show_p=True,
+            default="running",
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
 
-        container_image = api.StringProp(
+        container_image = api.LabelProp(
             idname="container_image",
-            default="{container_image}",
-            show_p=True,
+            default="nginx:latest",
             fpb_label="Image"
         )
         self.NodeAddProp(container_image)
@@ -72,4 +68,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "{container_id}")
+api.RegisterNode(DockerNode, "40c0e31bc4c6")

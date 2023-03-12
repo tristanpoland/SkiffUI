@@ -16,9 +16,7 @@
 
 from .output_eval import OutputNodeEval
 from .datatypes import RenderImage
-import shiphelm
 from shiphelm.helmdocker import helmdocker
-
 hd = helmdocker() # create an instance of helmdocker
 
 class Renderer(object):

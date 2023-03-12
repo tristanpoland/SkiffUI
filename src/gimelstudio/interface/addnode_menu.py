@@ -46,6 +46,15 @@ class NodesVListBox(wx.VListBox):
 
         self.Bind(wx.EVT_MOTION, self.OnStartDrag)
 
+        self._registry_copy = self.NodeRegistry
+
+    # Add this method to update the menu if the registry has changed
+    def UpdateMenuIfRegistryChanged(self):
+        if self.NodeRegistry != self._registry_copy:
+        #    self.UpdateForSearch(self.parent.search_bar.GetValue())
+            self._registry_copy = self.NodeRegistry
+            self.Refresh()
+
     def GetItemText(self, item):
         return self.GetNodeObject(item).GetLabel()
 

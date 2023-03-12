@@ -115,7 +115,6 @@ class NginxNode(api.Node):
         
 
         searchresult=search_images("nginx")
-        print(searchresult)
         imageid = api.ChoiceProp(
             idname="dockerImage",
             default="nginx",
@@ -145,13 +144,9 @@ class NginxNode(api.Node):
     def NodeInitParams(self):
         port0 = api.RenderImageParam("port0", "Port 1092")
         port1 = api.RenderImageParam("port1", "Port 1093")
-        port2 = api.RenderImageParam("port2", "Port 1094")
-        port3 = api.RenderImageParam("port3", "Port 1095")
 
         self.NodeAddParam(port0)
         self.NodeAddParam(port1)
-        self.NodeAddParam(port2)
-        self.NodeAddParam(port3)
 
     def MutedNodeEvaluation(self, eval_info):
         return self.EvalMutedNode(eval_info)

@@ -15,7 +15,6 @@
 # ----------------------------------------------------------------------------
 
 import os
-import json
 import docker
 from hashlib import md5
 from jinja2 import Template
@@ -45,18 +44,21 @@ def main():
 
         # Generate the content for the Docker node file
         node_content = template.render(
-            container_id=container.id[:12],
-            container_name=container.name,
-            container_status=container.status,
-            container_image=container.image.tags[0] if container.image.tags else "Unknown"
+        container_id=container.id[:12],
+        container_name=container.name,
+        container_status=container.status,
+        container_image=container.image.tags[0] if container.image.tags else "Unknown"
         )
-
+        
         # Generate an MD5 hash of the content
         content_hash = md5(node_content.encode("utf-8")).hexdigest()
 
         # Construct the filename for the Docker node file
         filename = f"{container.id[:12]}.py"
-        node_file_path = os.path.join(script_dir, filename)
+        node_file_path = os.path.join(script_dir,'customnodes\\', filename)
+
+        # Construct the ID for the Docker node
+        node_id = container.id.replace("-", "")[:16]
 
         # Check if the file already exists and has the same content
         if os.path.exists(node_file_path):
@@ -66,13 +68,13 @@ def main():
             if existing_hash == content_hash:
                 print(f"{filename} already exists and has not been modified.")
                 continue
-            else:
-                core.registry.UnregisterNode(container.id)
-                core.RegisterNode(node=container.id, idname=container.id)
-
-        # Write the content to the Docker node file
-        with open(node_file_path, "w") as f:
-            f.write(node_content)
-
-        # Print a message indicating that the file has been created
-        print(f"Created {filename}.")
+        else:
+            # Unregister the existing node
+            try:
+                core.registry.UnregisterNode(node_id)
+            except:
+                core.registry.RegisterNode(node=container.id[:12], idname=container.id[:12])
+                with open(node_file_path, "w") as f:
+                    f.write(node_content)
+                    print(f"Created {filename}.")
+    
