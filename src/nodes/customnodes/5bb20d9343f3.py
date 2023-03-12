@@ -23,37 +23,41 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "nginx-75g3",
+            "label": "lucid_rubin",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show nginx-75g3 container on the node graph",
+            "description": "Show lucid_rubin container in the 'Add Node' menu",
         }
         return meta_info
 
     def NodeInitProps(self):
         container_id = api.LabelProp(
             idname="container_id",
-            default="40c0e31bc4c6"
+            default="5bb20d9343f3",
+            show_p=False
         )
         self.NodeAddProp(container_id)
 
         container_name = api.LabelProp(
             idname="container_name",
-            default="nginx-75g3"
+            default="lucid_rubin",
+            show_p=False
         )
         self.NodeAddProp(container_name)
 
         container_status = api.LabelProp(
             idname="container_status",
             default="running",
+            show_p=True,
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
 
         container_image = api.LabelProp(
             idname="container_image",
-            default="nginx:latest",
+            default="docker/getting-started:latest",
+            show_p=True,
             fpb_label="Image"
         )
         self.NodeAddProp(container_image)
@@ -68,4 +72,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "40c0e31bc4c6")
+api.RegisterNode(DockerNode, "5bb20d9343f3")

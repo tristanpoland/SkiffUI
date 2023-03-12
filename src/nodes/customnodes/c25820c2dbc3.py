@@ -23,37 +23,41 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "{{container_name}}",
+            "label": "gracious_mayer",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show {{container_name}} container in the 'Add Node' menu",
+            "description": "Show gracious_mayer container in the 'Add Node' menu",
         }
         return meta_info
 
     def NodeInitProps(self):
         container_id = api.LabelProp(
             idname="container_id",
-            default="{{container_id}}"
+            default="c25820c2dbc3",
+            show_p=False
         )
         self.NodeAddProp(container_id)
 
         container_name = api.LabelProp(
             idname="container_name",
-            default="{{container_name}}"
+            default="gracious_mayer",
+            show_p=False
         )
         self.NodeAddProp(container_name)
 
         container_status = api.LabelProp(
             idname="container_status",
-            default="{{container_status}}",
+            default="running",
+            show_p=True,
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
 
         container_image = api.LabelProp(
             idname="container_image",
-            default="{{container_image}}",
+            default="docker/getting-started:latest",
+            show_p=True,
             fpb_label="Image"
         )
         self.NodeAddProp(container_image)
@@ -68,4 +72,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "{{container_id}}")
+api.RegisterNode(DockerNode, "c25820c2dbc3")

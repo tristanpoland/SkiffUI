@@ -22,7 +22,7 @@ print(container_list)
 w=0
 
 print("Preparing new server...")
-while w<49:
+while w<19:
     hd.run_container(image="docker/getting-started", detach=1)
     w=w+1
 
