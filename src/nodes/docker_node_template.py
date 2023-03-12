@@ -32,26 +32,26 @@ class DockerNode(api.Node):
         return meta_info
 
     def NodeInitProps(self):
-        container_id = api.LabelProp(
+        container_id = api.TextProp(
             idname="container_id",
             default="{{container_id}}"
         )
         self.NodeAddProp(container_id)
 
-        container_name = api.LabelProp(
+        container_name = api.TextProp(
             idname="container_name",
             default="{{container_name}}"
         )
         self.NodeAddProp(container_name)
 
-        container_status = api.LabelProp(
+        container_status = api.TextProp(
             idname="container_status",
             default="{{container_status}}",
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
 
-        container_image = api.LabelProp(
+        container_image = api.TextProp(
             idname="container_image",
             default="{{container_image}}",
             fpb_label="Image"
