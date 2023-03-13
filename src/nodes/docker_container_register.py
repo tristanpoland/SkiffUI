@@ -27,7 +27,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Get the path of the template file
-    template_path = os.path.join(script_dir, "docker_image_node_template.py")
+    template_path = os.path.join(script_dir, "docker_node_template.py")
 
     # Read the template file
     with open(template_path) as f:
@@ -39,27 +39,26 @@ def main():
     # Initialize the Docker client
     client = docker.from_env()
 
-    # Iterate through each image
-    for image in client.images.list():
-        
-        print(image.id[7:],"\n")
+    # Iterate through each container
+    for container in client.containers.list():
+
         # Generate the content for the Docker node file
         node_content = template.render(
-        image_id=image.id[7:],
-        image_status="On host disk",
-        image_name=image
+        container_id=container.id[:12],
+        container_name=container.name,
+        container_status=container.status,
+        container_image=container.image.tags[0] if container.image.tags else "Unknown"
         )
         
         # Generate an MD5 hash of the content
         content_hash = md5(node_content.encode("utf-8")).hexdigest()
 
         # Construct the filename for the Docker node file
-        filename = f"{image.id[7:]}.py"
+        filename = f"{container.id[:12]}.py"
         node_file_path = os.path.join(script_dir,'customnodes\\', filename)
-        print(node_file_path)
 
         # Construct the ID for the Docker node
-        node_id = image.id[7:]
+        node_id = container.id.replace("-", "")[:16]
 
         # Check if the file already exists and has the same content
         if os.path.exists(node_file_path):
@@ -74,7 +73,7 @@ def main():
             try:
                 core.registry.UnregisterNode(node_id)
             except:
-                core.registry.RegisterNode(node=image.id[7:], idname=image.id[7:])
+                core.registry.RegisterNode(node=container.id[:12], idname=container.id[:12])
                 with open(node_file_path, "w") as f:
                     f.write(node_content)
                     print(f"Created {filename}.")
