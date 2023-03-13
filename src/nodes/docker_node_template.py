@@ -34,22 +34,19 @@ class DockerNode(api.Node):
     def NodeInitProps(self):
         container_id = api.LabelProp(
             idname="container_id",
-            default="{{container_id}}",
-            show_p=False
+            default="{{container_id}}"
         )
         self.NodeAddProp(container_id)
 
         container_name = api.LabelProp(
             idname="container_name",
-            default="{{container_name}}",
-            show_p=False
+            default="{{container_name}}"
         )
         self.NodeAddProp(container_name)
 
         container_status = api.LabelProp(
             idname="container_status",
             default="{{container_status}}",
-            show_p=True,
             fpb_label="Status"
         )
         self.NodeAddProp(container_status)
@@ -57,7 +54,6 @@ class DockerNode(api.Node):
         container_image = api.LabelProp(
             idname="container_image",
             default="{{container_image}}",
-            show_p=True,
             fpb_label="Image"
         )
         self.NodeAddProp(container_image)
