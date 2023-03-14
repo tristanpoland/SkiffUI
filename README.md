@@ -1,4 +1,4 @@
-# Warning!: ITS a bit broken and very incomplete, this is in-dev and nothing is for sure, use with care!
+# Warning!: It's a bit broken and very incomplete, this is in-dev and nothing is for sure, use with care!
 
 <p align=center>
 <img width=100% src='https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png'>
