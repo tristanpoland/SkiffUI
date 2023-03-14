@@ -24,12 +24,6 @@ SkiffUI provides the first easy to use, Drag-and-Drop user interface for modifyi
 ## How it works
 SkiffUI interacts with docker by converting graphical node data into commands for your container service, these commands are then executed as root on the host.
 
-## Future plans for SkiffUI
-- Integration with Kubernetes
-- Integration with Docker Swarm
-- GUI based container generator (drag software into container from a toolbox to generate a docker image)
-- Remote system connection via SSH
-
 [Visit our company website](https://gameplexsoftware.com)
 
 [SkiffUI Website](https://gameplexsoftware.com/skiffui)
