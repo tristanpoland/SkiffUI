@@ -1,4 +1,4 @@
-# Warning!: ITS ALL broken, this is VERY VERY VEEEERRY In-dev and nothing is for sure, use with care!
+# Warning!: ITS a bit broken and very incomplete, this is in-dev and nothing is for sure, use with care!
 
 <p align=center>
 <img width=100% src='https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png'>
@@ -43,6 +43,10 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 
 
 ## Latest Beta
+### News
+- Now uses 94mb of memory idle compared to the previous 780mb, this is due to removing excess code that was no longer needed and fixing some accidental looping code as well as clearing out un-needed variables and several other improvements
+- Now uses 0-2% CPU idle on Ryzen 5 5600g (Compared to 12% before the performance improvements)
+- Cache improvements now mean a more responsive interface.
 
 ### Windows
 Note: you need python 3.8 for this project
