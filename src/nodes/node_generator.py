@@ -42,7 +42,6 @@ def main():
     # Iterate through each image
     for image in client.images.list():
         
-        print(image.id[7:],"\n")
         # Generate the content for the Docker node file
         node_content = template.render(
         image_id=image.id[7:],
@@ -56,7 +55,6 @@ def main():
         # Construct the filename for the Docker node file
         filename = f"{image.id[7:]}.py"
         node_file_path = os.path.join(script_dir,'customnodes\\', filename)
-        print(node_file_path)
 
         # Construct the ID for the Docker node
         node_id = image.id[7:]
@@ -67,7 +65,6 @@ def main():
                 existing_content = f.read()
             existing_hash = md5(existing_content.encode("utf-8")).hexdigest()
             if existing_hash == content_hash:
-                print(f"{filename} already exists and has not been modified.")
                 continue
         else:
             # Unregister the existing node

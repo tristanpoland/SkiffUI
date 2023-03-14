@@ -52,6 +52,10 @@ from .interface import (ImageViewportPanel, NodePropertiesPanel,
 from .node_importer import *
 
 
+# Create variables
+remote_address = ''
+remote_type = ''
+
 class AUIManager(aui.AuiManager):
     def __init__(self, managed_window):
         aui.AuiManager.__init__(self)
@@ -110,7 +114,7 @@ class ApplicationFrame(wx.Frame):
             file_menu,
             id=wx.ID_ANY,
             label="{0}{1}".format(_("New Project"), "\tCtrl+N"),
-            helpString=_("Create a new Gimel Studio project file"),
+            helpString=_("Create a new SkiffUI project file"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_NEW_FILE.GetBitmap()
@@ -120,7 +124,7 @@ class ApplicationFrame(wx.Frame):
             file_menu,
             id=wx.ID_ANY,
             label="{0}{1}".format(_("Open Project"), "\tCtrl+O"),
-            helpString=_("Open and load a Gimel Studio project file"),
+            helpString=_("Open and load a SkiffUI project file"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_FOLDER.GetBitmap()
@@ -205,6 +209,29 @@ class ApplicationFrame(wx.Frame):
             subMenu=None
         )
 
+        #Connect
+        self.connect_menuitem = flatmenu.FlatMenuItem(
+            connect_menu,
+            id=wx.ID_ANY,
+            label=_("Connect to remote"),
+            kind=wx.ITEM_NORMAL,
+            subMenu=None
+        )
+        self.push_menuitem = flatmenu.FlatMenuItem(
+            connect_menu,
+            id=wx.ID_ANY,
+            label=_("Push to remote"),
+            kind=wx.ITEM_NORMAL,
+            subMenu=None
+        )
+        self.pull_menuitem = flatmenu.FlatMenuItem(
+            connect_menu,
+            id=wx.ID_ANY,
+            label=_("Pull from remote"),
+            kind=wx.ITEM_NORMAL,
+            subMenu=None
+        )
+
         # Render
         self.toggleautorender_menuitem = flatmenu.FlatMenuItem(
             render_menu,
@@ -249,7 +276,7 @@ class ApplicationFrame(wx.Frame):
             help_menu,
             id=wx.ID_ANY,
             label=_("Online Manual"),
-            helpString=_("Open the online Gimel Studio manual in your browser"),
+            helpString=_("Open the online SkiffUI manual in your browser"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
             normalBmp=ICON_DOCS.GetBitmap()
@@ -306,6 +333,11 @@ class ApplicationFrame(wx.Frame):
 
         view_menu.AppendItem(self.showimageviewport_menuitem)
         view_menu.AppendItem(self.showstatusbar_menuitem)
+
+        connect_menu.AppendItem(self.connect_menuitem)
+        connect_menu.AppendItem(separator)
+        connect_menu.AppendItem(self.push_menuitem)
+        connect_menu.AppendItem(self.pull_menuitem)
 
         render_menu.AppendItem(self.toggleautorender_menuitem)
         render_menu.AppendItem(separator)
@@ -395,6 +427,10 @@ class ApplicationFrame(wx.Frame):
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnAboutDialog,
                   self.about_menuitem)
+        self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED, self.OnRemoteConnect, self.connect_menuitem)
+
+
+
 
         # Add menubar to main sizer
         self.main_sizer.Add(self.menubar, 0, wx.EXPAND)
@@ -638,3 +674,41 @@ class ApplicationFrame(wx.Frame):
     def OnAboutDialog(self, event):
         dlg = AboutDialog(self)
         dlg.Show()
+
+    def OnRemoteConnect(self, event):
+        global remote_address, remote_type
+
+        # Create dialog box
+        dialog = wx.Dialog(None, title='Remote Address', size=(400, 100))
+
+        # Create text entry field
+        text = wx.TextCtrl(dialog)
+
+        # Create dropdown box
+        choices = ['Docker', 'Docker Swarm', 'Kubernetes']
+        dropdown = wx.Choice(dialog, choices=choices)
+
+        # Create OK button
+        ok_button = wx.Button(dialog, wx.ID_OK)
+
+        # Create layout
+        sizer = wx.BoxSizer(wx.HORIZONTAL)
+        sizer.Add(wx.StaticText(dialog, label='Enter remote address:'), flag=wx.LEFT|wx.TOP, border=10)
+        sizer.Add(text, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP|wx.BOTTOM, border=10)
+        sizer.Add(wx.StaticText(dialog, label='Select remote type:'), flag=wx.LEFT|wx.TOP, border=10)
+        sizer.Add(dropdown, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP|wx.BOTTOM, border=10)
+        sizer.Add(ok_button, flag=wx.ALIGN_CENTER|wx.TOP|wx.BOTTOM, border=10)
+
+        dialog.SetSizer(sizer)
+        dialog.Center()
+        sizer.Fit(dialog)
+
+        # Show dialog box and wait for user input
+        if dialog.ShowModal() == wx.ID_OK:
+            # Store values in global variables
+            remote_address = text.GetValue()
+            remote_type = choices[dropdown.GetCurrentSelection()]
+            print('[Debug (Application.py line 711)] Popup got data', remote_address, "and", remote_type, "from user")
+
+        # Destroy dialog box
+        dialog.Destroy()

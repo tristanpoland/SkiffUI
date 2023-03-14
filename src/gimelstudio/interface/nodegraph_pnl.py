@@ -35,7 +35,6 @@ from .panel_base import PanelBase
 
 ID_ADDNODEMENU = wx.NewIdRef()
 
-
 class NodeGraph(NodeGraphBase):
     def __init__(self, parent, registry, *args, **kwds):
         NodeGraphBase.__init__(self, parent, registry, *args, **kwds)
@@ -112,6 +111,24 @@ class NodeGraphPanel(PanelBase):
         self.accel_tbl = wx.AcceleratorTable([(wx.ACCEL_SHIFT, ord('A'),
                                                ID_ADDNODEMENU)])
         self.parent.SetAcceleratorTable(self.accel_tbl)
+        
+        def __init__(self, parent, nodegraph):
+            super(NodeGraphPanel, self).__init__(parent)
+            self._nodegraph = nodegraph
+
+            # ... other initialization code
+        
+            # Connect to the "on_node_added" and "on_node_deleted" events
+            self._nodegraph.on_node_added.connect(self._on_node_added)
+            self._nodegraph.on_node_deleted.connect(self._on_node_deleted)
+
+        def _on_node_added(self, node):
+            # Code to execute when a node is added to the graph
+            print(f"Node {node.id} was added to the graph!")
+
+        def _on_node_deleted(self, node):
+            # Code to execute when a node is deleted from the graph
+            print(f"Node {node.id} was deleted from the graph!")
 
     @property
     def AUIManager(self):
@@ -141,6 +158,7 @@ class NodeGraphPanel(PanelBase):
         return self.nodegraph.AddNode(idname, nodeid, pos, location)
 
     def UpdateNodegraph(self):
+        print("nodegraph was updated")
         self.nodegraph.UpdateNodeGraph()
 
     def UpdateNodePropertiesPnl(self, event):

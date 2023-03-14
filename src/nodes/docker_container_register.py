@@ -66,7 +66,6 @@ def main():
                 existing_content = f.read()
             existing_hash = md5(existing_content.encode("utf-8")).hexdigest()
             if existing_hash == content_hash:
-                print(f"{filename} already exists and has not been modified.")
                 continue
         else:
             # Unregister the existing node
