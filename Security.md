@@ -8,7 +8,6 @@ security vulnerabilities.
 | Version / branch  | Supported                                            |
 | ----------------- | ---------------------------------------------------- |
 | master            | :white_check_mark: :construction: ALL fixes immediately, but this is a branch under development with a frequently unstable ABI and occasionally unstable API. |
-| main            | :x: :construction: No support |
 | React            | :x: :construction: No support |
 
 ## Reporting a Vulnerability
