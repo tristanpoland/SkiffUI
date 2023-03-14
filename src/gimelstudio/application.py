@@ -45,7 +45,7 @@ from .datafiles.icons import (ICON_BUG, ICON_CAMERA, ICON_CLOSE, ICON_COPY, ICON
                               ICON_EXPORT, ICON_FOLDER, ICON_GIMELSTUDIO_ICO, ICON_SAVE, 
                               ICON_INFO, ICON_NEW_FILE, ICON_SETTINGS, ICON_WEBSITE)
 from .core import (Renderer, GLSLRenderer, ProjectFileIO, NODE_REGISTRY)
-from .interface import (ImageViewportPanel, NodePropertiesPanel,
+from .interface import (NodePropertiesPanel,
                         NodeGraphPanel, StatusBar, PreferencesDialog,
                         ExportImageHandler, NodeGraphDropTarget,
                         AboutDialog, ShowNotImplementedDialog)
@@ -331,7 +331,6 @@ class ApplicationFrame(wx.Frame):
         edit_menu.AppendItem(separator)
         edit_menu.AppendItem(self.preferences_menuitem)
 
-        view_menu.AppendItem(self.showimageviewport_menuitem)
         view_menu.AppendItem(self.showstatusbar_menuitem)
 
         connect_menu.AppendItem(self.connect_menuitem)
@@ -394,9 +393,6 @@ class ApplicationFrame(wx.Frame):
                   self.OnPreferencesDialog,
                   self.preferences_menuitem)
 
-        self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
-                  self.OnToggleImageViewport,
-                  self.showimageviewport_menuitem)
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnToggleStatusbar,
                   self.showstatusbar_menuitem)
@@ -470,18 +466,6 @@ class ApplicationFrame(wx.Frame):
                           .CloseButton(visible=False)
                           .BestSize(360, 500))
 
-        self.imageviewport_pnl = ImageViewportPanel(self,
-                                                    idname="IMAGE_VIEWPORT",
-                                                    menu_item=self.showimageviewport_menuitem)
-        self._mgr.AddPane(self.imageviewport_pnl,
-                          aui.AuiPaneInfo()
-                          .Name("IMAGE_VIEWPORT")
-                          .CaptionVisible(False)
-                          .Bottom()
-                          .MinSize((-1, 340))
-                          .CloseButton(visible=False)
-                          .BestSize((500, 1700)))
-
         self.nodegraph_pnl = NodeGraphPanel(self,
                                             idname="NODE_EDITOR",
                                             menu_item=None,
@@ -518,10 +502,6 @@ class ApplicationFrame(wx.Frame):
     @property
     def NodeGraph(self):
         return self.nodegraph_pnl.NodeGraph
-
-    @property
-    def ImageViewport(self):
-        return self.imageviewport_pnl
 
     @property
     def AppConfig(self):
