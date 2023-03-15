@@ -17,7 +17,11 @@
 from .output_eval import OutputNodeEval
 from .datatypes import RenderImage
 from shiphelm.helmdocker import helmdocker
-hd = helmdocker() # create an instance of helmdocker
+
+try:
+    hd = helmdocker() # create an instance of helmdocker
+except:
+    print("[WARN] Docker is not running or could not be located on the local system (If you are using SkiffUI with a remote host this is probably fine)")
 
 class Renderer(object):
     """

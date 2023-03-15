@@ -74,8 +74,8 @@ class ApplicationFrame(wx.Frame):
 
         # Initilize renderers and node registry
         self.renderer = Renderer(self)
-        self.glsl_renderer = GLSLRenderer()
         self.registry = NODE_REGISTRY
+        self.glsl_renderer = GLSLRenderer()
 
         # Set the program icon
         self.SetIcon(ICON_GIMELSTUDIO_ICO.GetIcon())

@@ -101,8 +101,17 @@ class MainApp(wx.App):
             splash.Show()
         
         #Start the Docker state tracking
-        state_tracker.write_json()
-
+        try:
+            state_tracker.write_json()
+        except:
+            print("  ^ This is fine if you are using a remote connection")
+            ApplicationFrame.OnRemoteConnect(self,event="")
+            print("Attempting connection with new connection info")
+            try:
+                state_tracker.write_json()
+            except:
+                print("Unable to connect with the provided D")
+                exit()
         return True
 
     def InitI18n(self):
