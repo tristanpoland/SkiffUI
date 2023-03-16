@@ -94,11 +94,6 @@ class MainApp(wx.App):
         self.frame = ApplicationFrame(app_config=self.app_config)
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
-
-        # Show the startup splash screen
-        if 1 == 1 :
-            splash = StartupSplashScreen()
-            splash.Show()
         
         #Start the Docker state tracking
         try:
@@ -112,6 +107,11 @@ class MainApp(wx.App):
             except:
                 print("Unable to connect with the provided D")
                 exit()
+
+        # Show the startup splash screen
+        if 1 == 1 :
+            splash = StartupSplashScreen()
+            splash.Show()
         return True
 
     def InitI18n(self):

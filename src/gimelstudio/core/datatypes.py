@@ -27,65 +27,68 @@ class RenderImage(object):
         self.img = np.zeros((size[0], size[1], 4), dtype=np.float32)
 
     def Image(self, data_type="numpy"):
-        """ Returns the image in the requested datatype format.
-
-        This is optimized so that it does node convert the datatype until
-        Image() or OIIOImage() is called. This way, the datatype won't be
-        converted for nothing e.g: if an oiio.ImageBuf type is needed for a
-        line of nodes, no need to convert it to numpy array every time.
-
-        :param data_type: the requested image datatype
-        :returns: ``numpy.ndarray`` or ``oiio.ImageBuf`` object
-        """
-        current_data_type = type(self.img)
-        if data_type == "numpy":
-            if current_data_type == np.ndarray:
-                return self.img
-            else:
-                self.img = self.img.get_pixels("float")
-                return self.img
-
-        elif data_type == "oiio":
-            print("Converting to oiio is disabled")
-            # if current_data_type == oiio.ImageBuf:
-            #     return self.img
-            # else:
-            #     self.img = self.NumpyArrayToImageBuf()
-            #     return self.img
-
-        else:
-            raise TypeError("Not a valid datatype!")
+    #    """ Returns the image in the requested datatype format.
+    #
+    #    This is optimized so that it does node convert the datatype until
+    #    Image() or OIIOImage() is called. This way, the datatype won't be
+    #    converted for nothing e.g: if an oiio.ImageBuf type is needed for a
+    #    line of nodes, no need to convert it to numpy array every time.
+    #
+    #    :param data_type: the requested image datatype
+    #    :returns: ``numpy.ndarray`` or ``oiio.ImageBuf`` object
+    #    """
+    #    current_data_type = type(self.img)
+    #    if data_type == "numpy":
+    #        if current_data_type == np.ndarray:
+    #            return self.img
+    #        else:
+    #            self.img = self.img.get_pixels("float")
+    #            return self.img
+    #
+    #    elif data_type == "oiio":
+    #        print("Converting to oiio is disabled")
+    #        # if current_data_type == oiio.ImageBuf:
+    #        #     return self.img
+    #        # else:
+    #        #     self.img = self.NumpyArrayToImageBuf()
+    #        #     return self.img
+    #
+    #    else:
+    #        raise TypeError("Not a valid datatype!")
+        pass
 
     def NumpyArrayToImageBuf(self):
-        """ Converts a np.ndarray to an OIIO ImageBuf image.
-        :returns: ``oiio.ImageBuf`` object
-        """
-        height, width = self.img.shape[:2]
-        spec = oiio.ImageSpec(width, height, 4, "float")
-        buf = oiio.ImageBuf(spec)
-        buf.set_pixels(oiio.ROI(), self.img)
-        if buf.has_error:
-            print("Error in NumpyArrayToImageBuf:", buf.geterror())
-        return buf
+    #    """ Converts a np.ndarray to an OIIO ImageBuf image.
+    #    :returns: ``oiio.ImageBuf`` object
+    #    """
+    #    height, width = self.img.shape[:2]
+    #    spec = oiio.ImageSpec(width, height, 4, "float")
+    #    buf = oiio.ImageBuf(spec)
+    #    buf.set_pixels(oiio.ROI(), self.img)
+    #    if buf.has_error:
+    #        print("Error in NumpyArrayToImageBuf:", buf.geterror())
+    #    return buf
+        pass
 
     def SetAsOpenedImage(self, path):
-        """ Sets the image and opens it.
-        :param path: image filepath to be opened
-        """
-        try:
-            # Open the image as an array
-            img_input = oiio.ImageInput.open(path)
-            if img_input is None:
-                print("IO ERROR: ", oiio.geterror())
-            image = img_input.read_image(format="float32")
-
-            # Enforce RGBA
-            if image.shape[2] == 3:
-                self.img = cv2.cvtColor(image, cv2.COLOR_RGB2RGBA)
-            else:
-                self.img = image
-        except FileNotFoundError:
-            print("IO ERROR: COULD NOT OPEN IMAGE!")
+    #    """ Sets the image and opens it.
+    #    :param path: image filepath to be opened
+    #    """
+    #    try:
+    #        # Open the image as an array
+    #        img_input = oiio.ImageInput.open(path)
+    #        if img_input is None:
+    #            print("IO ERROR: ", oiio.geterror())
+    #        image = img_input.read_image(format="float32")
+    #
+    #        # Enforce RGBA
+    #        if image.shape[2] == 3:
+    #            self.img = cv2.cvtColor(image, cv2.COLOR_RGB2RGBA)
+    #        else:
+    #            self.img = image
+    #    except FileNotFoundError:
+    #        print("IO ERROR: COULD NOT OPEN IMAGE!")
+        pass
 
     def SetAsImage(self, image):
         """ Sets the render image.

@@ -43,7 +43,21 @@
         "Add-ons": {},
         "Nodes": {},
         "Templates": {},
-        "System": {},
+        "System": {
+            "Enable experimental features": true,
+            "Enable node cache (uses more memory)": true,
+            "GLSL texture max size": "6k texture"
+        },
+        "System_options": {
+            "GLSL texture max size": {
+                "Display Widget": "Drop Down",
+                "Items": [
+                    "4k texture",
+                    "5k texture",
+                    "6k texture"
+                ]
+            }
+        },
         "File Paths": {
             "Default Output Folder": "~/",
             "Fonts Path": "~/"
