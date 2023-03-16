@@ -41,7 +41,8 @@ from gimelstudio import AppConfiguration, ApplicationFrame
 from gimelstudio.interface import StartupSplashScreen
 from gimelstudio.constants import APP_FROZEN
 sys.path.append('/src/nodes')
-from nodes import state_tracker
+from nodes import docker_state_tracker  
+
 
 # Fix blurry text on Windows 10
 import ctypes
@@ -65,8 +66,7 @@ def _displayHook(obj):
 import builtins
 builtins.__dict__['_'] = wx.GetTranslation
 
-# Start docker state scanning
-state_tracker
+# Start container state scanning
 
 class MainApp(wx.App):
 
@@ -95,11 +95,11 @@ class MainApp(wx.App):
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
-        #Start the Docker state tracking
+        #Start the container state tracking
         try:
-            state_tracker.write_json()
+            docker_state_tracker.write_json()
         except:
-            print("  ^ This is fine if you are using a remote connection")
+            print("  ^ This is probably fine if you are using a remote connection, if you are trying to connect to a local container engine it may not not be running or it may not be supported. Please check: \nhttps://gameplexsoftware.com/supported-engines")
             ApplicationFrame.OnRemoteConnect(self,event="")
             print("Attempting connection with new connection info")
             try:
