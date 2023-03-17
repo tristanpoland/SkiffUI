@@ -34,8 +34,10 @@
 import wx
 import wx.adv
 import wx.stc
+from wx import TextCtrl,Button
 
 import gimelstudio.constants as const
+
 
 class NodesVListBox(wx.VListBox):
     def __init__(self, *args, **kw):
@@ -51,7 +53,7 @@ class NodesVListBox(wx.VListBox):
     # Add this method to update the menu if the registry has changed
     def UpdateMenuIfRegistryChanged(self):
         if self.NodeRegistry != self._registry_copy:
-        #    self.UpdateForSearch(self.parent.search_bar.GetValue())
+            self.UpdateForSearch(self.parent.search_bar.GetValue())
             self._registry_copy = self.NodeRegistry
             self.Refresh()
 
@@ -86,7 +88,7 @@ class NodesVListBox(wx.VListBox):
             # Reset the focus back to the search input so that
             # after a user dnd a node, they can search again straight-away.
             if result:
-                # self.parent.search_bar.SetFocus()
+                self.parent.search_bar.SetFocus()
                 self.SetSelection(-1)
 
     # This method must be overridden.  When called it should draw the
@@ -98,7 +100,6 @@ class NodesVListBox(wx.VListBox):
         rect[0] += 16
 
         color = wx.Colour("#fff")
-
         # Draw item with node label
         if self.GetSelection() == n:
             dc.SetFont(self.GetFont().Bold())
@@ -141,29 +142,22 @@ class NodesVListBox(wx.VListBox):
         else:
             return False
 
-    def UpdateForSearch(self, search_string):
-        """ Updates the listbox based on the search string. """
-        # Reset mapping var
-        self.parent._nodeRegistryMapping = {}
+def UpdateForSearch(self, search_string):
+    """Updates the listbox based on the search string."""
+    # Reset mapping var
+    self.parent._nodeRegistryMapping = {}
 
-        i = 0
-        for item in self.NodeRegistry:
-            if item != "corenode_outputcomposite":
-                lbl = self.NodeRegistry[item](None, None).GetLabel()
-                if self.SearchNodeRegistry(lbl, search_string.lower()):
-                    self.NodeRegistryMap[i] = item
-                    i += 1
+    i = 0
+    for item in self.NodeRegistry:
+        if item != "corenode_outputcomposite":
+            lbl = self.NodeRegistry[item](None, None).GetLabel()
+            if self.SearchNodeRegistry(lbl, search_string):
+                self.SetItemCount(i + 1)
+                self.parent._nodeRegistryMapping[i] = item
+                i += 1
 
-        # Deal with selection and update size
-        size = len(self.NodeRegistryMap)
-        if size == 1:
-            self.SetSelection(0)
-        else:
-            self.SetSelection(-1)
-        self.SetItemCount(size)
+    self.Refresh()
 
-        # Refresh the window
-        self.Refresh()
 
 
 class AddNodeMenu(wx.PopupTransientWindow):
@@ -202,10 +196,13 @@ class AddNodeMenu(wx.PopupTransientWindow):
         main_sizer.Add(header_lbl, flag=wx.EXPAND | wx.ALL, border=14)
         main_sizer.AddSpacer(5)
 
-        # self.search_bar = TextCtrl(self, style=wx.BORDER_SIMPLE, placeholder=_("Search nodes…"), size=(-1, 26))
-        # self.search_bar.SetFocus()
+        self.search_bar = TextCtrl(self, style=wx.BORDER_SIMPLE, size=(-1, 26), name="Search")
+        self.search_bar.SetFocus()
 
-        #main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
+        self.refresh_btn = Button(self, label="Refresh")
+        self.Bind(wx.EVT_BUTTON, self.on_refresh, self.refresh_btn)
+        
+        main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
         main_sizer.AddSpacer(5)
 
         # Nodes list box
@@ -217,18 +214,22 @@ class AddNodeMenu(wx.PopupTransientWindow):
         self.SetSizer(main_sizer)
 
         # Bindings
-        # self.Bind(wx.stc.EVT_STC_MODIFIED, self.OnDoSearch, self.search_bar)
+        self.Bind(wx.stc.EVT_STC_MODIFIED, self.OnDoSearch, self.search_bar)
         self.Bind(wx.EVT_LISTBOX_DCLICK, self.OnClickSelectItem, self.nodes_listbox)
         self.Bind(wx.EVT_LISTBOX, self.OnClickSelectItem, self.nodes_listbox)
+
+    def on_refresh(self, event):
+        # Call UpdateMenuIfRegistryChanged() function here
+        self.Refresh()
 
     @property
     def NodeGraph(self):
         """ Get the Node Graph. """
         return self.parent
 
-    # def OnDoSearch(self, event):
+    def OnDoSearch(self, event):
     #    """ Event handler for when something is typed into the search bar, etc. """
-    #    self.nodes_listbox.UpdateForSearch(event.GetString())
+        self.nodes_listbox.UpdateForSearch(event.GetString())
 
     def OnClickSelectItem(self, event):
         pass

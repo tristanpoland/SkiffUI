@@ -76,6 +76,7 @@ class Renderer(object):
         """
         output_data = OutputNodeEval()
         output_data.SetNode(output_node)
+        print(output_data)
         return output_data.RenderImage()
 
     def GetOutputNode(self, nodes):
