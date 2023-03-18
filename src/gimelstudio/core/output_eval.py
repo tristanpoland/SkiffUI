@@ -15,6 +15,8 @@
 # ----------------------------------------------------------------------------
 
 from .eval_info import EvalInfo
+from gimelstudio.core import registry
+from pprint import pprint
 
 
 class OutputNodeEval(object):
@@ -33,6 +35,7 @@ class OutputNodeEval(object):
         # The hardcoded "Image" here refers to the input
         # socket on the Output node
         self.node = node.parameters["Image"].binding
+        pprint(registry.NODE_REGISTRY.items())
 
     def RenderImage(self):
         """ Render the image for this output node. If the output

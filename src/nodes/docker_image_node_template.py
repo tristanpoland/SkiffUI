@@ -14,6 +14,11 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+##############################################################################
+# THIS FILE WAS CREATED AUTOMATICALLY, DO NOT CHANGE IT UNLESS YOU KNOW WHAT #
+#                                 YOU ARE DOING                              #
+##############################################################################
+
 from gimelstudio import api
 
 class DockerNode(api.Node):

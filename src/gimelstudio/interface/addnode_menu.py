@@ -35,8 +35,9 @@ import wx
 import wx.adv
 import wx.stc
 from wx import TextCtrl,Button
-
+from gimelstudio.core import registry
 import gimelstudio.constants as const
+from nodes import ContainerFromNodeID
 
 
 class NodesVListBox(wx.VListBox):
@@ -80,7 +81,6 @@ class NodesVListBox(wx.VListBox):
             selection = self.NodeRegistryMap[self.GetSelection()]
             data = wx.TextDataObject()
             data.SetText(selection)
-
             dropSource = wx.DropSource(self)
             dropSource.SetData(data)
             result = dropSource.DoDragDrop()
@@ -88,8 +88,15 @@ class NodesVListBox(wx.VListBox):
             # Reset the focus back to the search input so that
             # after a user dnd a node, they can search again straight-away.
             if result:
+                containerImageID = selection
                 self.parent.search_bar.SetFocus()
                 self.SetSelection(-1)
+                print("User dropped Node for imageID:", containerImageID)
+                print("UhOh")
+                ContainerFromNodeID.main(containerImageID)
+                print("UhOh2")
+
+                
 
     # This method must be overridden.  When called it should draw the
     # n'th item on the dc within the rect.  How it is drawn, and what

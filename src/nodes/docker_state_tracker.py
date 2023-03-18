@@ -13,6 +13,7 @@ def generate_node_id():
 def get_node_data():
     client = docker.from_env()
     containers = client.containers.list()
+    
     nodes = {}
     for container in containers:
         node_id = generate_node_id()

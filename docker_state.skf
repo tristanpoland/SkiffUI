@@ -1,0 +1,10 @@
+{
+    "application": "SkiffUI",
+    "file_type": "SkiffUI Network Map",
+    "app_version": "0.0.1",
+    "app_version_tag": " pre-alpha 1",
+    "app_version_full": "0.0.1 pre-alpha 1",
+    "node_graph": {
+        "nodes": {}
+    }
+}

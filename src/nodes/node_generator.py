@@ -28,7 +28,6 @@ try:
 
         # Get the path of the template file
         template_path = os.path.join(script_dir, "docker_image_node_template.py")
-
         # Read the template file
         with open(template_path) as f:
             template_content = f.read()
