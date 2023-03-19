@@ -54,7 +54,7 @@ try:
         )
 
         node_content2 = template2.render(
-        image_id=containerid,
+        container_id=containerid,
         oldcontent="New_Content"
         )
 

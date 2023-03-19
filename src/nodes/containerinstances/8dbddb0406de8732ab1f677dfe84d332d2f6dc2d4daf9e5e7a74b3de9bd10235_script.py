@@ -21,6 +21,6 @@
 
 import os
 
-containerID = "{{container_id}}"
+containerID = "8dbddb0406de8732ab1f677dfe84d332d2f6dc2d4daf9e5e7a74b3de9bd10235"
 
 print("Hello from", containerID)

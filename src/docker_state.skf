@@ -5,6 +5,29 @@
     "app_version_tag": " pre-alpha 1",
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
-        "nodes": {}
+        "nodes": {
+            "b94508ac-613a-42ee-9ac4-54480f36a100": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "keen_jepsen"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            }
+        }
     }
 }
