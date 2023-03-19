@@ -93,19 +93,6 @@ class MainApp(wx.App):
         self.frame = ApplicationFrame(app_config=self.app_config)
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
-        
-        #Start the container state tracking
-        try:
-            docker_state_tracker.write_json()
-        except:
-            print("  ^ This is probably fine if you are using a remote connection, if you are trying to connect to a local container engine it may not not be running or it may not be supported. Please check: \nhttps://gameplexsoftware.com/supported-engines")
-            ApplicationFrame.OnRemoteConnect(self,event="")
-            print("Attempting connection with new connection info")
-            try:
-                state_tracker.write_json()
-            except:
-                print("Unable to connect with the provided D")
-                exit()
 
         # Show the startup splash screen
         if 1 == 1 :

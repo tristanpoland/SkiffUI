@@ -36,6 +36,7 @@ from wx import TextCtrl,Button
 from gimelstudio.core import registry
 import gimelstudio.constants as const
 from nodes import ContainerFromNodeID
+from nodes import docker_state_tracker
 
 # Split the absolute path into a list of directories
 abs_path = os.path.abspath(__file__)
@@ -52,6 +53,9 @@ script_dir = os.path.abspath(truncated_path)
 
 
 class NodesVListBox(wx.VListBox):
+    #Start the container state tracking
+    docker_state_tracker.write_json()
+
     def __init__(self, *args, **kw):
         self.parent = args[0]
         wx.VListBox.__init__(self, *args, **kw)

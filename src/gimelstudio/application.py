@@ -30,7 +30,6 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-
 import webbrowser
 
 import wx
@@ -50,6 +49,7 @@ from .interface import (NodePropertiesPanel,
                         ExportImageHandler, NodeGraphDropTarget,
                         AboutDialog, ShowNotImplementedDialog)
 from .node_importer import *
+from nodes.ContainerFromNodeID import OnRemoteConnect
 
 
 # Create variables
@@ -423,10 +423,7 @@ class ApplicationFrame(wx.Frame):
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnAboutDialog,
                   self.about_menuitem)
-        self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED, self.OnRemoteConnect, self.connect_menuitem)
-
-
-
+        self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED, OnRemoteConnect, self.connect_menuitem)
 
         # Add menubar to main sizer
         self.main_sizer.Add(self.menubar, 0, wx.EXPAND)
@@ -653,51 +650,3 @@ class ApplicationFrame(wx.Frame):
     def OnAboutDialog(self, event):
         dlg = AboutDialog(self)
         dlg.Show()
-
-    def OnRemoteConnect(self, event):
-        global remote_address, remote_type
-
-        # Create dialog box
-        dialog = wx.Dialog(None, title='SkiffUI remote connect setup wizard', size=(400, 100), style=wx.DEFAULT_DIALOG_STYLE)
-
-        # Set dark theme colors
-        dialog.SetBackgroundColour(wx.Colour(38, 38, 38))
-        dialog.SetForegroundColour(wx.WHITE)
-        dialog.Center()
-
-        # Create text entry field
-        text = wx.TextCtrl(dialog, style=wx.TE_PROCESS_ENTER)
-        text.SetBackgroundColour(wx.Colour(50, 50, 50))
-        text.SetForegroundColour(wx.WHITE)
-
-        # Create dropdown box
-        choices = ['Docker', 'Docker Swarm', 'Kubernetes']
-        dropdown = wx.Choice(dialog, choices=choices)
-        dropdown.SetBackgroundColour(wx.Colour(50, 50, 50))
-        dropdown.SetForegroundColour(wx.WHITE)
-
-        # Create OK button
-        ok_button = wx.Button(dialog, wx.ID_OK)
-        ok_button.SetBackgroundColour(wx.Colour(70, 70, 70))
-        ok_button.SetForegroundColour(wx.WHITE)
-
-        # Create layout
-        sizer = wx.BoxSizer(wx.HORIZONTAL)
-        sizer.Add(wx.StaticText(dialog, label='Enter remote address:'), flag=wx.LEFT|wx.TOP, border=30)
-        sizer.Add(text, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP|wx.BOTTOM, border=30)
-        sizer.Add(wx.StaticText(dialog, label='Select remote type:'), flag=wx.LEFT|wx.TOP, border=30)
-        sizer.Add(dropdown, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP|wx.BOTTOM, border=30)
-        sizer.Add(ok_button, flag=wx.ALIGN_CENTER|wx.TOP|wx.BOTTOM, border=30)
-
-        dialog.SetSizer(sizer)
-        sizer.Fit(dialog)
-
-        # Show dialog box and wait for user input
-        if dialog.ShowModal() == wx.ID_OK:
-            # Store values in global variables
-            remote_address = text.GetValue()
-            remote_type = choices[dropdown.GetCurrentSelection()]
-            print(remote_address, remote_type)
-
-        # Destroy dialog box
-        dialog.Destroy()
