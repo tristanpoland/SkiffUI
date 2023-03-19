@@ -43,7 +43,6 @@ from gimelstudio.constants import APP_FROZEN
 sys.path.append('/src/nodes')
 from nodes import docker_state_tracker  
 
-
 # Fix blurry text on Windows 10
 import ctypes
 try:

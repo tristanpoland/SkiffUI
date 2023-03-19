@@ -31,13 +31,24 @@
 # ----------------------------------------------------------------------------
 
 
-import wx
-import wx.adv
-import wx.stc
+import wx, wx.adv, wx.stc, os, glob, threading, time
 from wx import TextCtrl,Button
 from gimelstudio.core import registry
 import gimelstudio.constants as const
 from nodes import ContainerFromNodeID
+
+# Split the absolute path into a list of directories
+abs_path = os.path.abspath(__file__)
+dirs = abs_path.split(os.path.sep)
+
+# Remove the last two directories from the list
+dirs = dirs[:-3]
+
+# Join the remaining directories back into a path string
+truncated_path = os.path.sep.join(dirs)
+
+# Get the absolute path of the truncated path
+script_dir = os.path.abspath(truncated_path)
 
 
 class NodesVListBox(wx.VListBox):
@@ -92,11 +103,21 @@ class NodesVListBox(wx.VListBox):
                 self.parent.search_bar.SetFocus()
                 self.SetSelection(-1)
                 print("User dropped Node for imageID:", containerImageID)
-                print("UhOh")
                 ContainerFromNodeID.main(containerImageID)
-                print("UhOh2")
+                def run_scripts():
+                    time.sleep(1)
+                    globpath = os.path.join(script_dir + "/nodes/containerinstances/*_script.py")
+                    script_files = glob.glob(globpath, recursive=False)
+                    print(script_files)
+                    print(script_dir)
+                    print(globpath)
+                    for script_file in script_files:
+                        print("Attempting to run", script_file)
+                        os.system(f"python {script_file} {containerImageID}")
 
-                
+                thread = threading.Thread(target=run_scripts)
+                thread.start()
+              
 
     # This method must be overridden.  When called it should draw the
     # n'th item on the dc within the rect.  How it is drawn, and what

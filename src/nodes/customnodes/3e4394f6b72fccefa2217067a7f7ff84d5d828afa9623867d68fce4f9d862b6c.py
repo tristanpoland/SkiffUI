@@ -14,56 +14,50 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-import numpy as np
+##############################################################################
+# THIS FILE WAS CREATED AUTOMATICALLY, DO NOT CHANGE IT UNLESS YOU KNOW WHAT #
+#                                 YOU ARE DOING                              #
+##############################################################################
+
 from gimelstudio import api
 
-
-class MysqlNode(api.Node):
+class DockerNode(api.Node):
     def __init__(self, nodegraph, _id):
         api.Node.__init__(self, nodegraph, _id)
 
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "MySQL",
+            "label": "<Image: 'docker/getting-started:latest'>",
             "author": "Gameplex Software",
-            "version": (0, 5, 0),
-            "category": "TRANSFORM",
-            "description": "Controls a MySQL container",
+            "version": (0, 0, 1),
+            "category": "FILTER",
+            "description": "Show <Image: 'docker/getting-started:latest'> image on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
-        flip_direction = api.ChoiceProp(
-            idname="direction",
-            default="Vertically",
-            choices=["Vertically", "Horizontally"],
-            fpb_label="Flip Direction"
+        image_id = api.LabelProp(
+            idname="image_id",
+            default="3e4394f6b72fccefa2217067a7f7ff84d5d828afa9623867d68fce4f9d862b6c"
         )
-        self.NodeAddProp(flip_direction)
+        self.NodeAddProp(image_id)
+
+        image_status = api.LabelProp(
+            idname="image_status",
+            default="On host disk",
+            fpb_label="Status"
+        )
+        self.NodeAddProp(image_status)
 
     def NodeInitParams(self):
-        image = api.RenderImageParam("image", "Image")
-
-        self.NodeAddParam(image)
+        pass
 
     def MutedNodeEvaluation(self, eval_info):
         return self.EvalMutedNode(eval_info)
 
     def NodeEvaluation(self, eval_info):
-        flip_direction = self.EvalProperty(eval_info, "direction")
-        image1 = self.EvalParameter(eval_info, "image")
+        render_image = api.RenderImage()
+        return render_image
 
-        image = api.RenderImage()
-        img = image1.Image("numpy")
-
-        if flip_direction == "Vertically":
-            output_img = np.flipud(img)
-        elif flip_direction == "Horizontally":
-            output_img = np.fliplr(img)
-
-        image.SetAsImage(output_img)
-        return image
-
-
-api.RegisterNode(MysqlNode, "Mysql_Node")
+api.RegisterNode(DockerNode, "3e4394f6b72fccefa2217067a7f7ff84d5d828afa9623867d68fce4f9d862b6c")
