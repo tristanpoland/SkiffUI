@@ -23,12 +23,15 @@ from gimelstudio import core
 from nodes import container_generator
 from shiphelm import helmdocker
 import docker
+from plyer import notification
 
 hd = docker.from_env()
 try:
     def main(containerImageID):
         container = hd.containers.run(image=containerImageID, detach=True)
         containerid = container.id
+        containername = container.short_id
+        notification.notify(title="Skiff: Starting container", message="SkiffUI is starting the container {containername} in the background...", timeout=2)
         container_generator.main(containerid, containerImageID)
 except:
     raise Exception("Unable to connect to docker")
