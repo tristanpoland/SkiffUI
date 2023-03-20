@@ -45,9 +45,8 @@ def main(containerid, containerImageID):
     try:
         client = docker.from_env()
     except:
+        #finish centralizing these variables
         client = docker.from_env(base_url=remote_address, tls=remote_is_TLS)
-
-     # Iterate through each image
 
      # Generate the content for the Docker node file
     node_content = template.render(

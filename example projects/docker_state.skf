@@ -5,6 +5,29 @@
     "app_version_tag": " pre-alpha 1",
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
-        "nodes": {}
+        "nodes": {
+            "05219f4a-75ef-4e7a-8f5e-7dea05e37b19": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "quizzical_lovelace"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            }
+        }
     }
 }
