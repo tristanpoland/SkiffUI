@@ -22,5 +22,6 @@
 import os
 
 containerID = "{{container_id}}"
+containerID = "{{image_id}}"
 
 print("Hello from", containerID)
