@@ -22,10 +22,14 @@ from gimelstudio import core
 from shiphelm import helmdocker
 
 
-def main(containerid, containerImageID):
+def main(containerImageID):
     # Get the path of the script directory
-    script_dir = os.path.dirname(__file__)
 
+    client = docker.from_env()
+
+    script_dir = os.path.dirname(__file__)
+    containerInfo = client.containers.run(containerImageID, detach=True)
+    containerID = containerInfo.id
      # Get the path of the template file
     template_path = os.path.join(script_dir, "customnodes", containerImageID + ".py")
     nodeScriptTemplate_path = os.path.join(script_dir, "nodescript_template.py")
@@ -50,14 +54,15 @@ def main(containerid, containerImageID):
 
      # Generate the content for the Docker node file
     node_content = template.render(
-    image_id=containerid,
+    image_id=containerImageID,
     image_status="On host disk",
-    image_name=containerid
+    image_name=containerImageID
     )
 
     node_content2 = template2.render(
-    container_id=containerid,
-    oldcontent="New_Content"
+    container_id=containerID,
+    oldcontent="New_Content",
+    image_id=containerImageID
     )
 
      # Generate an MD5 hash of the contents of each template
@@ -66,13 +71,13 @@ def main(containerid, containerImageID):
 
      
     # Construct the filename for the Docker node file
-    filename = f"{containerid}.py"
-    filename2 = f"{containerid}_script.py"
+    filename = f"{containerID}.py"
+    filename2 = f"{containerID}_script.py"
     container_file_path = os.path.join(script_dir,'containerinstances', filename)
     containerScript_file_path = os.path.join(script_dir, "containerinstances", filename2)
 
      # Construct the ID for the Docker node
-    node_id = containerid
+    node_id = containerID
     # Check if the file already exists and has the same content
     if os.path.exists(container_file_path):
         with open(container_file_path) as f:

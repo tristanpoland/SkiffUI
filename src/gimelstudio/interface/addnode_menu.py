@@ -35,8 +35,8 @@ import wx, wx.adv, wx.stc, os, glob, threading, time
 from wx import TextCtrl,Button
 from gimelstudio.core import registry
 import gimelstudio.constants as const
-from nodes import ContainerFromNodeID
 from nodes import docker_state_tracker
+from nodes import container_generator
 
 # Split the absolute path into a list of directories
 abs_path = os.path.abspath(__file__)
@@ -106,8 +106,10 @@ class NodesVListBox(wx.VListBox):
                 containerImageID = selection
                 self.parent.search_bar.SetFocus()
                 self.SetSelection(-1)
+                container_generator.main(containerImageID)
+
+                # Finish run container from node
                 print("User dropped Node for imageID:", containerImageID)
-                ContainerFromNodeID.main(containerImageID)
                 def run_scripts():
                     time.sleep(1)
                     globpath = os.path.join(script_dir + "/nodes/containerinstances/*_script.py")
@@ -116,9 +118,12 @@ class NodesVListBox(wx.VListBox):
                     print(script_dir)
                     print(globpath)
                     for script_file in script_files:
-                        print("Attempting to run", script_file)
-                        os.system(f"python {script_file} {containerImageID}")
-
+                        print("Attempting to run", script_file, "...")
+                        try:
+                            os.system(f"python {script_file} {containerImageID}")
+                            print("Success running script!")
+                        except:
+                            print("Error while running script")
                 thread = threading.Thread(target=run_scripts)
                 thread.start()
               
