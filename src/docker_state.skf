@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "4129d897-f7ff-4dce-910f-764b636e49e0": {
+            "28a2008d-bb4b-44f0-803e-8f702c667150": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "quizzical_lovelace"
+                        "value": "flamboyant_davinci"
                     },
                     "status": {
                         "idname": "status",

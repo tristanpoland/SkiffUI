@@ -23,4 +23,4 @@ import os
 
 containerID = "{{container_id}}"
 
-print("Hello from", containerID)
+print("Node script for", containerID, "running")
