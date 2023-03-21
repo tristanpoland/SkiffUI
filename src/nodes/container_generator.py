@@ -89,7 +89,6 @@ def main(containerImageID):
         # Unregister the existing node
         with open(container_file_path, "w") as f:
             f.write(node_content)
-            print(f"Created {filename}.")
 
      # Check if the second file already exists and has the same content
     if os.path.exists(containerScript_file_path):
@@ -102,7 +101,5 @@ def main(containerImageID):
     else:
         # The file does not exist or has different content, so create it
         with open(containerScript_file_path, "w") as f2:
-            print("FILE OPENED!!!")
             f2.write(node_content2)
-            print(f"Created {filename2}.")
             

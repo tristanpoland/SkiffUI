@@ -31,12 +31,12 @@
 # ----------------------------------------------------------------------------
 
 
-import wx, wx.adv, wx.stc, os, glob, threading, time
+import wx, wx.adv, wx.stc, os
 from wx import TextCtrl,Button
 from gimelstudio.core import registry
 import gimelstudio.constants as const
-from nodes import docker_state_tracker
-from nodes import container_generator
+from nodes import docker_state_tracker, container_generator
+from gimelstudio.interface import containerScript_runner
 
 # Split the absolute path into a list of directories
 abs_path = os.path.abspath(__file__)
@@ -109,23 +109,9 @@ class NodesVListBox(wx.VListBox):
                 container_generator.main(containerImageID)
 
                 # Finish run container from node
-                print("User dropped Node for imageID:", containerImageID)
-                def run_scripts():
-                    time.sleep(1)
-                    globpath = os.path.join(script_dir + "/nodes/containerinstances/*_script.py")
-                    script_files = glob.glob(globpath, recursive=False)
-                    print(script_files)
-                    print(script_dir)
-                    print(globpath)
-                    for script_file in script_files:
-                        print("Attempting to run", script_file, "...")
-                        try:
-                            os.system(f"python {script_file} {containerImageID}")
-                            print("Success running script!")
-                        except:
-                            print("Error while running script")
-                thread = threading.Thread(target=run_scripts)
-                thread.start()
+                print("User dropped Node for imageID:", containerImageID, "on graph")
+                containerScript_runner.scriptloop()
+
               
 
     # This method must be overridden.  When called it should draw the
@@ -218,7 +204,6 @@ class AddNodeMenu(wx.PopupTransientWindow):
         for item in self._nodeRegistry:
             if item != "corenode_outputcomposite":
                 self._nodeRegistryMapping[i] = item
-                print("Menu item placed")
                 i += 1
 
     def InitAddNodeMenuUI(self):

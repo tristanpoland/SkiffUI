@@ -158,7 +158,7 @@ class NodeGraphPanel(PanelBase):
         return self.nodegraph.AddNode(idname, nodeid, pos, location)
 
     def UpdateNodegraph(self):
-        print("nodegraph was updated")
+        print("[Debug] nodegraph was updated")
         self.nodegraph.UpdateNodeGraph()
 
     def UpdateNodePropertiesPnl(self, event):
