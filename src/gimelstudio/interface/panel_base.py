@@ -19,6 +19,7 @@ import wx.lib.agw.flatmenu as flatmenu
 
 from .utils import ComputeMenuPosAlignedLeft
 
+ID_MENU_BETA = wx.NewIdRef()
 ID_MENU_UNDOCKPANEL = wx.NewIdRef()
 ID_MENU_HIDEPANEL = wx.NewIdRef()
 
@@ -69,6 +70,12 @@ class PanelBase(wx.Panel):
 
     def CreateAreaMenu(self):
         self.area_dropdownmenu = flatmenu.FlatMenu()
+
+        undockpanel_menuitem = flatmenu.FlatMenuItem(self.area_dropdownmenu,
+                                                     ID_MENU_BETA,
+                                                     _("BETA OPTIONS:"), "",
+                                                     wx.ITEM_NORMAL)
+        self.area_dropdownmenu.AppendItem(undockpanel_menuitem)
 
         undockpanel_menuitem = flatmenu.FlatMenuItem(self.area_dropdownmenu,
                                                      ID_MENU_UNDOCKPANEL,

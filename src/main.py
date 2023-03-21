@@ -33,7 +33,6 @@
 import os
 import sys
 import platform
-
 import wx
 import wx.adv
 
@@ -49,7 +48,7 @@ try:
     ctypes.windll.shcore.SetProcessDpiAwareness(1)  # Global dpi aware
     ctypes.windll.shcore.SetProcessDpiAwareness(2)  # Per-monitor dpi aware
 except Exception:
-    pass  # Fail when not Windows
+    pass  # Skip when not Windows
 
 # Install a custom displayhook to keep Python from setting the global
 # _ (underscore) to the value of the last evaluated expression.

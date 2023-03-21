@@ -50,6 +50,14 @@ class DockerNode(api.Node):
         )
         self.NodeAddProp(image_status)
 
+        container_edit = api.ActionProp(
+            idname="container_editbtn",
+            btn_label="Edit Container",
+            action=print("Foo Bar")
+        )
+        self.NodeAddProp(container_edit)
+
+
     def NodeInitParams(self):
         pass
 

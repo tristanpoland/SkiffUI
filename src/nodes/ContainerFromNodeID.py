@@ -16,13 +16,13 @@
 
 import wx
 import docker
+import threading
 from hashlib import md5
 from jinja2 import Template
 from gimelstudio import api
 from gimelstudio import core
 from nodes import container_generator
 from shiphelm import helmdocker
-import docker
 from plyer import notification
 
 import wx
@@ -88,3 +88,6 @@ def main(containerImageID):
     containername = container.short_id
     notification.notify(title="Skiff: Starting container", message="SkiffUI is starting the container {containername} in the background...", timeout=2)
     container_generator.main(containerid, containerImageID)
+    timer = threading.Timer(2.0, main)
+    timer.start()
+    return timer

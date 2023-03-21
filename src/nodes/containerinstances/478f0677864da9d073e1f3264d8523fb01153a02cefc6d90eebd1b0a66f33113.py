@@ -28,18 +28,18 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "<Image: 'docker/getting-started:latest'>",
+            "label": "<Image: 'nginx:latest'>",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show <Image: 'docker/getting-started:latest'> image on the node graph",
+            "description": "Show <Image: 'nginx:latest'> image on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
         image_id = api.LabelProp(
             idname="image_id",
-            default="3e4394f6b72fccefa2217067a7f7ff84d5d828afa9623867d68fce4f9d862b6c"
+            default="904b8cb13b932e23230836850610fa45dce9eb0650d5618c2b1487c2a4f577b8"
         )
         self.NodeAddProp(image_id)
 
@@ -49,6 +49,14 @@ class DockerNode(api.Node):
             fpb_label="Status"
         )
         self.NodeAddProp(image_status)
+
+        container_edit = api.ActionProp(
+            idname="container_editbtn",
+            btn_label="Edit Container",
+            action=print("Foo Bar")
+        )
+        self.NodeAddProp(container_edit)
+
 
     def NodeInitParams(self):
         pass
@@ -60,4 +68,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "3e4394f6b72fccefa2217067a7f7ff84d5d828afa9623867d68fce4f9d862b6c")
+api.RegisterNode(DockerNode, "904b8cb13b932e23230836850610fa45dce9eb0650d5618c2b1487c2a4f577b8")
