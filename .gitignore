@@ -19,7 +19,6 @@ src/*.jpeg
 src/*.exr
 
 # Ignore the local version of libs
-gsnodegraph
 gswidgetkit
 tests
 

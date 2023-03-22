@@ -38,18 +38,8 @@ import gimelstudio.constants as const
 from nodes import docker_state_tracker, container_generator
 from gimelstudio.interface import containerScript_runner
 
-# Split the absolute path into a list of directories
-abs_path = os.path.abspath(__file__)
-dirs = abs_path.split(os.path.sep)
-
-# Remove the last two directories from the list
-dirs = dirs[:-3]
-
-# Join the remaining directories back into a path string
-truncated_path = os.path.sep.join(dirs)
-
 # Get the absolute path of the truncated path
-script_dir = os.path.abspath(truncated_path)
+script_dir = os.path.abspath(os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-3]))
 
 
 class NodesVListBox(wx.VListBox):

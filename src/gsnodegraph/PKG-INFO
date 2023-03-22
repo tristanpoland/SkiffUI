@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: gsnodegraph
+Version: 0.4.2
+Summary: Powerful node graph widget for wxPython GUIs
+Home-page: https://github.com/GimelStudio/gsnodegraph
+Author: Noah Rahm and contributors
+Author-email: correctsyntax@yahoo.com
+License: Apache 2.0
+Keywords: nodegraph,nodes,graph,node-based,widget
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Desktop Environment
+Classifier: Topic :: Multimedia :: Graphics :: Editors
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+UNKNOWN
+
