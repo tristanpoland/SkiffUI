@@ -52,10 +52,9 @@ class DockerNode(api.Node):
 
         container_edit = api.ActionProp(
             idname="container_editbtn",
-            btn_label="Edit Container"
+            btn_label="Edit Container",
         )
         self.NodeAddProp(container_edit)
-
 
     def NodeInitParams(self):
         pass

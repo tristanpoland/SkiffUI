@@ -49,8 +49,6 @@ from .interface import (NodePropertiesPanel,
                         ExportImageHandler, NodeGraphDropTarget,
                         AboutDialog, ShowNotImplementedDialog)
 from .node_importer import *
-from nodes.ContainerFromNodeID import OnRemoteConnect
-
 
 # Create variables
 remote_address = ''
@@ -90,6 +88,9 @@ class ApplicationFrame(wx.Frame):
         rm = self.menubar.GetRendererManager()
         theme = rm.AddRenderer(artproviders.UIMenuBarRenderer())
         rm.SetTheme(theme)
+
+        def OnRemoteConnect():
+            pass
 
         # Init menus
         file_menu = flatmenu.FlatMenu()
