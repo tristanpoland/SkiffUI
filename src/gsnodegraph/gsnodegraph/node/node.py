@@ -48,7 +48,6 @@ class NodeBase(object):
         self.category = "INPUT"
         self.header_color = wx.Colour(NODE_HEADER_CATEGORY_COLORS["INPUT"])
 
-        self.thumbnail = self.CreateEmptyBitmap()
         self.expandicon_bmp = ICON_IMAGE.GetBitmap()
         self.checkerboard_bmp = ICON_BRUSH_CHECKERBOARD.GetBitmap()
 
@@ -57,12 +56,6 @@ class NodeBase(object):
         self.Initheader_color()
         self.InitSize()
         self.SetIdName(idname)
-
-    def CreateEmptyBitmap(self) -> wx.Bitmap:
-        img = wx.Image(120, 120)
-        img.SetMaskColour(0,0,0)
-        img.InitAlpha()
-        return img.ConvertToBitmap()
 
     def NodeOutputDatatype(self) -> str:
         return "RGBAIMAGE"
@@ -137,7 +130,7 @@ class NodeBase(object):
         # Calculate the normal size of the node to fit
         # the amount of sockets the node has. The expanded size
         # is calculated to be the normal size plus the image thumbnail size.
-        calc_height = self.lastsocket_pos + self.thumbnail.Height + NODE_THUMB_PADDING * 2
+        calc_height = self.lastsocket_pos + 90 + NODE_THUMB_PADDING * 2
         self.expanded_size = wx.Size(NODE_DEFAULT_WIDTH, calc_height)
 
         self.normal_size = wx.Size(NODE_DEFAULT_WIDTH,
@@ -226,13 +219,8 @@ class NodeBase(object):
     def GetSockets(self) -> list:
         return self.sockets
 
-    def SetThumbnail(self, thumb) -> None:
-        if self.HasThumbnail():
-            self.thumbnail = thumb
-            self.UpdateExpandSize()
-
     def UpdateExpandSize(self) -> None:
-        calc_height = self.lastsocket_pos + self.thumbnail.Height + NODE_THUMB_PADDING * 2
+        calc_height = self.lastsocket_pos + 90 + NODE_THUMB_PADDING * 2
         self.expanded_size = wx.Size(NODE_DEFAULT_WIDTH, calc_height)
         self.SetSize(self.expanded_size)
 
@@ -300,12 +288,12 @@ class NodeBase(object):
             thumb_rect = wx.Rect((x+NODE_THUMB_PADDING/2),
                                   y+self.lastsocket_pos+(NODE_Y_PADDING*2),
                                   NODE_DEFAULT_WIDTH-NODE_THUMB_PADDING,
-                                  self.thumbnail.Height)
+                                  90)
 
             # Draw thumbnail border and background
             dc.SetPen(wx.Pen(wx.Colour(NODE_THUMB_BORDER_COLOR), 1))
-            dc.SetBrush(wx.Brush(self.checkerboard_bmp))
+            dc.SetBrush(wx.Brush(wx.Colour(0, 0, 0)))
             dc.DrawRectangle(thumb_rect)
 
             # Draw the thumbnail
-            dc.DrawBitmap(self.thumbnail, thumb_rect[0], thumb_rect[1], True)
+            dc.DrawText("CPU: 0.1%\nMem: 12MB\nDisk: 27GB", thumb_rect[0], thumb_rect[1])
