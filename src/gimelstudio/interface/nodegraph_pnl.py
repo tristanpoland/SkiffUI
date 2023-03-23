@@ -162,7 +162,6 @@ class NodeGraphPanel(PanelBase):
         self.nodegraph.UpdateNodeGraph()
 
     def UpdateNodePropertiesPnl(self, event):
-        print(self.registry)
         self.PropertiesPanel.UpdatePanelContents(event.value)
 
     def NodeConnectEvent(self, event):
