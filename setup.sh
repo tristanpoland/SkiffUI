@@ -14,7 +14,11 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+# Execute from the src folder to avoid issues with main.py
 cd ./src
+# Install the required pip dependancies
 pip3.8 install -r ../requirements.txt
-pip3.8 install '../OpenImageIO-2.1.18.1-cp38-cp38-win_amd64.whl'
+# Install the customized gsnodegraph library
+pip3.8 install -r ./gxnodegraph/
+# Start the app
 python3.8 ./main.py
