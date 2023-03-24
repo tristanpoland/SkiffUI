@@ -65,11 +65,18 @@ class OutputNode(api.Node):
         )
         self.NodeAddProp(self.export_button)
 
+        self.port_out = api.PositiveIntegerProp(
+            idname="p0",
+            fpb_label="port",
+            min_val=40,
+            max_val=25555,
+            default=8080
+        )
+        self.NodeAddProp(self.port_out)
+
     def NodeInitParams(self):
         p0 = api.RenderImageParam('Image', 'Forward port')
-        p1 = api.RenderImageParam('Image', 'Forward port')
         self.NodeAddParam(p0)
-        self.NodeAddParam(p1)
 
 
     def NodeEvaluation(self, eval_info):
