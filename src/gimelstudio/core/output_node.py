@@ -69,7 +69,7 @@ class OutputNode(api.Node):
             idname="p0",
             fpb_label="port",
             min_val=40,
-            max_val=25555,
+            max_val=65535,
             default=8080
         )
         self.NodeAddProp(self.port_out)
