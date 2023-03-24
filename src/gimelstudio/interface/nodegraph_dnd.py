@@ -32,6 +32,7 @@ class NodeGraphDropTarget(wx.DropTarget):
         self.SetDataObject(self._composite)
 
     def OnDrop(self, x, y):
+        print("Node was dropped at", x, y )
         return True
 
     def OnData(self, x, y, result):
@@ -51,11 +52,12 @@ class NodeGraphDropTarget(wx.DropTarget):
             formatId = None
         return formatType, formatId
 
-    def OnTextDrop(self, nodedata):
+    def OnTextDrop(self, ctr_image):
+        print("Got Node Format, ID:", self.GetReceivedFormatAndId())
         try:
             #This is where the node is actually added to our graph
             self._window.AddNode(self._textDropData.GetText(), nodeid=None, 
-                                 pos=(0, 0), location="CURSOR", docker_image="nginx")
+                                 pos=(0, 0), location="CURSOR", docker_image=ctr_image)
             self._window.UpdateNodegraph()
         except Exception as error:
             self.ShowError(error)

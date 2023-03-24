@@ -712,7 +712,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 "id": "TestCTR"
                 "CPU" "0.1%"
             }
-            print(ctr_stats)
+            print("Got container stats:", ctr_stats)
             print("Container image was specified in AddNode() spinning up a container for node")
 
         print(node_id, "Was added to the graph")
