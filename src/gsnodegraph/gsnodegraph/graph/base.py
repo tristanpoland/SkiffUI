@@ -42,6 +42,9 @@ from gsnodegraph.constants import (GRAPH_BACKGROUND_COLOR, SOCKET_OUTPUT,
 from gsnodegraph.assets import ICON_ADD_NODE
 from .utils.z_matrix import ZMatrix
 from .btn import AddNodeBtn
+import docker
+
+client = docker.from_env()
 
 gsnodegraph_nodeselect_cmd_event, EVT_GSNODEGRAPH_NODESELECT = NewCommandEvent()
 gsnodegraph_nodeconnect_cmd_event, EVT_GSNODEGRAPH_NODECONNECT = NewCommandEvent()
@@ -695,11 +698,23 @@ class NodeGraph(wx.ScrolledCanvas):
             self.UpdateNodeGraph()
             return duplicate_node
 
-    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
+    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION", docker_image=None):
         if nodeid is None:
             node_id = uuid.uuid4().hex
         else:
             node_id = nodeid
+        if docker_image == None:
+            print("A node was added to the graph, but no docker image was specified, skipping container init")
+        else:
+            node_id = client.containers.run(image=docker_image, detach=True)
+            #Hard code container resource usage for testing
+            ctr_stats = {
+                "id": "TestCTR"
+                "CPU" "0.1%"
+            }
+            print(ctr_stats)
+            print("Container image was specified in AddNode() spinning up a container for node")
+
         print(node_id, "Was added to the graph")
         node = self.node_registry[idname](self, node_id)
         node.Init(idname)

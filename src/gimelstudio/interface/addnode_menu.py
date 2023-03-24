@@ -35,8 +35,7 @@ import wx, wx.adv, wx.stc, os
 from wx import TextCtrl,Button
 from gimelstudio.core import registry
 import gimelstudio.constants as const
-from nodes import docker_state_tracker, container_generator
-from gimelstudio.interface import containerScript_runner
+from nodes import docker_state_tracker
 
 # Get the absolute path of the truncated path
 script_dir = os.path.abspath(os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-3]))
@@ -96,11 +95,9 @@ class NodesVListBox(wx.VListBox):
                 containerImageID = selection
                 self.parent.search_bar.SetFocus()
                 self.SetSelection(-1)
-                container_generator.main(containerImageID)
 
                 # Finish run container from node
                 print("User dropped Node for imageID:", containerImageID, "on graph")
-                containerScript_runner.scriptloop()
 
               
 

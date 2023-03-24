@@ -51,10 +51,11 @@ class NodeGraphDropTarget(wx.DropTarget):
             formatId = None
         return formatType, formatId
 
-    def OnTextDrop(self):
+    def OnTextDrop(self, nodedata):
         try:
+            #This is where the node is actually added to our graph
             self._window.AddNode(self._textDropData.GetText(), nodeid=None, 
-                                 pos=(0, 0), location="CURSOR")
+                                 pos=(0, 0), location="CURSOR", docker_image="nginx")
             self._window.UpdateNodegraph()
         except Exception as error:
             self.ShowError(error)
@@ -67,15 +68,8 @@ class NodeGraphDropTarget(wx.DropTarget):
                 
                 if filetype.lower() in const.SUPPORTED_FT_SAVE_LIST:
                     if os.path.exists(filename) is True:
-                        # Create Image node with path
-                        node = self._window.AddNode("corenode_image", pos=(0, 0),
-                                                    nodeid=None, location="CURSOR")
-                        node.NodeEditProp(idname="file_path",
-                                          value=filename, render=False)
-                        node.ToggleExpand()
-                        node.NodeDndEventHook()
-                        self._window.UpdateNodegraph()
-
+                        #Take action on file drop
+                        pass
                     else:
                         self.ShowError()
 
