@@ -143,8 +143,8 @@ class NodeGraph(wx.ScrolledCanvas):
         self.parent.SetAcceleratorTable(self.accel_tbl)
 
     def DeleteContainer(self):
-            client.containers.get(self.container_id).stop()
-            client.containers.get(self.container_id).remove()
+            client.containers.get(self.input).stop()
+            client.containers.get(self.input).remove()
 
     def OnPaint(self, event):
         dc = wx.BufferedPaintDC(self, self.buffer)
