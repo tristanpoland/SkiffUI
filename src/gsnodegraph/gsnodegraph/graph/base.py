@@ -34,6 +34,7 @@ import uuid
 import wx
 import time
 import os
+import re
 import wx.lib.agw.flatmenu as flatmenu
 from wx.lib.newevent import NewCommandEvent
 
@@ -140,6 +141,10 @@ class NodeGraph(wx.ScrolledCanvas):
                                                ID_CONTEXTMENU_DELETENODES),
                                               ])
         self.parent.SetAcceleratorTable(self.accel_tbl)
+
+    def DeleteContainer(self, container_id)
+            client.containers.get(self.container_id).stop()
+            client.containers.get(self.container_id).remove()
 
     def OnPaint(self, event):
         dc = wx.BufferedPaintDC(self, self.buffer)
@@ -355,6 +360,8 @@ class NodeGraph(wx.ScrolledCanvas):
     def OnDeleteNode(self, event):
         if (self.active_node != None and
             self.active_node.IsOutputNode() != True):
+            self.DeleteContainer(self.container_id)
+            print("Dropped container", self.container_id)
             self.DeleteNode(self.active_node)
             self.active_node = None
 
@@ -669,7 +676,9 @@ class NodeGraph(wx.ScrolledCanvas):
         """
         for node in self.sel_nodes:
             if node.IsOutputNode() != True:
-                self.DeleteNode(node)
+                self.DeleteNodes(self.container_id)
+                self.DeleteContainer(self.container_id)
+                print("Dropped container", self.container_id)
             else:
                 # In the case that this is an output node, we
                 # want to deselect it, not delete it. :)
@@ -678,6 +687,8 @@ class NodeGraph(wx.ScrolledCanvas):
 
         if (self.active_node != None and
             self.active_node.IsOutputNode() != True):
+            self.DeleteContainer(self.container_id)
+            print("Dropped container", self.container_id)
             self.DeleteNode(self.active_node)
             self.active_node = None
 
@@ -700,12 +711,12 @@ class NodeGraph(wx.ScrolledCanvas):
             self.UpdateNodeGraph()
             return duplicate_node
 
-    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
+    def AddNode(self, idname, node_id=None, pos=(0, 0), location="POSITION"):
         time.sleep(.5)
-        if nodeid is None:
-            node_id = uuid.uuid4().hex
+        if node_id:
+            print("Node ID should not be specified")
         else:
-            node_id = nodeid
+            node_id = uuid.uuid4().hex
         try:
             path = os.path.join(os.getcwd() + 'selectednodeID.cache')
             with open(path, 'r') as f:
@@ -714,7 +725,9 @@ class NodeGraph(wx.ScrolledCanvas):
             if docker_image == "":
                 print("A node was added to the graph, but no docker image was specified, skipping container init")
             else:
-                node_id = client.containers.run(image=docker_image, detach=True)
+                container = client.containers.run(image=docker_image, detach=True)
+                match = re.search(r'\b\w{64}\b', str(container.id))
+                self.container_id = container.id
                 print("ID reset to:", docker_image)
                 try:
                     with open(path, 'w') as f:
@@ -824,6 +837,7 @@ class NodeGraph(wx.ScrolledCanvas):
             for wire in socket.GetWires():
                 # Clean up any wires that are
                 # connected to this node.
+                #remove container from networks?
                 self.DisconnectNodes(wire.srcsocket, wire.dstsocket)
         del self.nodes[node.id]
         self.UpdateNodeGraph()
