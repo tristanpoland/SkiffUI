@@ -83,6 +83,15 @@ class NodesVListBox(wx.VListBox):
         """ Start of drag n drop event handler. """
         if event.Dragging():
             selection = self.NodeRegistryMap[self.GetSelection()]
+            containerImageID = selection
+            try:
+                path = os.path.join(os.getcwd() + 'selectednodeID.cache')
+                print(path)
+                with open(path, 'w') as f:
+                    f.write(containerImageID)
+                    print("Wrote:", containerImageID)
+            except Exception as e:
+                print("Error writing to file:", e)
             data = wx.TextDataObject()
             data.SetText(selection)
             dropSource = wx.DropSource(self)
@@ -92,7 +101,6 @@ class NodesVListBox(wx.VListBox):
             # Reset the focus back to the search input so that
             # after a user dnd a node, they can search again straight-away.
             if result:
-                containerImageID = selection
                 self.parent.search_bar.SetFocus()
                 self.SetSelection(-1)
 

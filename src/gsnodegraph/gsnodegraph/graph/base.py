@@ -32,6 +32,8 @@
 
 import uuid
 import wx
+import time
+import os
 import wx.lib.agw.flatmenu as flatmenu
 from wx.lib.newevent import NewCommandEvent
 
@@ -698,22 +700,38 @@ class NodeGraph(wx.ScrolledCanvas):
             self.UpdateNodeGraph()
             return duplicate_node
 
-    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION", docker_image=None):
+    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
+        time.sleep(.5)
         if nodeid is None:
             node_id = uuid.uuid4().hex
         else:
             node_id = nodeid
-        if docker_image == None:
-            print("A node was added to the graph, but no docker image was specified, skipping container init")
-        else:
-            node_id = client.containers.run(image=docker_image, detach=True)
-            #Hard code container resource usage for testing
-            ctr_stats = {
-                "id": "TestCTR"
-                "CPU" "0.1%"
-            }
-            print("Got container stats:", ctr_stats)
-            print("Container image was specified in AddNode() spinning up a container for node")
+        try:
+            path = os.path.join(os.getcwd() + 'selectednodeID.cache')
+            with open(path, 'r') as f:
+                docker_image = f.read()
+                print(docker_image)
+            if docker_image == "":
+                print("A node was added to the graph, but no docker image was specified, skipping container init")
+            else:
+                node_id = client.containers.run(image=docker_image, detach=True)
+                print("ID reset to:", docker_image)
+                try:
+                    with open(path, 'w') as f:
+                        f.write("")
+                        print("Reset image ID cache")
+                except Exception as e:
+                    print("Error writing to file:", e)
+                print("Container image was specified in AddNode() spinning up a container for node")
+                #Hard code container resource usage for testing
+                ctr_stats = {
+                    "id": "TestCTR"
+                    "CPU" "0.1%"
+                }
+                print("Got container heartbeat with status:", ctr_stats)
+        except:
+            print("SkiffUI is still starting! Skipping docker processing")
+            print()
 
         print(node_id, "Was added to the graph")
         node = self.node_registry[idname](self, node_id)

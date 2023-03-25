@@ -92,7 +92,6 @@ class NodeGraphPanel(PanelBase):
         self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(950, 150))
         self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(950, 50))
 
-
         main_sizer.Add(topbar, flag=wx.EXPAND | wx.LEFT | wx.RIGHT)
         main_sizer.Add(self.nodegraph, 1, flag=wx.EXPAND | wx.BOTH)
 
@@ -155,8 +154,8 @@ class NodeGraphPanel(PanelBase):
     def ImageViewport(self):
         return self.parent.imageviewport_pnl
 
-    def AddNode(self, idname, nodeid, pos, location, docker_image):
-        return self.nodegraph.AddNode(idname, nodeid, pos, location, docker_image)
+    def AddNode(self, idname, nodeid, pos, location):
+        return self.nodegraph.AddNode(idname, nodeid, pos, location)
 
     def UpdateNodegraph(self):
         print("[Debug] nodegraph was updated")

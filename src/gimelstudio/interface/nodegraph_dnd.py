@@ -52,12 +52,12 @@ class NodeGraphDropTarget(wx.DropTarget):
             formatId = None
         return formatType, formatId
 
-    def OnTextDrop(self, ctr_image):
+    def OnTextDrop(self):
         print("Got Node Format, ID:", self.GetReceivedFormatAndId())
         try:
             #This is where the node is actually added to our graph
             self._window.AddNode(self._textDropData.GetText(), nodeid=None, 
-                                 pos=(0, 0), location="CURSOR", docker_image=ctr_image)
+                                 pos=(0, 0), location="CURSOR")
             self._window.UpdateNodegraph()
         except Exception as error:
             self.ShowError(error)
