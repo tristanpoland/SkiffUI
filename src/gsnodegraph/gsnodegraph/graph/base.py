@@ -142,7 +142,7 @@ class NodeGraph(wx.ScrolledCanvas):
                                               ])
         self.parent.SetAcceleratorTable(self.accel_tbl)
 
-    def DeleteContainer(self, container_id)
+    def DeleteContainer(self):
             client.containers.get(self.container_id).stop()
             client.containers.get(self.container_id).remove()
 
