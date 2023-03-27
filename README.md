@@ -1,5 +1,5 @@
 # Warning!: It's a bit broken and very incomplete, this is in-dev and nothing is for sure, use with care!
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce462fd37100447190f567eaf09e38ff)](https://app.codacy.com/gh/Gameplex-Software/SkiffUI/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ce462fd37100447190f567eaf09e38ff)](https://app.codacy.com/gh/Gameplex-Software/SkiffUI/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) ![Contribs Badge](https://img.shields.io/github/contributors/gameplex-software/skiffui) ![Version](https://img.shields.io/github/v/release/gameplex-software/skiffui) ![License](https://img.shields.io/github/license/gameplex-software/skiffui) ![](https://img.shields.io/discord/773279144896757761)
 <p align=center>
 <img width=100% src='https://user-images.githubusercontent.com/34868944/224514426-5096788f-780f-40b5-b391-7697e3e2a237.png'/>
 </p>
