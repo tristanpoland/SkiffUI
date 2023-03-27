@@ -142,9 +142,13 @@ class NodeGraph(wx.ScrolledCanvas):
                                               ])
         self.parent.SetAcceleratorTable(self.accel_tbl)
 
+    def __repr__(self):
+        #Run code on instance creation
+        print("Hello from node object instance!")
+
     def DeleteContainer(self):
-            client.containers.get(self.input).stop()
-            client.containers.get(self.input).remove()
+            client.containers.get(self.container_id).stop()
+            client.containers.get(self.container_id).remove()
 
     def OnPaint(self, event):
         dc = wx.BufferedPaintDC(self, self.buffer)
@@ -360,7 +364,7 @@ class NodeGraph(wx.ScrolledCanvas):
     def OnDeleteNode(self, event):
         if (self.active_node != None and
             self.active_node.IsOutputNode() != True):
-            self.DeleteContainer(self.container_id)
+            self.DeleteContainer()
             print("Dropped container", self.container_id)
             self.DeleteNode(self.active_node)
             self.active_node = None
@@ -616,9 +620,13 @@ class NodeGraph(wx.ScrolledCanvas):
             # We check to make sure this is not just the same
             # node clicked again, then we switch the active states.
             if self.src_node != self.active_node:
+      
                 self.active_node.SetActive(False)
                 self.active_node = self.src_node
+                print("User selected", self.active_node)
+                print("MY ID:",self.container_id)
                 self.active_node.SetActive(True)
+
 
         # When a node is active, all the selected nodes
         # need to be set to the unselected state.
@@ -677,7 +685,7 @@ class NodeGraph(wx.ScrolledCanvas):
         for node in self.sel_nodes:
             if node.IsOutputNode() != True:
                 self.DeleteNodes(self.container_id)
-                self.DeleteContainer(self.container_id)
+                self.DeleteContainer()
                 print("Dropped container", self.container_id)
             else:
                 # In the case that this is an output node, we
@@ -687,7 +695,7 @@ class NodeGraph(wx.ScrolledCanvas):
 
         if (self.active_node != None and
             self.active_node.IsOutputNode() != True):
-            self.DeleteContainer(self.container_id)
+            self.DeleteContainer()
             print("Dropped container", self.container_id)
             self.DeleteNode(self.active_node)
             self.active_node = None

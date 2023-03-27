@@ -130,11 +130,11 @@ class NodeBase(object):
         # Calculate the normal size of the node to fit
         # the amount of sockets the node has. The expanded size
         # is calculated to be the normal size plus the image thumbnail size.
-        calc_height = self.lastsocket_pos + 90 + NODE_THUMB_PADDING * 2
+        calc_height = self.lastsocket_pos + 85 + NODE_THUMB_PADDING * 2
         self.expanded_size = wx.Size(NODE_DEFAULT_WIDTH, calc_height)
 
         self.normal_size = wx.Size(NODE_DEFAULT_WIDTH,
-                                   self.lastsocket_pos+(NODE_Y_PADDING*2))
+                                   self.lastsocket_pos+ 60 +(NODE_Y_PADDING*2))
 
         # Set the initial node size
         if self.IsExpanded():
