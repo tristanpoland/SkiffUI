@@ -62,7 +62,7 @@ class AUIManager(aui.AuiManager):
 
 class ApplicationFrame(wx.Frame):
     def __init__(self, app_config=None):
-        wx.Frame.__init__(self, None, title=APP_FULL_TITLE, size=(1000, 800))
+        wx.Frame.__init__(self, None, title=APP_FULL_TITLE, size=(1920, 1080))
 
         # Application configuration project file IO
         self.appconfig = app_config

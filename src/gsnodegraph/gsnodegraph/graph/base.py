@@ -66,7 +66,6 @@ ID_CONTEXTMENU_SELECTALLNODES = wx.NewIdRef()
 
 class NodeGraph(wx.ScrolledCanvas):
     def __init__(self, parent, registry, *args, **kwds):
-        print("Hello from GSNodeGraph")
         self.parent = parent
         self.node_registry = registry
 
@@ -412,47 +411,47 @@ class NodeGraph(wx.ScrolledCanvas):
             # deleted or duplicated at all.
             if self.active_node.IsOutputNode() != True:
                 duplicate_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                           ID_CONTEXTMENU_DUPLICATENODE,
-                                                           "{0}{1}".format(_("Duplicate"), "\tShift+D"), "",
-                                                           wx.ITEM_NORMAL)
+                    ID_CONTEXTMENU_DUPLICATENODE,
+                    "{0}{1}".format(_("Duplicate"), "\tShift+D"), "",
+                    wx.ITEM_NORMAL)
                 self.context_menu.AppendItem(duplicate_menuitem)
                 delete_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                        ID_CONTEXTMENU_DELETENODE,
-                                                        "{0}{1}".format(_("Delete"), "\tDel"), "",
-                                                        wx.ITEM_NORMAL)
+                    ID_CONTEXTMENU_DELETENODE,
+                    "{0}{1}".format(_("Delete"), "\tDel"), "",
+                    wx.ITEM_NORMAL)
                 self.context_menu.AppendItem(delete_menuitem)
 
                 if self.active_node.IsMuted() is not True:
                     mute_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                            ID_CONTEXTMENU_MUTENODE,
-                                                            "{0}{1}".format(_("Mute"), "\tShift+M"), "",
-                                                            wx.ITEM_NORMAL)
+                        ID_CONTEXTMENU_MUTENODE,
+                        "{0}{1}".format(_("Mute"), "\tShift+M"), "",
+                        wx.ITEM_NORMAL)
                     self.context_menu.AppendItem(mute_menuitem)
                 else:
                     unmute_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                            ID_CONTEXTMENU_UNMUTENODE,
-                                                            _("Unmute"), "",
-                                                            wx.ITEM_NORMAL)
+                        ID_CONTEXTMENU_UNMUTENODE,
+                        _("Unmute"), "",
+                        wx.ITEM_NORMAL)
                     self.context_menu.AppendItem(unmute_menuitem)
 
         else:
             if self.sel_nodes != []:
                 deletenodes_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                             ID_CONTEXTMENU_DELETENODES,
-                                                             "{0}{1}".format(_("Delete Selected"), "\tDel"), "",
-                                                             wx.ITEM_NORMAL)
+                    ID_CONTEXTMENU_DELETENODES,
+                    "{0}{1}".format(_("Delete Selected"), "\tDel"), "",
+                    wx.ITEM_NORMAL)
                 self.context_menu.AppendItem(deletenodes_menuitem)
 
         selectallnodes_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                        ID_CONTEXTMENU_SELECTALLNODES,
-                                                        "Select All", "",
-                                                        wx.ITEM_NORMAL)
+            ID_CONTEXTMENU_SELECTALLNODES,
+            "Select All", "",
+            wx.ITEM_NORMAL)
         self.context_menu.AppendItem(selectallnodes_menuitem)
 
         deselectallnodes_menuitem = flatmenu.FlatMenuItem(self.context_menu,
-                                                          ID_CONTEXTMENU_DESELECTALLNODES,
-                                                          "Deselect All", "",
-                                                          wx.ITEM_NORMAL)
+            ID_CONTEXTMENU_DESELECTALLNODES,
+            "Deselect All", "",
+            wx.ITEM_NORMAL)
         self.context_menu.AppendItem(deselectallnodes_menuitem)
 
     def DrawSelectionBox(self, dc, rect):
@@ -613,8 +612,6 @@ class NodeGraph(wx.ScrolledCanvas):
       
                 self.active_node.SetActive(False)
                 self.active_node = self.src_node
-                print("User selected", self.active_node)
-                print("MY ID:")
                 self.active_node.SetActive(True)
 
 
@@ -721,6 +718,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 container = client.containers.run(image=docker_image, detach=True)
                 self.container_id = container.id
                 nodeid = container.id
+
                 try:
                     with open(path, 'w') as f:
                         f.write("")
@@ -731,7 +729,6 @@ class NodeGraph(wx.ScrolledCanvas):
                     "id": "TestCTR"
                     "CPU" "0.1%"
                 }
-                print("Got container heartbeat with status:", ctr_stats)
         except:
             print("SkiffUI is still starting! Skipping docker processing")
 
@@ -832,7 +829,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 client.containers.get(node.id).remove()
             except Exception as e:
                 print("[CRITICAL/FAILURE] DOCKER IMAGE DELETION FAILED!", e)
-            print("Dropped container", node.id)
+            print("Deleted container", node.id, "from Docker daemon")
         del self.nodes[node.id]
         self.UpdateNodeGraph()
 

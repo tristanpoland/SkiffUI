@@ -88,9 +88,9 @@ class NodeGraphPanel(PanelBase):
 
         self.nodegraph = NodeGraph(self, self.registry, size=(-1, self.Size[0]-20))
 
-        self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(1950, 500))
-        self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(1950, 300))
-        self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(1950, 100))
+        self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(1050, 500))
+        self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(1050, 300))
+        self.nodegraph.AddNode('corenode_outputcomposite', pos=wx.Point(1050, 100))
 
         main_sizer.Add(topbar, flag=wx.EXPAND | wx.LEFT | wx.RIGHT)
         main_sizer.Add(self.nodegraph, 1, flag=wx.EXPAND | wx.BOTH)
