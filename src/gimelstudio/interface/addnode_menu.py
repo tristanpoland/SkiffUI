@@ -89,7 +89,6 @@ class NodesVListBox(wx.VListBox):
                 print(path)
                 with open(path, 'w') as f:
                     f.write(containerImageID)
-                    print("Wrote:", containerImageID)
             except Exception as e:
                 print("Error writing to file:", e)
             data = wx.TextDataObject()
@@ -105,9 +104,7 @@ class NodesVListBox(wx.VListBox):
                 self.SetSelection(-1)
 
                 # Finish run container from node
-                print("User dropped Node for imageID:", containerImageID, "on graph")
-
-              
+                print("User dropped Node for imageID:", containerImageID, "on graph")          
 
     # This method must be overridden.  When called it should draw the
     # n'th item on the dc within the rect.  How it is drawn, and what

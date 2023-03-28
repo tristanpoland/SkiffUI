@@ -49,13 +49,14 @@ class NodeBase(object):
         self.header_color = wx.Colour(NODE_HEADER_CATEGORY_COLORS["INPUT"])
 
         self.expandicon_bmp = ICON_IMAGE.GetBitmap()
-        self.checkerboard_bmp = ICON_BRUSH_CHECKERBOARD.GetBitmap()
 
     def Init(self, idname) -> None:
         self.InitSockets()
         self.Initheader_color()
         self.InitSize()
         self.SetIdName(idname)
+        print("New node instance")
+        print("Node instance ID is:", self.id)
 
     def NodeOutputDatatype(self) -> str:
         return "RGBAIMAGE"

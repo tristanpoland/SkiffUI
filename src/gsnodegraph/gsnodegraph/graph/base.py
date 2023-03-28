@@ -142,14 +142,6 @@ class NodeGraph(wx.ScrolledCanvas):
                                               ])
         self.parent.SetAcceleratorTable(self.accel_tbl)
 
-    def __repr__(self):
-        #Run code on instance creation
-        print("Hello from node object instance!")
-
-    def DeleteContainer(self):
-            client.containers.get(self.container_id).stop()
-            client.containers.get(self.container_id).remove()
-
     def OnPaint(self, event):
         dc = wx.BufferedPaintDC(self, self.buffer)
 
@@ -364,8 +356,6 @@ class NodeGraph(wx.ScrolledCanvas):
     def OnDeleteNode(self, event):
         if (self.active_node != None and
             self.active_node.IsOutputNode() != True):
-            self.DeleteContainer()
-            print("Dropped container", self.container_id)
             self.DeleteNode(self.active_node)
             self.active_node = None
 
@@ -624,7 +614,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 self.active_node.SetActive(False)
                 self.active_node = self.src_node
                 print("User selected", self.active_node)
-                print("MY ID:",self.container_id)
+                print("MY ID:")
                 self.active_node.SetActive(True)
 
 
@@ -684,9 +674,7 @@ class NodeGraph(wx.ScrolledCanvas):
         """
         for node in self.sel_nodes:
             if node.IsOutputNode() != True:
-                self.DeleteNodes(self.container_id)
-                self.DeleteContainer()
-                print("Dropped container", self.container_id)
+            pass
             else:
                 # In the case that this is an output node, we
                 # want to deselect it, not delete it. :)
@@ -695,8 +683,6 @@ class NodeGraph(wx.ScrolledCanvas):
 
         if (self.active_node != None and
             self.active_node.IsOutputNode() != True):
-            self.DeleteContainer()
-            print("Dropped container", self.container_id)
             self.DeleteNode(self.active_node)
             self.active_node = None
 
@@ -729,21 +715,18 @@ class NodeGraph(wx.ScrolledCanvas):
             path = os.path.join(os.getcwd() + 'selectednodeID.cache')
             with open(path, 'r') as f:
                 docker_image = f.read()
-                print(docker_image)
             if docker_image == "":
                 print("A node was added to the graph, but no docker image was specified, skipping container init")
             else:
                 container = client.containers.run(image=docker_image, detach=True)
                 match = re.search(r'\b\w{64}\b', str(container.id))
                 self.container_id = container.id
-                print("ID reset to:", docker_image)
+                node_id = container.id
                 try:
                     with open(path, 'w') as f:
                         f.write("")
-                        print("Reset image ID cache")
                 except Exception as e:
                     print("Error writing to file:", e)
-                print("Container image was specified in AddNode() spinning up a container for node")
                 #Hard code container resource usage for testing
                 ctr_stats = {
                     "id": "TestCTR"
@@ -752,9 +735,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 print("Got container heartbeat with status:", ctr_stats)
         except:
             print("SkiffUI is still starting! Skipping docker processing")
-            print()
 
-        print(node_id, "Was added to the graph")
         node = self.node_registry[idname](self, node_id)
         node.Init(idname)
         self.nodes[node.id] = node
@@ -847,6 +828,12 @@ class NodeGraph(wx.ScrolledCanvas):
                 # connected to this node.
                 #remove container from networks?
                 self.DisconnectNodes(wire.srcsocket, wire.dstsocket)
+            try:
+                client.containers.get(node.id).stop()
+                client.containers.get(node.id).remove()
+            except Exception as e:
+                print("[CRITICAL/FAILURE] DOCKER IMAGE DELETION FAILED!", e)
+            print("Dropped container", node.id)
         del self.nodes[node.id]
         self.UpdateNodeGraph()
 
