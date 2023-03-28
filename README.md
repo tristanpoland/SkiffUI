@@ -36,6 +36,8 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 
 # Installation
 
+##Requirements
+- Docker (either desktop or command line) Temporary requirement to prevent app crashing, soon to be un-needed
 
 ## Latest Beta
 ### News
