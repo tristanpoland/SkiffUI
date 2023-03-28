@@ -39,7 +39,7 @@ class DockerNode(api.Node):
     def NodeInitProps(self):
         image_id = api.LabelProp(
             idname="image_id",
-            default="52cd6974f49c4ce77d526194a072b40553d9afb5ef2531f8289814c2783141db"
+            default="bb939a326dd68c42596ab2f853f910654e7562986f5b0b52bcd3ca98fed78f15"
         )
         self.NodeAddProp(image_id)
 
@@ -66,4 +66,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "52cd6974f49c4ce77d526194a072b40553d9afb5ef2531f8289814c2783141db")
+api.RegisterNode(DockerNode, "bb939a326dd68c42596ab2f853f910654e7562986f5b0b52bcd3ca98fed78f15")

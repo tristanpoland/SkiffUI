@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "05219f4a-75ef-4e7a-8f5e-7dea05e37b19": {
+            "5dd620d3-ccf7-4c8b-9a17-350a408cde36": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,51 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "quizzical_lovelace"
+                        "value": "hungry_hugle"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "023199cf-c149-4a9e-b69e-a43103b1d979": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "intelligent_clarke"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "e5954c2d-9776-410c-983c-3c691814db2a": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "lucid_blackburn"
                     },
                     "status": {
                         "idname": "status",

@@ -375,8 +375,8 @@ class NodeGraph(wx.ScrolledCanvas):
 
     def OnSelectAllNodes(self, event):
         """ Event that selects all the nodes in the Node Graph. """
-        for node_id in self.nodes:
-            node = self.nodes[node_id]
+        for nodeid in self.nodes:
+            node = self.nodes[nodeid]
             if node.IsActive() is True:
                 node.SetActive(False)
             node.SetSelected(True)
@@ -567,8 +567,8 @@ class NodeGraph(wx.ScrolledCanvas):
             dc.DrawBitmap(image, pnt[0], pnt[1], useMask=False)
 
         # Draw nodes
-        for node_id in self.nodes:
-            self.nodes[node_id].Draw(dc)
+        for nodeid in self.nodes:
+            self.nodes[nodeid].Draw(dc)
 
         # Draw temporary wires
         if self.tmp_wire != None:
@@ -674,7 +674,7 @@ class NodeGraph(wx.ScrolledCanvas):
         """
         for node in self.sel_nodes:
             if node.IsOutputNode() != True:
-            pass
+                pass
             else:
                 # In the case that this is an output node, we
                 # want to deselect it, not delete it. :)
@@ -705,12 +705,12 @@ class NodeGraph(wx.ScrolledCanvas):
             self.UpdateNodeGraph()
             return duplicate_node
 
-    def AddNode(self, idname, node_id=None, pos=(0, 0), location="POSITION"):
+    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
         time.sleep(.5)
-        if node_id:
-            print("Node ID should not be specified")
+        if nodeid:
+            print("node ID specified assumed node was loaded from save file")
         else:
-            node_id = uuid.uuid4().hex
+            nodeid = uuid.uuid4().hex
         try:
             path = os.path.join(os.getcwd() + 'selectednodeID.cache')
             with open(path, 'r') as f:
@@ -719,9 +719,8 @@ class NodeGraph(wx.ScrolledCanvas):
                 print("A node was added to the graph, but no docker image was specified, skipping container init")
             else:
                 container = client.containers.run(image=docker_image, detach=True)
-                match = re.search(r'\b\w{64}\b', str(container.id))
                 self.container_id = container.id
-                node_id = container.id
+                nodeid = container.id
                 try:
                     with open(path, 'w') as f:
                         f.write("")
@@ -736,7 +735,7 @@ class NodeGraph(wx.ScrolledCanvas):
         except:
             print("SkiffUI is still starting! Skipping docker processing")
 
-        node = self.node_registry[idname](self, node_id)
+        node = self.node_registry[idname](self, nodeid)
         node.Init(idname)
         self.nodes[node.id] = node
 
@@ -779,8 +778,8 @@ class NodeGraph(wx.ScrolledCanvas):
 
     def GetOutputNode(self):
         """ Return the output node object. """
-        for node_id in self.nodes:
-            node = self.nodes[node_id]
+        for nodeid in self.nodes:
+            node = self.nodes[nodeid]
             if node.IsOutputNode():
                 return node
 
@@ -789,9 +788,9 @@ class NodeGraph(wx.ScrolledCanvas):
         :param type_id: node type identifier
         :returns: NodeBase subclass object
         """
-        for node_id in self.GetNodes():
-            if self.nodes[node_id].idname == type_id:
-                return self.nodes[node_id]
+        for nodeid in self.GetNodes():
+            if self.nodes[nodeid].idname == type_id:
+                return self.nodes[nodeid]
 
     def ConnectNodes(self, src_socket, dst_socket):
         pt1 = src_socket.node.pos + src_socket.pos
