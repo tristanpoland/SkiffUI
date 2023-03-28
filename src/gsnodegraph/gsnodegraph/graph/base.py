@@ -706,7 +706,7 @@ class NodeGraph(wx.ScrolledCanvas):
             return duplicate_node
 
     def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
-        time.sleep(.5)
+        # time.sleep(.5)
         if nodeid:
             print("node ID specified assumed node was loaded from save file")
         else:

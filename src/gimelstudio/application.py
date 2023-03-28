@@ -237,7 +237,7 @@ class ApplicationFrame(wx.Frame):
         self.toggleautorender_menuitem = flatmenu.FlatMenuItem(
             render_menu,
             id=wx.ID_ANY,
-            label=_("Auto Render Image"),
+            label=_("Auto Refresh Networks"),
             helpString=_("Enable auto rendering after editing node properties, connections, etc"),
             kind=wx.ITEM_CHECK,
             subMenu=None
@@ -246,7 +246,7 @@ class ApplicationFrame(wx.Frame):
         self.renderimage_menuitem = flatmenu.FlatMenuItem(
             render_menu,
             id=wx.ID_ANY,
-            label="{0}{1}".format(_("Render Image"), "\tF12"),
+            label="{0}{1}".format(_("Recalculate Network"), "\tF12"),
             helpString=_("Force an immediate, updated render of the current node graph"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
@@ -357,7 +357,7 @@ class ApplicationFrame(wx.Frame):
         self.menubar.Append(edit_menu, _("Edit"))
         self.menubar.Append(view_menu, _("View"))
         self.menubar.Append(connect_menu, _("Connect"))
-        self.menubar.Append(render_menu, _("Render"))
+        self.menubar.Append(render_menu, _("Network"))
         self.menubar.Append(window_menu, _("Window"))
         self.menubar.Append(engine_menu, _("Engine"))
         self.menubar.Append(help_menu, _("Help"))
