@@ -32,3 +32,4 @@ tests
 .vscode
 env
 .DS_Store
+src/docker_state.skf
