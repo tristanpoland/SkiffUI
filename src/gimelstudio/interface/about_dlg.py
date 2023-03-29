@@ -30,12 +30,13 @@ class AboutDialog(wx.Frame):
         wx.Frame.__init__(self, None, -1, style=wx.FRAME_SHAPED | wx.BORDER_SIMPLE)
     
         self.SetBackgroundColour(const.DARK_COLOR)
-
+    
         self.parent = parent
-
+    
         self.BuildUI()
-        self.Center()
-
+        self.CenterOnParent()
+        self.CenterOnScreen()
+    
         self.Bind(wx.EVT_KILL_FOCUS, self.OnCloseDialog)
 
     def BuildUI(self):
