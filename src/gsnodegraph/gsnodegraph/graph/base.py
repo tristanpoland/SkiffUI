@@ -829,7 +829,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 client.containers.get(node.id).remove()
             except Exception as e:
                 print("[CRITICAL/FAILURE] DOCKER IMAGE DELETION FAILED!", e)
-            print("Deleted container", node.id, "from Docker daemon")
+            print("Deleted container", node.id, "from container engine")
         del self.nodes[node.id]
         self.UpdateNodeGraph()
 
