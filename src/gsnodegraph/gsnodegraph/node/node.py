@@ -272,7 +272,7 @@ class NodeBase(object):
         else:
             color = wx.Colour('#fff').ChangeLightness(85)
         dc.SetTextForeground(color)
-        dc.DrawText(self.GetLabel(), x+10, y+1)
+        dc.DrawText(self.GetLabel()[:25], x+10, y+1)
 
         # Node sockets
         [socket.Draw(dc) for socket in self.sockets]
