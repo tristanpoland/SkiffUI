@@ -249,7 +249,7 @@ class NodeBase(object):
             node_color = NODE_NORMAL_COLOR
         dc.SetPen(wx.Pen(wx.Colour(border_color), 1))
         dc.SetBrush(wx.Brush(wx.Colour(node_color)))
-        dc.DrawRoundedRectangle(x, y, w, h, 3)
+        dc.DrawRoundedRectangle(x, y, w, h, 8) # 8 used to be 3, changed for testing
 
         # Node header
         dc.SetPen(wx.Pen(wx.TRANSPARENT_PEN))
