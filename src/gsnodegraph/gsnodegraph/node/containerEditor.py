@@ -35,7 +35,8 @@ class ContainerEditor(wx.Dialog):
         
         # create controls for the General tab
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
-        self.container_name_label.SetForegroundColour(wx.WHITE) # set the label text color to white
+        # set the label text color to white
+        self.container_name_label.SetForegroundColour(wx.WHITE)
         self.container_name_text = wx.TextCtrl(self.general_tab)
         
         # create a sizer for the General tab
