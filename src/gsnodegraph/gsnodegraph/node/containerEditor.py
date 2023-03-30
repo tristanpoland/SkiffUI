@@ -17,11 +17,11 @@
 import wx
 
 class ContainerEditor(wx.Dialog):
-    def __init__(self):
-        super().__init__(None, title="Container Editor", size=(900, 800))
-        
+    def __init__(self, id):
+        super().__init__(None, title="Container Editor", size=(600, 700))
+        print("Launched container editor for container", id)
         self.SetBackgroundColour('#1E1E1E') # set the background color to dark
-        
+
         # create the notebook with tabs
         self.notebook = wx.Notebook(self)
         self.general_tab = wx.Panel(self.notebook)
@@ -32,19 +32,40 @@ class ContainerEditor(wx.Dialog):
         self.notebook.AddPage(self.ports_tab, "Ports")
         self.notebook.AddPage(self.volumes_tab, "Volumes")
         self.notebook.AddPage(self.environment_tab, "Environment")
-        
-        # create controls for the General tab
+
+        # Container Name
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
-        # set the label text color to white
+        self.container_name_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_name_label.SetForegroundColour(wx.WHITE)
         self.container_name_text = wx.TextCtrl(self.general_tab)
-        
+
+        #container Image
+        self.container_image_label = wx.StaticText(self.general_tab, label="Container Image:")
+        self.container_image_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
+        self.container_image_label.SetForegroundColour(wx.WHITE)
+        self.container_image_text = wx.TextCtrl(self.general_tab)
+        choices = ['Option 1', 'Option 2', 'Option 3']
+        self.container_image_selection = wx.ComboBox(self.general_tab, choices=choices)
+
         # create a sizer for the General tab
         general_sizer = wx.BoxSizer(wx.VERTICAL)
-        general_sizer.Add(self.container_name_label, 0, wx.ALL, 5)
-        general_sizer.Add(self.container_name_text, 0, wx.ALL, 5)
-        self.general_tab.SetSizer(general_sizer)
         
+        # Add a static box with some widgets
+        static_box = wx.StaticBox(self.general_tab, label="Container Details")
+        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
+        
+        # Container name sizers
+        static_box_sizer.Add(self.container_name_label, 0, wx.ALL | wx.CENTER, 5)
+        static_box_sizer.Add(self.container_name_text, 0, wx.ALL | wx.EXPAND, 5)
+
+        # Container image sizers
+        static_box_sizer.Add(self.container_image_label, 0, wx.ALL | wx.CENTER, 5)
+        static_box_sizer.Add(self.container_image_selection, 0, wx.ALL | wx.EXPAND, 5)
+        
+        general_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
+
+        self.general_tab.SetSizer(general_sizer)
+
         # create the buttons
         self.cancel_button = wx.Button(self, label="Cancel")
         self.save_button = wx.Button(self, label="Save")
@@ -54,12 +75,10 @@ class ContainerEditor(wx.Dialog):
         button_sizer.Add(self.cancel_button, 0, wx.ALL, 5)
         button_sizer.Add(self.save_button, 0, wx.ALL, 5)
         button_sizer.Add(self.apply_button, 0, wx.ALL, 5)
-        
+
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.notebook, 1, wx.EXPAND)
         sizer.Add(button_sizer, 0, wx.ALIGN_CENTER)
         
         self.SetSizer(sizer)
         self.Layout()
-        
-        self.SetSize((900, 800)) # set the size of the entire dialog, including borders and title bar

@@ -58,10 +58,10 @@ class Node(NodeView):
     def EditContainer(self, event=None):
         print("Opening container editor")
         try:
-            dialog = ContainerEditor()
+            dialog = ContainerEditor(id=self.id)
             dialog.ShowModal()
-        except:
-            print("Error opening container editor")
+        except Exception as e:
+            print("Error opening container editor", e)
 
     def _WidgetEventHook(self, idname, value, render):
         """ Internal dispatcher method for the Property widget
