@@ -21,9 +21,10 @@ from gsnodegraph import NodeBase as NodeView
 import gimelstudio.constants as const
 from gimelstudio.utils import ResizeKeepAspectRatio, ConvertImageToWx
 from gimelstudio.core import EvalInfo, RenderImage
+from gimelstudio.core.node.property import ActionProp
+from gsnodegraph.node.containerEditor import ContainerEditor
 
-
-class Node(NodeView):
+class Node(NodeView):    
     def __init__(self, nodegraph, _id):
         NodeView.__init__(self, nodegraph, _id)
         self.nodegraph = nodegraph
@@ -35,9 +36,32 @@ class Node(NodeView):
         self.edited_flag = False
         self.shader_cache = None
         self.shader_cache_enabled = True
+        print(self.GetCategory())
+        print(self.id)
+        if self.GetCategory() == "FILTER":
+            # Add the "Edit Container" button to the sidebar
+            container_edit = ActionProp(
+                idname="container_editbtn",
+                btn_label="Edit Container",
+                action=self.EditContainer,
+            )
 
-        self.NodeInitProps()
-        self.NodeInitParams()
+            # Init properties and parameters
+            self.NodeInitParams()
+            self.NodeInitProps()
+            self.NodeAddProp(container_edit)
+        else:
+            # Init properties and parameters
+            self.NodeInitParams()
+            self.NodeInitProps()
+
+    def EditContainer(self, event=None):
+        print("Opening container editor")
+        try:
+            dialog = ContainerEditor()
+            dialog.ShowModal()
+        except:
+            print("Error opening container editor")
 
     def _WidgetEventHook(self, idname, value, render):
         """ Internal dispatcher method for the Property widget

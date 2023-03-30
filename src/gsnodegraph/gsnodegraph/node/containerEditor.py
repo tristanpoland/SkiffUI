@@ -63,10 +63,3 @@ class ContainerEditor(wx.Dialog):
         self.Layout()
         
         self.SetSize((900, 800)) # set the size of the entire dialog, including borders and title bar
-        
-        self.ShowModal()
-        
-if __name__ == '__main__':
-    app = wx.App()
-    ContainerEditor()
-    app.MainLoop()

@@ -46,11 +46,12 @@ class NodeBase(object):
         self.is_output = False
         self.label = ""
         self.category = "INPUT"
-        self.header_color = wx.Colour(NODE_HEADER_CATEGORY_COLORS["INPUT"])
+        self.header_color = wx.Colour(NODE_HEADER_CATEGORY_COLORS["BLEND"])
 
         self.expandicon_bmp = ICON_IMAGE.GetBitmap()
 
     def Init(self, idname) -> None:
+        
         self.InitSockets()
         self.Initheader_color()
         self.InitSize()
