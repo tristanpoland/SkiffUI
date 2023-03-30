@@ -56,8 +56,6 @@ class NodeBase(object):
         self.Initheader_color()
         self.InitSize()
         self.SetIdName(idname)
-        print("New node instance")
-        print("Node instance ID is:", self.id)
 
     def NodeOutputDatatype(self) -> str:
         return "RGBAIMAGE"
