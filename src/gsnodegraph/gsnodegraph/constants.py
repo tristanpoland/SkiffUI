@@ -49,7 +49,7 @@ WIRE_ACTIVE_COLOR = (210, 210, 210, 255)
 DEFAULT_WIRE_CURVATURE = 40
 
 NODE_HEADER_CATEGORY_COLORS = {
-    "INPUT": "#E64555",  # Burgendy
+    "INPUT": "#498DB8",  # Burgendy
     "DRAW": "#AF4467",  # Pink
     "MASK": "#084D4D",  # Blue-green
     "CONVERT": "#564B7C",  # Purple
