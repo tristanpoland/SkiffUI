@@ -67,7 +67,7 @@ class Renderer(object):
         return image
 
     def RenderNodeGraph(self, output_node, nodes):
-        print ("[Debug] Renderer called")
+        print ("[Debug] Recalculated node network")
         """ Render the image, starting from the output node.
 
         :param output_node: the output node object
@@ -76,7 +76,6 @@ class Renderer(object):
         """
         output_data = OutputNodeEval()
         output_data.SetNode(output_node)
-        print(output_data)
         return output_data.RenderImage()
 
     def GetOutputNode(self, nodes):

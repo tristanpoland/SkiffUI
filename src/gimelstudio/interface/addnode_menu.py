@@ -86,7 +86,6 @@ class NodesVListBox(wx.VListBox):
             containerImageID = selection
             try:
                 path = os.path.join(os.getcwd() + 'selectednodeID.cache')
-                print(path)
                 with open(path, 'w') as f:
                     f.write(containerImageID)
             except Exception as e:
