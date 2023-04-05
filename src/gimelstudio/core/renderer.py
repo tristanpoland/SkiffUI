@@ -16,7 +16,6 @@
 
 from .output_eval import OutputNodeEval
 from .datatypes import RenderImage
-from shiphelm.helmdocker import helmdocker
 
 try:
     hd = helmdocker() # create an instance of helmdocker
