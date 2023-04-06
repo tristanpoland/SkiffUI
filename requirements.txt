@@ -46,6 +46,6 @@ traitlets==5.9.0
 urllib3==1.26.14
 wcwidth==0.2.6
 websocket-client==1.5.1
-wxPython==4.1.1
+wxPython==4.1.1 sys_platform == 'win32'
 https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-22.04/wxPython-4.2.0-cp38-cp38-linux_x86_64.whl; sys_platform == 'linux' and platform_release == '22.04'
 zipp==3.15.0
