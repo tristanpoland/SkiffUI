@@ -5,6 +5,51 @@
     "app_version_tag": " pre-alpha 1",
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
-        "nodes": {}
+        "nodes": {
+            "417a9670-5c24-403e-abad-2c96029a40bf": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "inspiring_feynman"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "29f5be34-f8f2-48d5-b296-b552ccfecbdb": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "heuristic_merkle"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            }
+        }
     }
 }

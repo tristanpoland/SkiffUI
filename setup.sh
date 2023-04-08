@@ -14,11 +14,25 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-# Execute from the src folder to avoid issues with main.py
-cd ./src
+# Install curl and git
+sudo apt-get install curl git
+
+# Install Python3.9 and pip as well as other deps
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.9 get-pip.py
+sudo apt-get install python3.9-distutils
+sudo apt-get install libgtk-3-dev gettext python3.9-dev build-essential
+
 # Install the required pip dependancies
-pip3.8 install -r ../requirements.txt
+python3.9 build.py
+
+# Move to src directory
+cd ./src/
+
 # Install the customized gsnodegraph library
-pip3.8 install -r ./gxnodegraph/
+python3.9 -m pip install -r ./gsnodegraph/
+
 # Start the app
-python3.8 ./main.py
+python3.9 ./main.py
