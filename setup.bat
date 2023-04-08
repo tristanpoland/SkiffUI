@@ -17,7 +17,7 @@
 :: Execute from the src folder to avoid issues with main.py
 cd .\src
 :: Install the required pip dependancies
-pip3.8 install -r ..\requirements.txt
+python3.8 ..\build.py
 :: Install the customized gsnodegraph library
 pip3.8 install -r .\gsnodegraph\
 :: Start the app
