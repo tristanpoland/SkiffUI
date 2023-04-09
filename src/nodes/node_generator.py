@@ -53,7 +53,7 @@ try:
 
             # Construct the filename for the Docker node file
             filename = f"{image.id[7:]}.py"
-            node_file_path = os.path.join(script_dir,'customnodes\\', filename)
+            node_file_path = os.path.join(script_dir,'customnodes', filename)
 
             # Construct the ID for the Docker node
             node_id = image.id[7:]

@@ -30,7 +30,9 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 
 # Beta UI
 
-<video src='https://user-images.githubusercontent.com/34868944/230649903-c31c8283-a296-4e4a-934e-79477725112f.mp4'></video>
+<video src='https://user-images.githubusercontent.com/34868944/224881139-1548ec4b-c939-4480-854c-ad3d6c7d708d.mp4'></video>
+
+
 
 # Installation
 
@@ -65,22 +67,3 @@ coming soon
 ```
 
 
-## Windows
-
-git clone https://github.com/Gameplex-Software/SkiffUI/
-1. Make sure you have Python 3.8, 3.9 or 3.10 installed on your system.
-2. Run ``setup.bat``
-4. Run ``cd src`` then ``python main.py`` to navigate to the src directory and run Gimel Studio.
-5. To build an executable, make sure you are in the root directory and run ``python build.py``. The executable will be generated in the ``dist`` folder.
-
-## Linux
-
-*This has been tested on Debian-based systems (Ubuntu, Linux Mint). Other distros may require extra configuration.*
-
-1. Make sure you have Python 3.9 installed on your system.
-2. Navigate to the root folder and in your terminal, run ``python3 build.py``. This will begin a process to install all of the neccesary libraries and will give you the option to create a standalone executable or just run the code with Python.
-
-## macOS
-
-1. Make sure you have Python 3.8 or 3.9 installed on your system.
-2. Navigate to the root folder and in your terminal, run ``python3 build.py``. This will install all of the neccesary libraries and will give you the option to create a standalone executable or just run the code with Python.

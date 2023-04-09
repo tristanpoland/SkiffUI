@@ -1,5 +1,3 @@
-LICENSE
-README.md
 pyproject.toml
 setup.cfg
 setup.py
@@ -18,6 +16,7 @@ gsnodegraph/graph/btn.py
 gsnodegraph/graph/utils/__init__.py
 gsnodegraph/graph/utils/z_matrix.py
 gsnodegraph/node/__init__.py
+gsnodegraph/node/containerEditor.py
 gsnodegraph/node/node.py
 gsnodegraph/node/socket.py
 gsnodegraph/node/wire.py
