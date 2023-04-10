@@ -20,7 +20,7 @@ from gsnodegraph import NodeBase as NodeView
 
 import gimelstudio.constants as const
 from gimelstudio.utils import ResizeKeepAspectRatio, ConvertImageToWx
-from gimelstudio.core import EvalInfo, RenderImage
+from gimelstudio.core import EvalInfo
 from gimelstudio.core.node.property import ActionProp
 from gsnodegraph.node.containerEditor import ContainerEditor
 

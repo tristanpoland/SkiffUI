@@ -14,9 +14,6 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-from gimelstudio.core import RenderImage
-
-
 class Parameter(object):
     def __init__(self, idname, label, default):
         self.idname = idname
@@ -40,7 +37,7 @@ class Parameter(object):
 
 
 class RenderImageParam(Parameter):
-    def __init__(self, idname, label, default=RenderImage()):
+    def __init__(self, idname, label, default=None):
         Parameter.__init__(self, idname, label, default)
         self.value = default
         self.datatype = "RGBAIMAGE"

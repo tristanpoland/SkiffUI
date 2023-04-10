@@ -15,7 +15,6 @@
 # ----------------------------------------------------------------------------
 
 from .output_eval import OutputNodeEval
-from .datatypes import RenderImage
 
 try:
     hd = helmdocker() # create an instance of helmdocker
@@ -57,7 +56,7 @@ class Renderer(object):
         if rendered_image != None:
             image = rendered_image
         else:
-            image = RenderImage()
+            image = Null #RenderImage()
 
         # TODO: Only if node thumbnails are enabled
         output_node.NodeUpdateThumb(image)

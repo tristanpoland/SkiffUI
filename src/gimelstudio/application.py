@@ -95,13 +95,11 @@ class ApplicationFrame(wx.Frame):
         view_menu = flatmenu.FlatMenu()
         connect_menu = flatmenu.FlatMenu()
         edit_menu = flatmenu.FlatMenu()
-        render_menu = flatmenu.FlatMenu()
+        network_menu = flatmenu.FlatMenu()
         window_menu = flatmenu.FlatMenu()
         engine_menu = flatmenu.FlatMenu()
         help_menu = flatmenu.FlatMenu()
         edit_menu = flatmenu.FlatMenu()
-        null_menu = flatmenu.FlatMenu()
-
 
         # Separator
         separator = flatmenu.FlatMenuItem(file_menu, id=wx.ID_SEPARATOR,
@@ -231,8 +229,8 @@ class ApplicationFrame(wx.Frame):
         )
 
         # Render
-        self.toggleautorender_menuitem = flatmenu.FlatMenuItem(
-            render_menu,
+        self.toggleautonetwork_menuitem = flatmenu.FlatMenuItem(
+            network_menu,
             id=wx.ID_ANY,
             label=_("Auto Refresh Networks"),
             helpString=_("Enable auto rendering after editing node properties, connections, etc"),
@@ -241,7 +239,7 @@ class ApplicationFrame(wx.Frame):
         )
 
         self.renderimage_menuitem = flatmenu.FlatMenuItem(
-            render_menu,
+            network_menu,
             id=wx.ID_ANY,
             label="{0}{1}".format(_("Recalculate Network"), "\tF12"),
             helpString=_("Force an immediate, updated render of the current node graph"),
@@ -313,7 +311,7 @@ class ApplicationFrame(wx.Frame):
         # Set defaults
         self.showimageviewport_menuitem.Check(True)
         self.showstatusbar_menuitem.Check(False)
-        self.toggleautorender_menuitem.Check(True)
+        self.toggleautonetwork_menuitem.Check(True)
 
         # Append menu items to menus
         file_menu.AppendItem(self.newprojectfile_menuitem)
@@ -336,9 +334,9 @@ class ApplicationFrame(wx.Frame):
         connect_menu.AppendItem(self.push_menuitem)
         connect_menu.AppendItem(self.pull_menuitem)
 
-        render_menu.AppendItem(self.toggleautorender_menuitem)
-        render_menu.AppendItem(separator)
-        render_menu.AppendItem(self.renderimage_menuitem)
+        network_menu.AppendItem(self.toggleautonetwork_menuitem)
+        network_menu.AppendItem(separator)
+        network_menu.AppendItem(self.renderimage_menuitem)
 
         window_menu.AppendItem(self.togglewindowfullscreen_menuitem)
         window_menu.AppendItem(self.maximizewindow_menuitem)
@@ -353,12 +351,11 @@ class ApplicationFrame(wx.Frame):
         self.menubar.Append(file_menu, _("File"))
         self.menubar.Append(edit_menu, _("Edit"))
         self.menubar.Append(view_menu, _("View"))
-        self.menubar.Append(connect_menu, _("Connect"))
-        self.menubar.Append(render_menu, _("Network"))
         self.menubar.Append(window_menu, _("Window"))
+        self.menubar.Append(connect_menu, _("Connect"))
+        self.menubar.Append(network_menu, _("Network"))
         self.menubar.Append(engine_menu, _("Engine"))
         self.menubar.Append(help_menu, _("Help"))
-        self.menubar.Append(null_menu, _("NULL"))
         
         # Adds vertical spacing to the menubar popups
         for item in self.menubar._items:
@@ -397,7 +394,7 @@ class ApplicationFrame(wx.Frame):
 
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnToggleAutoRender,
-                  self.toggleautorender_menuitem)
+                  self.toggleautonetwork_menuitem)
         self.Bind(flatmenu.EVT_FLAT_MENU_SELECTED,
                   self.OnRender,
                   self.renderimage_menuitem)
@@ -651,9 +648,10 @@ class ApplicationFrame(wx.Frame):
 
 def OnRemoteConnect(self):
     global remote_address, remote_type
-    
-    # Create dialog box
+
+    # Create dialog box and set dark theme
     dialog = wx.Dialog(None, title='Remote Address', size=(400, 100))
+    #Finish: Set dark theme
 
     # Create text entry field
     text = wx.TextCtrl(dialog)
@@ -681,7 +679,7 @@ def OnRemoteConnect(self):
         # Store values in global variables
         remote_address = text.GetValue()
         remote_type = choices[dropdown.GetCurrentSelection()]
-        print('[Debug (Application.py line 711)] Popup got data', remote_address, "and", remote_type, "from user")
+        print('[Debug (Application.py line 682)] Popup got data', remote_address, "and", remote_type, "from user")
 
     # Destroy dialog box
     dialog.Destroy()
