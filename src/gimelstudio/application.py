@@ -89,9 +89,6 @@ class ApplicationFrame(wx.Frame):
         theme = rm.AddRenderer(artproviders.UIMenuBarRenderer())
         rm.SetTheme(theme)
 
-        def OnRemoteConnect():
-            pass
-
         # Init menus
         file_menu = flatmenu.FlatMenu()
         edit_menu = flatmenu.FlatMenu()
@@ -651,3 +648,40 @@ class ApplicationFrame(wx.Frame):
     def OnAboutDialog(self, event):
         dlg = AboutDialog(self)
         dlg.Show()
+
+def OnRemoteConnect(self):
+    global remote_address, remote_type
+    
+    # Create dialog box
+    dialog = wx.Dialog(None, title='Remote Address', size=(400, 100))
+
+    # Create text entry field
+    text = wx.TextCtrl(dialog)
+
+    # Create dropdown box
+    choices = ['Docker', 'Docker Swarm', 'Kubernetes']
+    dropdown = wx.Choice(dialog, choices=choices)
+
+    # Create OK button
+    ok_button = wx.Button(dialog, wx.ID_OK)
+
+    # Create layout
+    sizer = wx.BoxSizer(wx.HORIZONTAL)
+    sizer.Add(wx.StaticText(dialog, label='Enter remote address:'), flag=wx.LEFT|wx.TOP, border=10)
+    sizer.Add(text, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP|wx.BOTTOM, border=10)
+    sizer.Add(wx.StaticText(dialog, label='Select remote type:'), flag=wx.LEFT|wx.TOP, border=10)
+    sizer.Add(dropdown, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP|wx.BOTTOM, border=10)
+    sizer.Add(ok_button, flag=wx.ALIGN_CENTER|wx.TOP|wx.BOTTOM, border=10)
+    dialog.SetSizer(sizer)
+    dialog.Center()
+    sizer.Fit(dialog)
+
+    # Show dialog box and wait for user input
+    if dialog.ShowModal() == wx.ID_OK:
+        # Store values in global variables
+        remote_address = text.GetValue()
+        remote_type = choices[dropdown.GetCurrentSelection()]
+        print('[Debug (Application.py line 711)] Popup got data', remote_address, "and", remote_type, "from user")
+
+    # Destroy dialog box
+    dialog.Destroy()
