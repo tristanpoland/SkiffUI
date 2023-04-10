@@ -105,8 +105,8 @@ class NodesVListBox(wx.VListBox):
                 # Finish run container from node
                 print("User dropped Node for imageID:", containerImageID, "on graph")          
 
-    # This method must be overridden.  When called it should draw the
-    # n'th item on the dc within the rect.  How it is drawn, and what
+    # This method must be overridden. When called it should draw the
+    # n'th item on the dc within the rect. How it is drawn, and what
     # is drawn is entirely up to you.
     def OnDrawItem(self, dc, rect, n):
         """ Draws the item itself. """
