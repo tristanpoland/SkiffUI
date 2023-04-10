@@ -30,11 +30,7 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-import uuid
-import wx
-import time
-import os
-import re
+import uuid, wx, time, os, re, docker, threading
 import wx.lib.agw.flatmenu as flatmenu
 from wx.lib.newevent import NewCommandEvent
 
@@ -45,7 +41,6 @@ from gsnodegraph.constants import (GRAPH_BACKGROUND_COLOR, SOCKET_OUTPUT,
 from gsnodegraph.assets import ICON_ADD_NODE
 from .utils.z_matrix import ZMatrix
 from .btn import AddNodeBtn
-import docker
 
 client = docker.from_env()
 
@@ -702,7 +697,9 @@ class NodeGraph(wx.ScrolledCanvas):
             self.UpdateNodeGraph()
             return duplicate_node
 
-    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
+
+
+    def AddNodeThread(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
         # time.sleep(.5)
         if nodeid:
             print("node ID specified assumed node was loaded from save file")
@@ -716,8 +713,10 @@ class NodeGraph(wx.ScrolledCanvas):
                 print("A node was added to the graph, but no docker image was specified, skipping container init")
             else:
                 container = client.containers.run(image=docker_image, detach=True)
-                self.container_id = container.id
-                nodeid = container.id
+                NodeGraph.AddNode.container_id = container.id
+                NodeGraph.AddNode.nodeid = container.id
+                NodeGraph.AddNode.container_name = container.name
+                print("Container name:", container.name)
 
                 try:
                     with open(path, 'w') as f:
@@ -741,6 +740,11 @@ class NodeGraph(wx.ScrolledCanvas):
         else:
             node.pos = wx.Point(pos[0], pos[1])
         return node
+
+    #Add node thread (Instead of the whole app waiting for the container to start)
+    def AddNode(self, idname, nodeid=None, pos=(0,0), location="POSITION"):
+        t1 = threading.Thread(target=self.AddNodeTeread, args=(10,))
+        t1.start
 
     def SocketHasWire(self, dst_socket):
         for wire in self.wires:
