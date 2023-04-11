@@ -37,7 +37,6 @@ class Node(NodeView):
         self.shader_cache = None
         self.shader_cache_enabled = True
         print(self.GetCategory())
-        print(self.id)
         if self.GetCategory() == "FILTER":
             # Add the "Edit Container" button to the sidebar
             container_edit = ActionProp(
