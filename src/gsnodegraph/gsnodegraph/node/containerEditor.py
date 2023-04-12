@@ -94,25 +94,25 @@ class ContainerEditor(wx.Dialog):
         self.save_button.Bind(wx.EVT_BUTTON, self.on_save)
         self.apply_button.Bind(wx.EVT_BUTTON, self.on_apply)
 
-    def on_save(self, event):
-        print("Save pressed")
+    def on_apply(self, event):
         # retrieve values from UI elements
         container_name = self.container_name_text.GetValue()
         container_image = self.container_image_text.GetValue()
     
         # apply changes to container with matching ID
-        container = helm.set_engine_auto()
-        helm.hd.rename_container(container_id=ContainerEditor.id, new_name=ContainerEditor.container_name_text)  # implement this function to get the container by ID
+        container = helm.set_engine_manual('docker')
+        helm.rename_container(container_id=ContainerEditor.id, new_name=ContainerEditor.container_name_text)  # implement this function to get the container by ID
         container.name = container_name
         container.image = container_image
-    
+        print("Applied changes to container", ContainerEditor.id)
+
+    def on_save(self, event):
+        #Do the same thing as apply
+        self.on_apply()
+        print("Saved", ContainerEditor.id)
         # close the dialog
-        self.Close()
+        self.EndModal(wx.ID_CANCEL)
 
 
     def on_cancel(self, event):
         self.EndModal(wx.ID_CANCEL)
-
-    def on_apply(self, event):
-        # TODO: implement applying changes without closing the dialog
-        pass
