@@ -6,7 +6,11 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
+<<<<<<< HEAD
             "63de1072-89f7-458e-ae2e-78ee149de8cf": {
+=======
+            "658d5981-8788-4b5c-be4b-a4557ec18b2e": {
+>>>>>>> master
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +24,11 @@
                 "properties": {
                     "name": {
                         "idname": "name",
+<<<<<<< HEAD
                         "value": "great_elgamal"
+=======
+                        "value": "jovial_hofstadter"
+>>>>>>> master
                     },
                     "status": {
                         "idname": "status",
@@ -28,7 +36,11 @@
                     }
                 }
             },
+<<<<<<< HEAD
             "44e22946-d8a4-4381-8191-f31a1d246823": {
+=======
+            "795c295c-0c52-4228-aeb6-1089f0ca2b55": {
+>>>>>>> master
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -42,7 +54,11 @@
                 "properties": {
                     "name": {
                         "idname": "name",
+<<<<<<< HEAD
                         "value": "jolly_austin"
+=======
+                        "value": "hungry_kilby"
+>>>>>>> master
                     },
                     "status": {
                         "idname": "status",
@@ -50,7 +66,11 @@
                     }
                 }
             },
+<<<<<<< HEAD
             "a365e663-0734-4d6a-a14e-e676ca5fa559": {
+=======
+            "bb1b49a0-27c9-48ae-a078-48e9888df5df": {
+>>>>>>> master
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -64,7 +84,11 @@
                 "properties": {
                     "name": {
                         "idname": "name",
+<<<<<<< HEAD
                         "value": "gracious_torvalds"
+=======
+                        "value": "flamboyant_neumann"
+>>>>>>> master
                     },
                     "status": {
                         "idname": "status",
@@ -72,7 +96,11 @@
                     }
                 }
             },
+<<<<<<< HEAD
             "25c2188c-bc0b-4a94-bfc7-b8b862f9ee8f": {
+=======
+            "d5b70917-231a-4540-9627-6089c9043231": {
+>>>>>>> master
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -86,7 +114,11 @@
                 "properties": {
                     "name": {
                         "idname": "name",
+<<<<<<< HEAD
                         "value": "beautiful_merkle"
+=======
+                        "value": "elated_pare"
+>>>>>>> master
                     },
                     "status": {
                         "idname": "status",
@@ -94,7 +126,11 @@
                     }
                 }
             },
+<<<<<<< HEAD
             "d9e1626d-81b9-4984-b1f2-4ecc4253f8cf": {
+=======
+            "51a17bba-3999-41ab-bf2f-537b3cb029e8": {
+>>>>>>> master
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -108,6 +144,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
+<<<<<<< HEAD
                         "value": "charming_ritchie"
                     },
                     "status": {
@@ -219,6 +256,9 @@
                     "name": {
                         "idname": "name",
                         "value": "clever_yalow"
+=======
+                        "value": "agitated_leavitt"
+>>>>>>> master
                     },
                     "status": {
                         "idname": "status",
