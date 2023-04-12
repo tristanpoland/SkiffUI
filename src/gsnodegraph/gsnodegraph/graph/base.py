@@ -699,7 +699,7 @@ class NodeGraph(wx.ScrolledCanvas):
 
 
 
-    def AddNodeThread(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
+    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
         # time.sleep(.5)
         if nodeid:
             print("node ID specified assumed node was loaded from save file")
@@ -740,11 +740,6 @@ class NodeGraph(wx.ScrolledCanvas):
         else:
             node.pos = wx.Point(pos[0], pos[1])
         return node
-
-    #Add node thread (Instead of the whole app waiting for the container to start)
-    def AddNode(self, idname, nodeid=None, pos=(0,0), location="POSITION"):
-        t1 = threading.Thread(target=self.AddNodeTeread, args=(10,))
-        t1.start
 
     def SocketHasWire(self, dst_socket):
         for wire in self.wires:

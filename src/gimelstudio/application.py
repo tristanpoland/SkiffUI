@@ -30,8 +30,6 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-import webbrowser
-
 import wx
 import wx.lib.agw.aui as aui
 import wx.lib.agw.flatmenu as flatmenu
@@ -58,7 +56,6 @@ class AUIManager(aui.AuiManager):
     def __init__(self, managed_window):
         aui.AuiManager.__init__(self)
         self.SetManagedWindow(managed_window)
-
 
 class ApplicationFrame(wx.Frame):
     def __init__(self, app_config=None):
