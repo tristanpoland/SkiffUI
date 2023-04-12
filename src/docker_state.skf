@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "658d5981-8788-4b5c-be4b-a4557ec18b2e": {
+            "63de1072-89f7-458e-ae2e-78ee149de8cf": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "jovial_hofstadter"
+                        "value": "great_elgamal"
                     },
                     "status": {
                         "idname": "status",
@@ -28,7 +28,7 @@
                     }
                 }
             },
-            "795c295c-0c52-4228-aeb6-1089f0ca2b55": {
+            "44e22946-d8a4-4381-8191-f31a1d246823": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -42,7 +42,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "hungry_kilby"
+                        "value": "jolly_austin"
                     },
                     "status": {
                         "idname": "status",
@@ -50,7 +50,7 @@
                     }
                 }
             },
-            "bb1b49a0-27c9-48ae-a078-48e9888df5df": {
+            "a365e663-0734-4d6a-a14e-e676ca5fa559": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -64,7 +64,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "flamboyant_neumann"
+                        "value": "gracious_torvalds"
                     },
                     "status": {
                         "idname": "status",
@@ -72,7 +72,7 @@
                     }
                 }
             },
-            "d5b70917-231a-4540-9627-6089c9043231": {
+            "25c2188c-bc0b-4a94-bfc7-b8b862f9ee8f": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -86,7 +86,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "elated_pare"
+                        "value": "beautiful_merkle"
                     },
                     "status": {
                         "idname": "status",
@@ -94,7 +94,7 @@
                     }
                 }
             },
-            "51a17bba-3999-41ab-bf2f-537b3cb029e8": {
+            "d9e1626d-81b9-4984-b1f2-4ecc4253f8cf": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -108,7 +108,117 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "agitated_leavitt"
+                        "value": "charming_ritchie"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "7f8ef02c-7a8c-48bb-81dc-4d94ab1f9431": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "jovial_feistel"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "0d803adc-6b3b-4766-83b1-ba30c53c65c3": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "inspiring_snyder"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "6156bbc6-6738-4af5-8c3b-115b20632f9e": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "compassionate_cerf"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "24a6e322-0599-4b8a-b4e9-f71c4f57ae25": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "focused_sutherland"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "1be4f4a1-7455-4476-a7e4-86df19885944": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "clever_yalow"
                     },
                     "status": {
                         "idname": "status",
