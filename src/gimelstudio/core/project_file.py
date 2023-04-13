@@ -30,12 +30,10 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-
 import json
 import wx
 
 from gsnodegraph.constants import SOCKET_INPUT, SOCKET_OUTPUT
-
 
 class ProjectFileIO(object):
     def __init__(self, app_config):
@@ -115,16 +113,16 @@ class ProjectFileIO(object):
 
                 # Create the node object
                 node = nodegraph.AddNode(node_data["idname"], 
-                                    pos=node_data["pos"], 
-                                    nodeid=node_id,
-                                    location="POSITION")
+                                         pos=node_data["pos"], 
+                                         nodeid=node_id,
+                                    l    ocation="POSITION")
 
                 # Create the node properties
                 prop_data = node_data["properties"]
                 for prop in prop_data:
                     node.NodeEditProp(idname=prop_data[prop]["idname"],
-                                  value=prop_data[prop]["value"], 
-                                  render=False)
+                                      value=prop_data[prop]["value"], 
+                                      render=False)
 
             # Create the parameters and node connections
             for node_id in nodes_data:
