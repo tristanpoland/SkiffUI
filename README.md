@@ -39,6 +39,7 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 ##Requirements
 - Docker (either desktop or command line) Temporary requirement to prevent app crashing, soon to be un-needed
 
+
 ## Latest Beta
 ### News
 - Now uses 94mb of memory idle compared to the previous 780mb, this is due to removing excess code that was no longer needed and fixing some accidental looping code as well as clearing out un-needed variables and several other improvements
@@ -58,6 +59,23 @@ python3.8 main.py
 
 ### Linux
 ```
+
+<script src="https://giscus.app/client.js"
+        data-repo="Gameplex-Software/SkiffUI"
+        data-repo-id="R_kgDOGZojzQ"
+        data-category="General"
+        data-category-id="DIC_kwDOGZojzc4CVXn_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 coming soon
 ```
 
