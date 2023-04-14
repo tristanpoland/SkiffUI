@@ -115,7 +115,7 @@ class ProjectFileIO(object):
                 node = nodegraph.AddNode(node_data["idname"], 
                                          pos=node_data["pos"], 
                                          nodeid=node_id,
-                                    l    ocation="POSITION")
+                                         location="POSITION")
 
                 # Create the node properties
                 prop_data = node_data["properties"]
