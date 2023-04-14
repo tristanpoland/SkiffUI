@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "be2e7ffb-b79a-4797-8e4c-eec8d88f4db2": {
+            "e21812bd-ca3c-4b33-afb7-68698ac418ba": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
