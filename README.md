@@ -28,6 +28,17 @@ SkiffUI interacts with docker by converting graphical node data into commands fo
 
 [SkiffUI Website](https://gameplexsoftware.com/skiffui)
 
+## Our custom library
+
+<p align="center">
+<a href="https://gameplex-software.github.io/ShipHelm/">
+<img src="https://user-images.githubusercontent.com/34868944/223447636-3e17dee3-ccdf-44cc-8d42-91378ced6708.png" width="400" />
+</a>
+</p>
+
+<p align="center">Shiphelm allows us to interact with any container engine through python quickly, and simply</p>
+
+
 # Beta UI
 
 <video src='https://user-images.githubusercontent.com/34868944/224881139-1548ec4b-c939-4480-854c-ad3d6c7d708d.mp4'></video>
