@@ -5,6 +5,7 @@
     "app_version_tag": " pre-alpha 1",
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
+<<<<<<< Updated upstream
         "nodes": {
             "e21812bd-ca3c-4b33-afb7-68698ac418ba": {
                 "idname": "DockerNode",
@@ -29,5 +30,8 @@
                 }
             }
         }
+=======
+        "nodes": {}
+>>>>>>> Stashed changes
     }
 }
