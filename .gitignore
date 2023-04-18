@@ -33,3 +33,7 @@ tests
 env
 .DS_Store
 src/docker_state.skf
+
+src/helmdata.json
+
+srcselectednodeID.cache
