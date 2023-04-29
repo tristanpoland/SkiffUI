@@ -48,7 +48,7 @@ class ContainerEditor(wx.Dialog):
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
         self.container_name_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_name_label.SetForegroundColour(wx.WHITE)
-        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=helm.get_container_by_id(container_id="21c1a5cddf554b7d81f09cb83a9944f2")
+        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name)
 )
 
         # Container Image

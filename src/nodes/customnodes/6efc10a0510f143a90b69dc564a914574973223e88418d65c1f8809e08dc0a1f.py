@@ -28,18 +28,18 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "<Image: 'alpine:3.16.3'>",
+            "label": "<Image: 'nginx:latest'>",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show <Image: 'alpine:3.16.3'> image on the node graph",
+            "description": "Show <Image: 'nginx:latest'> image on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
         image_id = api.LabelProp(
             idname="image_id",
-            default="bfe296a525011f7eb76075d688c681ca4feaad5afe3b142b36e30f1a171dc99a"
+            default="6efc10a0510f143a90b69dc564a914574973223e88418d65c1f8809e08dc0a1f"
         )
         self.NodeAddProp(image_id)
 
@@ -60,4 +60,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "bfe296a525011f7eb76075d688c681ca4feaad5afe3b142b36e30f1a171dc99a")
+api.RegisterNode(DockerNode, "6efc10a0510f143a90b69dc564a914574973223e88418d65c1f8809e08dc0a1f")

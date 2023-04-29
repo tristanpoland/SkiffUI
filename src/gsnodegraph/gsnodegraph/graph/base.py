@@ -699,12 +699,12 @@ class NodeGraph(wx.ScrolledCanvas):
 
 
 
-    def AddNode(self, idname, nodeid=None, pos=(0, 0), location="POSITION"):
-        # time.sleep(.5)
-        if nodeid:
-            print("node ID specified assumed node was loaded from save file")
+    def AddNode(self, idname, node_id=None, pos=(0, 0), location="POSITION"):
+        time.sleep(.5)
+        if node_id:
+            print("Node ID should not be specified")
         else:
-            nodeid = uuid.uuid4().hex
+            node_id = uuid.uuid4().hex
         try:
             path = os.path.join(os.getcwd() + 'selectednodeID.cache')
             with open(path, 'r') as f:
@@ -713,11 +713,9 @@ class NodeGraph(wx.ScrolledCanvas):
                 print("A node was added to the graph, but no docker image was specified, skipping container init")
             else:
                 container = client.containers.run(image=docker_image, detach=True)
-                NodeGraph.AddNode.container_id = container.id
-                NodeGraph.AddNode.nodeid = container.id
-                NodeGraph.AddNode.container_name = container.name
-                print("Container name:", container.name)
-
+                match = re.search(r'\b\w{64}\b', str(container.id))
+                self.container_id = container.id
+                node_id = container.id
                 try:
                     with open(path, 'w') as f:
                         f.write("")
@@ -728,10 +726,11 @@ class NodeGraph(wx.ScrolledCanvas):
                     "id": "TestCTR"
                     "CPU" "0.1%"
                 }
+                print("Got container heartbeat with status:", ctr_stats)
         except:
             print("SkiffUI is still starting! Skipping docker processing")
 
-        node = self.node_registry[idname](self, nodeid)
+        node = self.node_registry[idname](self, node_id)
         node.Init(idname)
         self.nodes[node.id] = node
 
