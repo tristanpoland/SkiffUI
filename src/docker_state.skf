@@ -5,9 +5,8 @@
     "app_version_tag": " pre-alpha 1",
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
-<<<<<<< Updated upstream
         "nodes": {
-            "e21812bd-ca3c-4b33-afb7-68698ac418ba": {
+            "6fc1b93d-911d-458d-8c46-f649ef480031": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -21,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "affectionate_banzai"
+                        "value": "netdata"
                     },
                     "status": {
                         "idname": "status",
@@ -30,8 +29,5 @@
                 }
             }
         }
-=======
-        "nodes": {}
->>>>>>> Stashed changes
     }
 }

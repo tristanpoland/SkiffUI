@@ -28,9 +28,9 @@ from ..assets import (ICON_BRUSH_CHECKERBOARD, ICON_IMAGE)
 
 
 class NodeBase(object):
-    def __init__(self, nodegraph, _id):
+    def __init__(self, nodegraph, ctr_id):
         self.nodegraph = nodegraph
-        self.id = _id
+        self.id = ctr_id
         self.idname = None
         self.pos = wx.Point(0, 0)
         self.size = wx.Size(NODE_DEFAULT_WIDTH, NODE_DEFAULT_HEIGHT)

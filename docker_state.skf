@@ -5,6 +5,29 @@
     "app_version_tag": " pre-alpha 1",
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
-        "nodes": {}
+        "nodes": {
+            "7d6c7421-3611-4f7e-86b0-5df1315babe4": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "netdata"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            }
+        }
     }
 }

@@ -25,10 +25,10 @@ from gimelstudio.core.node.property import ActionProp
 from gsnodegraph.node.containerEditor import ContainerEditor
 
 class Node(NodeView):    
-    def __init__(self, nodegraph, _id):
-        NodeView.__init__(self, nodegraph, _id)
+    def __init__(self, nodegraph, ctr_id):
+        NodeView.__init__(self, nodegraph, ctr_id)
         self.nodegraph = nodegraph
-        self.id = _id
+        self.id = ctr_id
         self.properties = {}
         self.parameters = {}
         self.cache = {}
@@ -57,7 +57,7 @@ class Node(NodeView):
     def EditContainer(self, event=None):
         print("Opening container editor")
         try:
-            dialog = ContainerEditor(id=self.id)
+            dialog = ContainerEditor(self.id)
             dialog.ShowModal()
         except Exception as e:
             print("Error opening container editor", e)
