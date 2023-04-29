@@ -23,7 +23,7 @@ class ContainerEditor(wx.Dialog):
     def __init__(self, id):
         super().__init__(None, title="Container Editor", size=(600, 700))
         ContainerEditor.id = id  # store the ID of the container being edited
-        helm.set_engine_auto()
+        helm.set_engine_manual('docker')
         print(type(id))
         print(id)
         print(type(ContainerEditor.id))
@@ -48,7 +48,7 @@ class ContainerEditor(wx.Dialog):
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
         self.container_name_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_name_label.SetForegroundColour(wx.WHITE)
-        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=helm.get_container_by_id(engine="docker", container_id="21c1a5cddf554b7d81f09cb83a9944f2")
+        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=helm.get_container_by_id(container_id="21c1a5cddf554b7d81f09cb83a9944f2")
 )
 
         # Container Image
@@ -106,7 +106,6 @@ class ContainerEditor(wx.Dialog):
         container_image = self.container_image_text.GetValue()
     
         # apply changes to container with matching
-        helm.set_engine_manual(engine_select='docker')
         print(ContainerEditor.id)
         print(ContainerEditor.container_name_text)
         helm.rename_container(str(ContainerEditor.id), str(ContainerEditor.container_name_text))  # implement this function to get the container by ID
@@ -122,4 +121,3 @@ class ContainerEditor(wx.Dialog):
 
     def on_cancel(self, event):
         self.EndModal(wx.ID_CANCEL)
-
