@@ -18,6 +18,7 @@ import wx
 from shiphelm import helm
 
 helm = helm.helm()
+helm.set_engine_manual(engine_select='docker')
 
 class ContainerEditor(wx.Dialog):
     def __init__(self, id):
@@ -108,7 +109,7 @@ class ContainerEditor(wx.Dialog):
         # apply changes to container with matching
         print(ContainerEditor.id)
         print(ContainerEditor.container_name_text)
-        helm.rename_container(str(ContainerEditor.id), str(ContainerEditor.container_name_text))  # implement this function to get the container by ID
+        helm.rename_container(containtainer_id = str(ContainerEditor.id), new_name = str(ContainerEditor.container_name_text))  # implement this function to get the container by ID
         print("Applied changes to container", self.id)
 
     def on_save(self, event):
