@@ -28,6 +28,10 @@ class ContainerEditor(wx.Dialog):
         print(id)
         print(type(ContainerEditor.id))
         print(ContainerEditor.id)
+
+        #Get volume data (for now this is a placeholder)
+        self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
+
         self.SetBackgroundColour('#1E1E1E') # set the background color to dark
 
 
@@ -46,14 +50,14 @@ class ContainerEditor(wx.Dialog):
         # General Tab
         # Container Name
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
-        self.container_name_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
+        self.container_name_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_name_label.SetForegroundColour(wx.WHITE)
         ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name)
 )
 
         # Container Image
         self.container_image_label = wx.StaticText(self.general_tab, label="Container Image:")
-        self.container_image_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
+        self.container_image_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_image_label.SetForegroundColour(wx.WHITE)
         choices = ['Option 1', 'Option 2', 'Option 3']
         ContainerEditor.container_image_text = wx.ComboBox(self.general_tab, choices=choices)
@@ -66,11 +70,11 @@ class ContainerEditor(wx.Dialog):
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         # Container name sizers
-        static_box_sizer.Add(self.container_name_label, 0, wx.ALL | wx.CENTER, 5)
+        static_box_sizer.Add(self.container_name_label, 0, wx.ALL | wx.Left, 5)
         static_box_sizer.Add(ContainerEditor.container_name_text, 0, wx.ALL | wx.EXPAND, 5)
 
         # Container image sizers
-        static_box_sizer.Add(self.container_image_label, 0, wx.ALL | wx.CENTER, 5)
+        static_box_sizer.Add(self.container_image_label, 0, wx.ALL | wx.Left, 5)
         static_box_sizer.Add(self.container_image_text, 0, wx.ALL | wx.EXPAND, 5)
 
         general_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
@@ -90,7 +94,7 @@ class ContainerEditor(wx.Dialog):
 
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.notebook, 1, wx.EXPAND)
-        sizer.Add(button_sizer, 0, wx.ALIGN_CENTER)
+        sizer.Add(button_sizer, 0, wx.CENTRE)
         
         self.SetSizer(sizer)
         self.Layout()

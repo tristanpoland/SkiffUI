@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "f0f20b61-4bf2-45d0-8bc2-502670840b3b": {
+            "24271d00-976f-419d-ba07-2750fce176a8": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,73 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "funny_goldwasser"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "5c674839-d6fd-4ee4-a474-c8d0ea2a6583": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "epic_bouman"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "9f31491e-b5e4-4c5e-85fb-e5fccef16aa7": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "frosty_swanson_7"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "7a9ec32d-5a6c-4d52-881f-cc4171f2f0b0": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "flamboyant_chaplygin"
+                        "value": "PF_Changs_Website"
                     },
                     "status": {
                         "idname": "status",
