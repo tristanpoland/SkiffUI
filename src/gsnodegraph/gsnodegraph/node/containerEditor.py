@@ -100,7 +100,7 @@ class ContainerEditor(wx.Dialog):
         self.save_button.Bind(wx.EVT_BUTTON, self.on_save)
         self.apply_button.Bind(wx.EVT_BUTTON, self.on_apply)
 
-    def on_apply(self):
+    def on_apply(self, event):
         # retrieve values from UI elements
         container_name = self.container_name_text.GetValue()
         container_image = self.container_image_text.GetValue()
@@ -108,7 +108,7 @@ class ContainerEditor(wx.Dialog):
         # apply changes to container with matching
         print(ContainerEditor.id)
         print(ContainerEditor.container_name_text)
-        helm.rename_container(str(ContainerEditor.id), str(ContainerEditor.container_name_text))  # implement this function to get the container by ID
+        helm.rename_container(str(ContainerEditor.id), str(container_name))  # implement this function to get the container by ID
         print("Applied changes to container", self.id)
 
     def on_save(self, event):
