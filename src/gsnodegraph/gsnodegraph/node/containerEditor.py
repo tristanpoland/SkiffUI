@@ -35,21 +35,24 @@ class ContainerEditor(wx.Dialog):
         self.notebook = wx.Notebook(self)
         self.general_tab = wx.Panel(self.notebook)
         self.volumes_tab = wx.Panel(self.notebook)
+        self.ports_tab = wx.Panel(self.notebook)
         self.environment_tab = wx.Panel(self.notebook)
         self.command_tab = wx.Panel(self.notebook)
 
         self.notebook.AddPage(self.general_tab, "General")
         self.notebook.AddPage(self.volumes_tab, "Volumes")
+        self.notebook.AddPage(self.ports_tab, "Ports")
         self.notebook.AddPage(self.environment_tab, "Environment")
         self.notebook.AddPage(self.command_tab, "Command")
 
-        # General Tab
+    # General tab
+        # Add a static box with some widgets
+
         # Container Name
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
         self.container_name_label.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_name_label.SetForegroundColour(wx.WHITE)
-        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name)
-)
+        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name))
 
         # Container Image
         self.container_image_label = wx.StaticText(self.general_tab, label="Container Image:")
@@ -59,10 +62,8 @@ class ContainerEditor(wx.Dialog):
         ContainerEditor.container_image_text = wx.ComboBox(self.general_tab, choices=choices)
 
         # create a sizer for the General tab
-        general_sizer = wx.BoxSizer(wx.VERTICAL)
-
-        # Add a static box with some widgets
         static_box = wx.StaticBox(self.general_tab, label="Container Details")
+        general_sizer = wx.BoxSizer(wx.VERTICAL)
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         # Container name sizers
@@ -76,7 +77,71 @@ class ContainerEditor(wx.Dialog):
         general_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
 
         self.general_tab.SetSizer(general_sizer)
-        
+
+    # Volumes tab
+        # Add a static box with some widgets
+
+        # Container Name
+        self.container_name_label2 = wx.StaticText(self.volumes_tab, label="Container Name:")
+        self.container_name_label2.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
+        self.container_name_label2.SetForegroundColour(wx.WHITE)
+        ContainerEditor.container_name_text2 = wx.TextCtrl(self.volumes_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name))
+
+        # Container name sizers
+        static_box_sizer.Add(self.container_name_label2, 0, wx.ALL | wx.CENTER, 5)
+        static_box_sizer.Add(ContainerEditor.container_name_text2, 0, wx.ALL | wx.EXPAND, 5)
+
+        # create a sizer for the General tab
+        volume_sizer = wx.BoxSizer(wx.VERTICAL)
+
+        # Add a static box with some widgets
+        static_box = wx.StaticBox(self.volumes_tab, label="Container Volumes")
+
+        volume_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
+
+        self.volumes_tab.SetSizer(volume_sizer)
+
+    # ports tab
+
+        # create a sizer for the General tab
+        port_sizer = wx.BoxSizer(wx.VERTICAL)
+
+        # Add a static box with some widgets
+        static_box = wx.StaticBox(self.ports_tab, label="Container Ports")
+        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
+
+        port_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
+
+        self.ports_tab.SetSizer(port_sizer)
+
+    # Environment tab
+
+        # create a sizer for the General tab
+        environment_sizer = wx.BoxSizer(wx.VERTICAL)
+
+        # Add a static box with some widgets
+        static_box = wx.StaticBox(self.environment_tab, label="Container Environment Variables")
+        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
+
+        environment_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
+
+        self.environment_tab.SetSizer(environment_sizer)
+
+    # Command tab
+
+        # create a sizer for the General tab
+        command_sizer = wx.BoxSizer(wx.VERTICAL)
+
+        # Add a static box with some widgets
+        static_box = wx.StaticBox(self.command_tab, label="Container docker Run Command")
+        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
+
+        command_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
+
+        self.command_tab.SetSizer(command_sizer)
+
+    # End of tabs
+
         # create the buttons
         self.cancel_button = wx.Button(self, label="Cancel")
         self.save_button = wx.Button(self, label="Save")
