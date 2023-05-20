@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "ae630996-8e2a-454d-b567-c79f419180c4": {
+            "3a3cb796-a73d-4fee-a60b-ba347b3bfe5d": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "hardcore_jackson"
+                        "value": "crazy_rosalind"
                     },
                     "status": {
                         "idname": "status",
@@ -28,7 +28,7 @@
                     }
                 }
             },
-            "9992e4d8-499f-455d-9faf-794cf5464a05": {
+            "ecbae43e-b116-4f13-9ccb-3805108b7007": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -42,161 +42,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "vigorous_mendel"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "690ebf75-ec30-457d-851d-b51514d22809": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "wizardly_wing"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "383168ad-4a35-4e08-9815-47056196a931": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "cool_gauss"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "5ab14d41-3101-4797-a3d9-19ba4d2e7526": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "quizzical_saha"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "c22fd335-d5be-42ab-9ffa-3d77794c4100": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "lucid_albattani"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "e113d1d7-704c-4b41-8e09-2747b9faec71": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "sleepy_torvalds"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "297c2d14-f8ae-4c86-a9d2-c3fd364d2ba0": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "quizzical_snyder"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "8814300c-704b-4cf6-a9a6-37021f5ffccc": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "youthful_wing"
+                        "value": "compassionate_ishizaka"
                     },
                     "status": {
                         "idname": "status",
