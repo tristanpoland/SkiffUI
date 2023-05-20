@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "24271d00-976f-419d-ba07-2750fce176a8": {
+            "3a3cb796-a73d-4fee-a60b-ba347b3bfe5d": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,29 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "PF_Changs_Website"
+                        "value": "crazy_rosalind"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "ecbae43e-b116-4f13-9ccb-3805108b7007": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "compassionate_ishizaka"
                     },
                     "status": {
                         "idname": "status",

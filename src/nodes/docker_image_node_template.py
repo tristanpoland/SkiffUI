@@ -39,7 +39,8 @@ class DockerNode(api.Node):
     def NodeInitProps(self):
         image_id = api.LabelProp(
             idname="image_id",
-            default="{{image_id}}"
+            default="{{image_id}}",
+            fpb_label="Image ID"
         )
         self.NodeAddProp(image_id)
 

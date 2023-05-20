@@ -29,21 +29,22 @@ class ContainerEditor(wx.Dialog):
         print(type(ContainerEditor.id))
         print(ContainerEditor.id)
 
-        #Get volume data (for now this is a placeholder)
+        # Get volume data (for now this is a placeholder)
         self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
 
-        self.SetBackgroundColour('#1E1E1E') # set the background color to dark
-
+        self.SetBackgroundColour('#1E1E1E')  # set the background color to dark
 
         # create a notebook and tabs
         self.notebook = wx.Notebook(self)
         self.general_tab = wx.Panel(self.notebook)
         self.volumes_tab = wx.Panel(self.notebook)
+        self.ports_tab = wx.Panel(self.notebook)
         self.environment_tab = wx.Panel(self.notebook)
         self.command_tab = wx.Panel(self.notebook)
 
         self.notebook.AddPage(self.general_tab, "General")
         self.notebook.AddPage(self.volumes_tab, "Volumes")
+        self.notebook.AddPage(self.ports_tab, "Ports")
         self.notebook.AddPage(self.environment_tab, "Environment")
         self.notebook.AddPage(self.command_tab, "Command")
 
@@ -52,8 +53,7 @@ class ContainerEditor(wx.Dialog):
         self.container_name_label = wx.StaticText(self.general_tab, label="Container Name:")
         self.container_name_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_name_label.SetForegroundColour(wx.WHITE)
-        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name)
-)
+        ContainerEditor.container_name_text = wx.TextCtrl(self.general_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name))
 
         # Container Image
         self.container_image_label = wx.StaticText(self.general_tab, label="Container Image:")
@@ -70,23 +70,27 @@ class ContainerEditor(wx.Dialog):
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         # Container name sizers
-        static_box_sizer.Add(self.container_name_label, 0, wx.ALL | wx.Left, 5)
+        static_box_sizer.Add(self.container_name_label, 0, wx.ALL | wx.LEFT, 5)
         static_box_sizer.Add(ContainerEditor.container_name_text, 0, wx.ALL | wx.EXPAND, 5)
 
         # Container image sizers
-        static_box_sizer.Add(self.container_image_label, 0, wx.ALL | wx.Left, 5)
+        static_box_sizer.Add(self.container_image_label, 0, wx.ALL | wx.LEFT, 5)
         static_box_sizer.Add(self.container_image_text, 0, wx.ALL | wx.EXPAND, 5)
 
         general_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
 
         self.general_tab.SetSizer(general_sizer)
-        
+
+
+
+
+
+        #Dialog footer
         # create the buttons
         self.cancel_button = wx.Button(self, label="Cancel")
         self.save_button = wx.Button(self, label="Save")
         self.apply_button = wx.Button(self, label="Apply")
 
-        
         button_sizer = wx.BoxSizer(wx.HORIZONTAL)
         button_sizer.Add(self.cancel_button, 0, wx.ALL, 5)
         button_sizer.Add(self.save_button, 0, wx.ALL, 5)
@@ -95,7 +99,7 @@ class ContainerEditor(wx.Dialog):
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.notebook, 1, wx.EXPAND)
         sizer.Add(button_sizer, 0, wx.CENTRE)
-        
+
         self.SetSizer(sizer)
         self.Layout()
 
@@ -108,7 +112,7 @@ class ContainerEditor(wx.Dialog):
         # retrieve values from UI elements
         container_name = self.container_name_text.GetValue()
         container_image = self.container_image_text.GetValue()
-    
+
         # apply changes to container with matching
         print(ContainerEditor.id)
         print(ContainerEditor.container_name_text)
@@ -116,12 +120,11 @@ class ContainerEditor(wx.Dialog):
         print("Applied changes to container", self.id)
 
     def on_save(self, event):
-        #Do the same thing as apply
+        # Do the same thing as apply
         self.on_apply()
         print("Saved", ContainerEditor.id)
         # close the dialog
         self.EndModal(wx.ID_CANCEL)
-
 
     def on_cancel(self, event):
         self.EndModal(wx.ID_CANCEL)
