@@ -14,7 +14,7 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-import wx
+import wx, subprocess
 from shiphelm import helm
 
 helm = helm.helm()
@@ -23,14 +23,12 @@ class ContainerEditor(wx.Dialog):
     def __init__(self, id):
         super().__init__(None, title="Container Editor", size=(600, 700))
         ContainerEditor.id = id  # store the ID of the container being edited
-        helm.set_engine_manual('docker')
-        print(type(id))
-        print(id)
-        print(type(ContainerEditor.id))
-        print(ContainerEditor.id)
 
         # Get volume data (for now this is a placeholder)
         self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
+
+        #Sanity Check
+        #Error: print(ContainerEditor.data)
 
         self.SetBackgroundColour('#1E1E1E')  # set the background color to dark
 
@@ -61,7 +59,7 @@ class ContainerEditor(wx.Dialog):
         self.container_image_label = wx.StaticText(self.general_tab, label="Container Image:")
         self.container_image_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_image_label.SetForegroundColour(wx.WHITE)
-        choices = ['Option 1', 'Option 2', 'Option 3']
+        choices = ['Gameplex-Software/Nginx', 'Gameplex-Software/BusyBox', 'Gameplex-Software/Apache', 'Gameplex-Software/NginxPlus']
         ContainerEditor.container_image_text = wx.ComboBox(self.general_tab, choices=choices)
 
         # create a sizer for the General tab
@@ -82,31 +80,21 @@ class ContainerEditor(wx.Dialog):
         self.general_tab.SetSizer(general_sizer)
 
     # Volumes tab
-        # Add a static box with some widgets
 
-        # Container Name
-        self.container_name_label2 = wx.StaticText(self.volumes_tab, label="Container Name:")
-        self.container_name_label2.SetFont(wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
-        self.container_name_label2.SetForegroundColour(wx.WHITE)
-        ContainerEditor.container_name_text2 = wx.TextCtrl(self.volumes_tab, value=str(helm.get_container_by_id(ContainerEditor.id).name))
-
-        # Container name sizers
-        static_box_sizer.Add(self.container_name_label2, 0, wx.ALL | wx.CENTER, 5)
-        static_box_sizer.Add(ContainerEditor.container_name_text2, 0, wx.ALL | wx.EXPAND, 5)
-
-        # create a sizer for the General tab
+        # create a sizer for the Volumes tab
         volume_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Add a static box with some widgets
-        static_box = wx.StaticBox(self.volumes_tab, label="Container Volumes")
+        static_box = wx.StaticBox(self.ports_tab, label="Container Volumes:")
+        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         volume_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
 
-        self.volumes_tab.SetSizer(volume_sizer)
+        self.ports_tab.SetSizer(volume_sizer)
 
     # ports tab
 
-        # create a sizer for the General tab
+        # create a sizer for the Ports tab
         port_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Add a static box with some widgets
@@ -119,7 +107,7 @@ class ContainerEditor(wx.Dialog):
 
     # Environment tab
 
-        # create a sizer for the General tab
+        # create a sizer for the Environment tab
         environment_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Add a static box with some widgets
@@ -132,7 +120,7 @@ class ContainerEditor(wx.Dialog):
 
     # Command tab
 
-        # create a sizer for the General tab
+        # create a sizer for the Command tab
         command_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Add a static box with some widgets
@@ -143,13 +131,26 @@ class ContainerEditor(wx.Dialog):
 
         self.command_tab.SetSizer(command_sizer)
 
+        self.container_command_label = wx.StaticText(self.command_tab, label="Container Command:")
+        self.container_command_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
+        self.container_command_label.SetForegroundColour(wx.WHITE)
+        helm.set_engine_manual('docker')
+        ContainerEditor.container_command_text = wx.TextCtrl(self.command_tab, value=str(helm.get_run_command(container_id=ContainerEditor.id)))
+
+        # create a sizer for the General tab
+        static_box = wx.StaticBox(self.command_tab, label="Container Details")
+        command_sizer = wx.BoxSizer(wx.VERTICAL)
+        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
+
+        # Container name sizers
+        static_box_sizer.Add(self.container_command_label, 0, wx.ALL | wx.LEFT, 5)
+        static_box_sizer.Add(ContainerEditor.container_command_text, 0, wx.ALL | wx.EXPAND, 5)
+
+        command_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
+
+        self.command_tab.SetSizer(command_sizer)
+
     # End of tabs
-
-
-
-
-
-
         #Dialog footer
         # create the buttons
         self.cancel_button = wx.Button(self, label="Cancel")
