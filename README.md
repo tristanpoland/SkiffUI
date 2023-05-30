@@ -70,6 +70,14 @@ python3.8 main.py
 
 ### Linux
 ```
+coming soon
+```
+
+### MacOS
+```
+coming soon
+```
+
 
 <script src="https://giscus.app/client.js"
         data-repo="Gameplex-Software/SkiffUI"
@@ -87,12 +95,3 @@ python3.8 main.py
         crossorigin="anonymous"
         async>
 </script>
-coming soon
-```
-
-### MacOS
-```
-coming soon
-```
-
-
