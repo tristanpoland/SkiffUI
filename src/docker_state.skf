@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "6eddf86f-3e7e-484b-b1a0-c37c598f2dbd": {
+            "6d0dd7da-fcc2-4557-97c5-1c0ce410cf5e": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "loving_beaver2"
+                        "value": "inspiring_chaum"
                     },
                     "status": {
                         "idname": "status",
@@ -28,7 +28,7 @@
                     }
                 }
             },
-            "a930c9d6-33c4-41e8-97c2-6645c6166a26": {
+            "e70103a8-838b-4371-9a3f-e7dd819f386e": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -42,95 +42,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "trusting_cori"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "151436b1-cd51-4667-84cc-e32c27ec14a1": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "goofy_lalande"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "98ccfa7e-fe89-4a45-88a7-1be3d277c44d": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "optimistic_curran"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "8d811e38-f2cc-479b-b5f6-3e88c268723b": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "stoic_haibt"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "9f26a74a-737c-4113-95aa-dd6e640e963b": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "competent_antonelli"
+                        "value": "netdata"
                     },
                     "status": {
                         "idname": "status",

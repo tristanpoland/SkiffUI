@@ -730,7 +730,9 @@ class NodeGraph(wx.ScrolledCanvas):
                 #Hard code container resource usage for testing
                 ctr_stats = {
                     "id": "TestCTR"
-                    "CPU" "0.1%"
+                    "CPU" "0.1% / 200%"
+                    "MEM" "4.6 MB / 1 GB"
+                    "DISK" "28 MB / 20 GB"
                 }
                 print("Got container heartbeat with status:", ctr_stats)
         except:
