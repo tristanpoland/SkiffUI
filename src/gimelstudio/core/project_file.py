@@ -156,7 +156,7 @@ class ProjectFileIO(object):
             with open(file_path, "w") as file:
                 json.dump(contents, file, indent=4)
         except Exception as error:
-            print(error)
+            print("[Error] Failed to save file: ", error)
         return file_path
 
     def OpenFile(self, file_path):

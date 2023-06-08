@@ -32,7 +32,7 @@ class NodeGraphDropTarget(wx.DropTarget):
         self.SetDataObject(self._composite)
 
     def OnDrop(self, x, y):
-        print("Node was dropped at", x, y )
+        print("[DEBUG] Detected that node was dropped at", x, y )
         return True
 
     def OnData(self, x, y, result):

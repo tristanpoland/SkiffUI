@@ -36,7 +36,7 @@ class Node(NodeView):
         self.edited_flag = False
         self.shader_cache = None
         self.shader_cache_enabled = True
-        print(self.GetCategory())
+        print("[DEBUG] Added node with type ", self.GetCategory()," to graph")
         if self.GetCategory() == "FILTER":
             # Add the "Edit Container" button to the sidebar
             container_edit = ActionProp(

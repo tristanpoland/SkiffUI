@@ -103,7 +103,7 @@ class NodesVListBox(wx.VListBox):
                 self.SetSelection(-1)
 
                 # Finish run container from node
-                print("User dropped Node for imageID:", containerImageID, "on graph")          
+                print("[DEBUG] User dropped Node for imageID:", containerImageID, "on graph")          
 
     # This method must be overridden. When called it should draw the
     # n'th item on the dc within the rect. How it is drawn, and what

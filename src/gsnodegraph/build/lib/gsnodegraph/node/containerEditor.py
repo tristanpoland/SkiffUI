@@ -39,12 +39,15 @@ class ContainerEditor(wx.Dialog):
         self.ports_tab = wx.Panel(self.notebook)
         self.environment_tab = wx.Panel(self.notebook)
         self.command_tab = wx.Panel(self.notebook)
+        self.cli_tab = wx.Panel(self.notebook)
 
         self.notebook.AddPage(self.general_tab, "General")
         self.notebook.AddPage(self.volumes_tab, "Volumes")
         self.notebook.AddPage(self.ports_tab, "Ports")
         self.notebook.AddPage(self.environment_tab, "Environment")
         self.notebook.AddPage(self.command_tab, "Command")
+        self.notebook.AddPage(self.cli_tab, "CLI")
+
 
     # General tab
         # Add a static box with some widgets

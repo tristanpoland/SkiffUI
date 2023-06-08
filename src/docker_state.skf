@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "6d0dd7da-fcc2-4557-97c5-1c0ce410cf5e": {
+            "70ccbce5-fb81-468e-ae4b-667dcb25dd5d": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,29 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "inspiring_chaum"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "e70103a8-838b-4371-9a3f-e7dd819f386e": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "netdata"
+                        "value": "quizzical_keldysh"
                     },
                     "status": {
                         "idname": "status",

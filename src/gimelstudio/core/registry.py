@@ -54,4 +54,4 @@ def UnregisterNode(idname):
             del NODE_REGISTRY[idname]
 
 def OnUpdated():
-    print('')
+    print("[DEBUG] Registry updated")
