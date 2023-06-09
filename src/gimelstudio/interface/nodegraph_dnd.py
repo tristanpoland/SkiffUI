@@ -53,7 +53,7 @@ class NodeGraphDropTarget(wx.DropTarget):
         return formatType, formatId
 
     def OnTextDrop(self):
-        print("Got Node Format, ID:", self.GetReceivedFormatAndId())
+        print("[DEBUG] Got Node Format, ID:", self.GetReceivedFormatAndId())
         try:
             #This is where the node is actually added to our graph
             self._window.AddNode(self._textDropData.GetText(), nodeid=None, 

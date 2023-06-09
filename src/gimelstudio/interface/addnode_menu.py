@@ -174,10 +174,10 @@ def UpdateForSearch(self, search_string):
 
 
 
-class AddNodeMenu(wx.PopupTransientWindow):
+class AddNodeMenu(wx.PopupWindow):
     def __init__(self, parent, node_registry, size,
                  style=wx.BORDER_NONE | wx.PU_CONTAINS_CONTROLS):
-        wx.PopupTransientWindow.__init__(self, parent, style)
+        wx.PopupWindow.__init__(self, parent, style)
 
         self.parent = parent
         self._size = size
@@ -202,7 +202,7 @@ class AddNodeMenu(wx.PopupTransientWindow):
         main_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Label
-        main_sizer.AddSpacer(5)
+        main_sizer.AddSpacer(25)
         header_lbl = wx.StaticText(self, wx.ID_ANY, _("Add Node"))
         header_lbl.SetForegroundColour(wx.Colour("#fff"))
         header_lbl.SetFont(self.GetFont().MakeBold())
@@ -214,7 +214,10 @@ class AddNodeMenu(wx.PopupTransientWindow):
 
         self.refresh_btn = Button(self, label="Refresh")
         self.Bind(wx.EVT_BUTTON, self.on_refresh, self.refresh_btn)
-        
+
+        self.close_btn = Button(self, label="Close")
+        self.Bind(wx.EVT_BUTTON, self.on_close, self.close_btn)
+
         main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
         main_sizer.AddSpacer(5)
 
@@ -230,6 +233,9 @@ class AddNodeMenu(wx.PopupTransientWindow):
         self.Bind(wx.stc.EVT_STC_MODIFIED, self.OnDoSearch, self.search_bar)
         self.Bind(wx.EVT_LISTBOX_DCLICK, self.OnClickSelectItem, self.nodes_listbox)
         self.Bind(wx.EVT_LISTBOX, self.OnClickSelectItem, self.nodes_listbox)
+
+    def on_close(self, event):
+        self.Close()
 
     def on_refresh(self, event):
         # Call UpdateMenuIfRegistryChanged() function here

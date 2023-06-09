@@ -18,12 +18,13 @@ import wx, subprocess
 from shiphelm import helm
 
 helm = helm.helm()
+helm.set_engine_manual(engine_select="docker")
 
 class ContainerEditor(wx.Dialog):
     def __init__(self, id):
         super().__init__(None, title="Container Editor", size=(600, 700))
         ContainerEditor.id = id  # store the ID of the container to be edited
-
+        print(ContainerEditor.id)
         # Get volume data (for now this is a placeholder)
         self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
 
