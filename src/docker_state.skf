@@ -6,7 +6,73 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "ab630a37-f730-494f-bcf7-b765073b52fe": {
+            "d66ab8ba-651f-452f-88b5-4fdd3d6f3dd1": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "sharp_nash"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "49d93545-6d4b-47bf-ac46-8c787604462c": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "romantic_chandrasekhar4356786543"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "8c063b71-3194-486d-bb8f-eadf206e16bc": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "interesting_noyce"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "e55be1b9-bc17-419f-b20f-d83487cfd82c": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -28,7 +94,7 @@
                     }
                 }
             },
-            "4d2538ff-0354-4961-bf0c-3a6338c39307": {
+            "e8603d17-c30c-4070-8905-b3d5a1db8cbc": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -50,7 +116,7 @@
                     }
                 }
             },
-            "deef3286-bc72-409b-a373-bcd7fcd8e35a": {
+            "38006acf-1c86-4702-817d-6e67a7b73faa": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -72,7 +138,7 @@
                     }
                 }
             },
-            "a9e24e9e-e64e-40ca-9053-a23fe71dbf93": {
+            "abffc490-62b6-46c8-97b4-71c82b7ba3af": {
                 "idname": "DockerNode",
                 "pos": [
                     0,

@@ -204,7 +204,7 @@ class NodeGraphPanel(PanelBase):
                                         text=_("Node Context Menu"))
         self.Statusbar.PushMessage(_("Node Graph Area"))
         self.Statusbar.UpdateStatusBar()
-        AddNodeMenu.on_close()
+        # AddNodeMenu.on_close()
 
     def OnAddNodeMenu(self, event):
         pos = wx.GetMousePosition()
