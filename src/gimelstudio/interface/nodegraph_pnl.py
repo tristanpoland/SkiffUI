@@ -157,7 +157,37 @@ class NodeGraphPanel(PanelBase):
     def AddNode(self, idname, nodeid, pos, location):
         return self.nodegraph.AddNode(idname, nodeid, pos, location)
 
-400
+    def UpdateNodegraph(self):
+        print("[Debug] nodegraph was updated")
+        self.nodegraph.UpdateNodeGraph()
+
+    def UpdateNodePropertiesPnl(self, event):
+        self.PropertiesPanel.UpdatePanelContents(event.value)
+
+    def NodeConnectEvent(self, event):
+        self.parent.Render()
+
+    def NodeDisconnectEvent(self, event):
+        pass
+
+    def ChangeZoom(self, event):
+        level = event.value / 100.0
+        # print(level, " <---> ", event.value)
+        # if event.value > 60 and event.value < 310:
+        self.nodegraph.SetZoomLevel(level)
+
+    def ZoomNodeGraph(self, event):
+        self.zoom_field.SetValue(event.value)
+        self.zoom_field.UpdateDrawing()
+        self.zoom_field.Refresh()
+
+    def PopupAddNodeMenu(self, pos):
+        self.addnodemenu = AddNodeMenu(self, self.registry,
+                                       size=wx.Size(250, self.Size[1] - 50))
+        self.addnodemenu.Position(pos, (2, 2))
+        self.addnodemenu.SetSize(250, 400)
+        if self.addnodemenu.IsShown() is not True:
+            self.addnodemenu.Show()
 
 
     def OnAreaFocus(self, event):
@@ -174,6 +204,7 @@ class NodeGraphPanel(PanelBase):
                                         text=_("Node Context Menu"))
         self.Statusbar.PushMessage(_("Node Graph Area"))
         self.Statusbar.UpdateStatusBar()
+        AddNodeMenu.on_close()
 
     def OnAddNodeMenu(self, event):
         pos = wx.GetMousePosition()

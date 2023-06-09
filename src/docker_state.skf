@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "835b1077-b9d7-43a7-88a4-8da395cbfb8c": {
+            "ab630a37-f730-494f-bcf7-b765073b52fe": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -28,7 +28,7 @@
                     }
                 }
             },
-            "6e049c10-e3d1-4212-8529-eebbbf7070f8": {
+            "4d2538ff-0354-4961-bf0c-3a6338c39307": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -50,7 +50,7 @@
                     }
                 }
             },
-            "e3afd823-89fc-4a65-b479-eee80ff331fd": {
+            "deef3286-bc72-409b-a373-bcd7fcd8e35a": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -72,7 +72,7 @@
                     }
                 }
             },
-            "899f0290-bc06-4fdd-bb22-7cd088b8ff74": {
+            "a9e24e9e-e64e-40ca-9053-a23fe71dbf93": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
