@@ -715,7 +715,7 @@ class NodeGraph(wx.ScrolledCanvas):
             with open(path, 'r') as f:
                 docker_image = f.read()
             if docker_image == "":
-                print("A node was added to the graph, but no docker image was specified, skipping container init")
+                print("[DEBUG] A node was added to the graph, but no docker image was specified, skipping container init")
             else:
                 container = client.containers.run(image=docker_image, detach=True)
                 match = re.search(r'\b\w{64}\b', str(container.id))
