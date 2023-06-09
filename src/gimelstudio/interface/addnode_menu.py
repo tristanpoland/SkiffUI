@@ -89,7 +89,7 @@ class NodesVListBox(wx.VListBox):
                 with open(path, 'w') as f:
                     f.write(containerImageID)
             except Exception as e:
-                print("Error writing to file:", e)
+                print("[ERROR] Error writing to file:", e)
             data = wx.TextDataObject()
             data.SetText(selection)
             dropSource = wx.DropSource(self)

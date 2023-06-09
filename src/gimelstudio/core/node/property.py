@@ -223,7 +223,7 @@ class ChoiceProp(Property):
     def WidgetEvent(self, event):
         value = event.value
         if not value:
-            print("Value is null!")
+            print("[WARN] Widget value is null!")
         self.SetValue(value)
 
 

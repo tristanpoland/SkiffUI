@@ -6,7 +6,29 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "70ccbce5-fb81-468e-ae4b-667dcb25dd5d": {
+            "91a96319-c6a8-4c17-9f42-60610a0514e1": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "magical_chaplygin"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "c5ff72d2-d8f6-4f81-b4f4-e528791e68cb": {
                 "idname": "DockerNode",
                 "pos": [
                     0,

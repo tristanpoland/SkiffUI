@@ -22,13 +22,10 @@ helm = helm.helm()
 class ContainerEditor(wx.Dialog):
     def __init__(self, id):
         super().__init__(None, title="Container Editor", size=(600, 700))
-        ContainerEditor.id = id  # store the ID of the container being edited
+        ContainerEditor.id = id  # store the ID of the container to be edited
 
         # Get volume data (for now this is a placeholder)
         self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
-
-        #Sanity Check
-        #Error: print(ContainerEditor.data)
 
         self.SetBackgroundColour('#1E1E1E')  # set the background color to dark
 
@@ -39,15 +36,12 @@ class ContainerEditor(wx.Dialog):
         self.ports_tab = wx.Panel(self.notebook)
         self.environment_tab = wx.Panel(self.notebook)
         self.command_tab = wx.Panel(self.notebook)
-        self.cli_tab = wx.Panel(self.notebook)
 
         self.notebook.AddPage(self.general_tab, "General")
         self.notebook.AddPage(self.volumes_tab, "Volumes")
         self.notebook.AddPage(self.ports_tab, "Ports")
         self.notebook.AddPage(self.environment_tab, "Environment")
         self.notebook.AddPage(self.command_tab, "Command")
-        self.notebook.AddPage(self.cli_tab, "CLI")
-
 
     # General tab
         # Add a static box with some widgets
@@ -138,7 +132,7 @@ class ContainerEditor(wx.Dialog):
         self.container_command_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_command_label.SetForegroundColour(wx.WHITE)
         helm.set_engine_manual('docker')
-        ContainerEditor.container_name_text = wx.TextCtrl(self.command_tab, value=str(helm.get_run_command(container_id=ContainerEditor.id)))
+        ContainerEditor.container_command_text = wx.TextCtrl(self.command_tab, value=str(helm.get_run_command(container_id=ContainerEditor.id)))
 
         # create a sizer for the General tab
         static_box = wx.StaticBox(self.command_tab, label="Container Details")
@@ -147,7 +141,7 @@ class ContainerEditor(wx.Dialog):
 
         # Container name sizers
         static_box_sizer.Add(self.container_command_label, 0, wx.ALL | wx.LEFT, 5)
-        static_box_sizer.Add(ContainerEditor.container_name_text, 0, wx.ALL | wx.EXPAND, 5)
+        static_box_sizer.Add(ContainerEditor.container_command_text, 0, wx.ALL | wx.EXPAND, 5)
 
         command_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
 
@@ -182,9 +176,7 @@ class ContainerEditor(wx.Dialog):
         container_name = self.container_name_text.GetValue()
         container_image = self.container_image_text.GetValue()
 
-        # apply changes to container with matching
-        print(ContainerEditor.id)
-        print(ContainerEditor.container_name_text)
+        # apply changes to container with matching id
         helm.rename_container(str(ContainerEditor.id), str(container_name))  # implement this function to get the container by ID
         print("Applied changes to container", self.id)
 

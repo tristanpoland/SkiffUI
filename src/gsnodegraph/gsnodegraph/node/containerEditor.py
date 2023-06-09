@@ -22,13 +22,10 @@ helm = helm.helm()
 class ContainerEditor(wx.Dialog):
     def __init__(self, id):
         super().__init__(None, title="Container Editor", size=(600, 700))
-        ContainerEditor.id = id  # store the ID of the container being edited
+        ContainerEditor.id = id  # store the ID of the container to be edited
 
         # Get volume data (for now this is a placeholder)
         self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
-
-        #Sanity Check
-        #Error: print(ContainerEditor.data)
 
         self.SetBackgroundColour('#1E1E1E')  # set the background color to dark
 
@@ -179,9 +176,7 @@ class ContainerEditor(wx.Dialog):
         container_name = self.container_name_text.GetValue()
         container_image = self.container_image_text.GetValue()
 
-        # apply changes to container with matching
-        print(ContainerEditor.id)
-        print(ContainerEditor.container_name_text)
+        # apply changes to container with matching id
         helm.rename_container(str(ContainerEditor.id), str(container_name))  # implement this function to get the container by ID
         print("Applied changes to container", self.id)
 

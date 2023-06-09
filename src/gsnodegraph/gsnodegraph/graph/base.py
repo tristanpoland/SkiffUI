@@ -66,7 +66,6 @@ ID_CONTEXTMENU_SELECTALLNODES = wx.NewIdRef()
 
 class NodeGraph(wx.ScrolledCanvas):
     def __init__(self, parent, registry, *args, **kwds):
-        print("Hello from GSNodeGraph")
         self.parent = parent
         self.node_registry = registry
 

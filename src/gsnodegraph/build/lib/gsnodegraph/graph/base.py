@@ -146,11 +146,8 @@ class NodeGraph(wx.ScrolledCanvas):
 
     def OnSize(self, event):
         Size = self.ClientSize
-        try:
-            self.buffer = wx.Bitmap(*Size)
-            self.UpdateNodeGraph()
-        except:
-            print("[Error] line 50, this is a know bug for Linux systems and is not critical")
+        self.buffer = wx.Bitmap(*Size)
+        self.UpdateNodeGraph()
 
     def OnLeftDown(self, event):
         pnt = event.GetPosition()
@@ -615,8 +612,8 @@ class NodeGraph(wx.ScrolledCanvas):
       
                 self.active_node.SetActive(False)
                 self.active_node = self.src_node
-                print("[INFO] User selected", self.active_node)
-                print("[INFO] MY ID:")
+                print("User selected", self.active_node)
+                print("MY ID:")
                 self.active_node.SetActive(True)
 
 
@@ -710,7 +707,7 @@ class NodeGraph(wx.ScrolledCanvas):
     def AddNode(self, idname, node_id=None, pos=(0, 0), location="POSITION"):
         time.sleep(.5)
         if node_id:
-            print("[ERROR] Node ID should not be specified")
+            print("Node ID should not be specified")
         else:
             node_id = uuid.uuid4().hex
         try:
@@ -718,7 +715,7 @@ class NodeGraph(wx.ScrolledCanvas):
             with open(path, 'r') as f:
                 docker_image = f.read()
             if docker_image == "":
-                print("[WARN] A node was added to the graph, but no docker image was specified, skipping container init")
+                print("A node was added to the graph, but no docker image was specified, skipping container init")
             else:
                 container = client.containers.run(image=docker_image, detach=True)
                 match = re.search(r'\b\w{64}\b', str(container.id))
@@ -732,15 +729,11 @@ class NodeGraph(wx.ScrolledCanvas):
                 #Hard code container resource usage for testing
                 ctr_stats = {
                     "id": "TestCTR"
-                    "CPU" "0.1% / 200%"
-                    "MEM" "4.6 MB / 1 GB"
-                    "DISK" "28 MB / 20 GB"
-                    "NET_IN" "45 MiB"
-                    "NET_OUT" "180 GiB"
+                    "CPU" "0.1%"
                 }
-                print("[INFO] Got container heartbeat with status:", ctr_stats)
+                print("Got container heartbeat with status:", ctr_stats)
         except:
-            print("[INFO] SkiffUI is still starting! Skipping docker conatiner processing. This is normal behavior only when the app first launches")
+            print("SkiffUI is still starting! Skipping docker processing")
 
         node = self.node_registry[idname](self, node_id)
         node.Init(idname)
@@ -838,8 +831,8 @@ class NodeGraph(wx.ScrolledCanvas):
                 client.containers.get(node.id).stop()
                 client.containers.get(node.id).remove()
             except Exception as e:
-                print("[ERROR] DOCKER IMAGE DELETION FAILED!", e)
-            print("[INFO] Dropped container", node.id)
+                print("[CRITICAL/FAILURE] DOCKER IMAGE DELETION FAILED!", e)
+            print("[INFO] Dropped container", node.id, "from container engine")
         del self.nodes[node.id]
         self.UpdateNodeGraph()
 

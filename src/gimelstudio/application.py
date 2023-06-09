@@ -676,7 +676,7 @@ def OnRemoteConnect(self):
         # Store values in global variables
         remote_address = text.GetValue()
         remote_type = choices[dropdown.GetCurrentSelection()]
-        print('[Debug] Popup got data', remote_address, "and", remote_type, "from user")
+        print('[DEBUG] Popup got data', remote_address, "and", remote_type, "from user")
 
     # Destroy dialog box
     dialog.Destroy()

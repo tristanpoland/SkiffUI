@@ -124,11 +124,11 @@ class NodeGraphPanel(PanelBase):
 
         def _on_node_added(self, node):
             # Code to execute when a node is added to the graph
-            print("Node {node.id} was added to the graph!")
+            print("[DEBUG] Node {node.id} was added to the graph!")
 
         def _on_node_deleted(self, node):
             # Code to execute when a node is deleted from the graph
-            print("Node {node.id} was deleted from the graph!")
+            print("[DEBUG] Node {node.id} was deleted from the graph!")
 
     @property
     def AUIManager(self):
