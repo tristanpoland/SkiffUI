@@ -55,7 +55,7 @@ class Node(NodeView):
             self.NodeInitProps()
 
     def EditContainer(self, event=None):
-        print("Opening container editor")
+        print("[DEBUG] Opening container editor")
         try:
             dialog = ContainerEditor(self.id)
             dialog.ShowModal()

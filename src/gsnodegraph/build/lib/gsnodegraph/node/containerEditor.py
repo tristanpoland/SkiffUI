@@ -23,12 +23,15 @@ helm.set_engine_manual(engine_select="docker")
 class ContainerEditor(wx.Dialog):
     def __init__(self, id):
         super().__init__(None, title="Container Editor", size=(600, 700))
-        ContainerEditor.id = id  # store the ID of the container to be edited
-        print(ContainerEditor.id)
+
+        # store the ID of the container to be edited
+        ContainerEditor.id = id
+        
         # Get volume data (for now this is a placeholder)
         self.data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35], 'Gender': ['Female', 'Male', 'Male']}
 
-        self.SetBackgroundColour('#1E1E1E')  # set the background color to dark
+        # set the background color to dark
+        self.SetBackgroundColour('#1E1E1E')
 
         # create a notebook and tabs
         self.notebook = wx.Notebook(self)

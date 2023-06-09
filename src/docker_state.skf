@@ -6,7 +6,51 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "56f70b8b-5dc2-4c6b-ab4b-cfdcfe1da229": {
+            "835b1077-b9d7-43a7-88a4-8da395cbfb8c": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "optimistic_hopper"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "6e049c10-e3d1-4212-8529-eebbbf7070f8": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "blissful_visvesvaraya"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "e3afd823-89fc-4a65-b479-eee80ff331fd": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -28,7 +72,7 @@
                     }
                 }
             },
-            "a9d6d3b7-73ff-4610-a3ca-d2efafe89601": {
+            "899f0290-bc06-4fdd-bb22-7cd088b8ff74": {
                 "idname": "DockerNode",
                 "pos": [
                     0,

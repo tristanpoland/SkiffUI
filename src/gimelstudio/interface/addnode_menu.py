@@ -30,7 +30,6 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-
 import wx, wx.adv, wx.stc, os
 from wx import TextCtrl,Button
 from gimelstudio.core import registry
@@ -39,7 +38,6 @@ from nodes import docker_state_tracker
 
 # Get the absolute path of the truncated path
 script_dir = os.path.abspath(os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-3]))
-
 
 class NodesVListBox(wx.VListBox):
     #Start the container state tracking
@@ -172,8 +170,6 @@ def UpdateForSearch(self, search_string):
 
     self.Refresh()
 
-
-
 class AddNodeMenu(wx.PopupWindow):
     def __init__(self, parent, node_registry, size,
                  style=wx.BORDER_NONE | wx.PU_CONTAINS_CONTROLS):
@@ -212,8 +208,8 @@ class AddNodeMenu(wx.PopupWindow):
         self.search_bar = TextCtrl(self, style=wx.BORDER_SIMPLE, size=(-1, 26), name="Search")
         self.search_bar.SetFocus()
 
-        self.refresh_btn = Button(self, label="Refresh")
-        self.Bind(wx.EVT_BUTTON, self.on_refresh, self.refresh_btn)
+        # self.refresh_btn = Button(self, label="Refresh")
+        # self.Bind(wx.EVT_BUTTON, self.on_refresh, self.refresh_btn)
 
         self.close_btn = Button(self, label="Close")
         self.Bind(wx.EVT_BUTTON, self.on_close, self.close_btn)
@@ -235,7 +231,7 @@ class AddNodeMenu(wx.PopupWindow):
         self.Bind(wx.EVT_LISTBOX, self.OnClickSelectItem, self.nodes_listbox)
 
     def on_close(self, event):
-        self.Close()
+        self.Destroy()
 
     def on_refresh(self, event):
         # Call UpdateMenuIfRegistryChanged() function here
