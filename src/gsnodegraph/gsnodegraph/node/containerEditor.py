@@ -82,12 +82,13 @@ class ContainerEditor(wx.Dialog):
         volume_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Add a static box with some widgets
-        static_box = wx.StaticBox(self.ports_tab, label="Container Volumes:")
+        static_box = wx.StaticBox(self.volumes_tab, label="Container Volumes:")
+        static_box.SetForegroundColour(wx.WHITE)  # Set label color to white
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         volume_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
 
-        self.ports_tab.SetSizer(volume_sizer)
+        self.volumes_tab.SetSizer(volume_sizer)
 
     # ports tab
 
@@ -96,6 +97,7 @@ class ContainerEditor(wx.Dialog):
 
         # Add a static box with some widgets
         static_box = wx.StaticBox(self.ports_tab, label="Container Ports")
+        static_box.SetForegroundColour(wx.WHITE)  # Set label color to white
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         port_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
@@ -109,6 +111,7 @@ class ContainerEditor(wx.Dialog):
 
         # Add a static box with some widgets
         static_box = wx.StaticBox(self.environment_tab, label="Container Environment Variables")
+        static_box.SetForegroundColour(wx.WHITE)  # Set label color to white
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         environment_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
@@ -122,6 +125,7 @@ class ContainerEditor(wx.Dialog):
 
         # Add a static box with some widgets
         static_box = wx.StaticBox(self.command_tab, label="Container docker Run Command")
+        static_box.SetForegroundColour(wx.WHITE)  # Set label color to white
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
         command_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
@@ -129,6 +133,7 @@ class ContainerEditor(wx.Dialog):
         self.command_tab.SetSizer(command_sizer)
 
         self.container_command_label = wx.StaticText(self.command_tab, label="Container Command:")
+        static_box.SetForegroundColour(wx.WHITE)  # Set label color to white
         self.container_command_label.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
         self.container_command_label.SetForegroundColour(wx.WHITE)
         helm.set_engine_manual('docker')
@@ -136,6 +141,7 @@ class ContainerEditor(wx.Dialog):
 
         # create a sizer for the General tab
         static_box = wx.StaticBox(self.command_tab, label="Container Details")
+        static_box.SetForegroundColour(wx.WHITE)  # Set label color to white
         command_sizer = wx.BoxSizer(wx.VERTICAL)
         static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
 
