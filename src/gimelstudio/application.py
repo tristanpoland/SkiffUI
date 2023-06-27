@@ -349,7 +349,7 @@ class ApplicationFrame(wx.Frame):
         self.menubar.Append(edit_menu, _("Edit"))
         self.menubar.Append(view_menu, _("View"))
         self.menubar.Append(window_menu, _("Window"))
-        self.menubar.Append(connect_menu, _("Connect"))
+        self.menubar.Append(connect_menu, _("Remote"))
         self.menubar.Append(network_menu, _("Network"))
         self.menubar.Append(engine_menu, _("Engine"))
         self.menubar.Append(help_menu, _("Help"))
@@ -676,7 +676,7 @@ def OnRemoteConnect(self):
         # Store values in global variables
         remote_address = text.GetValue()
         remote_type = choices[dropdown.GetCurrentSelection()]
-        print('[Debug (Application.py line 682)] Popup got data', remote_address, "and", remote_type, "from user")
+        print('[DEBUG] Popup got data', remote_address, "and", remote_type, "from user")
 
     # Destroy dialog box
     dialog.Destroy()

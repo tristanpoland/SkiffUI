@@ -21,7 +21,7 @@ from gimelstudio.utils import NodeExistsError, NodeNotFoundError
 # the application (i.e can be used in the nodegraph).
 NODE_REGISTRY = {}
 
-print("[Debug] Registry called")
+print("[DEBUG] Registry called")
 
 def RegisterNode(node, idname=""):
     OnUpdated()
@@ -54,4 +54,4 @@ def UnregisterNode(idname):
             del NODE_REGISTRY[idname]
 
 def OnUpdated():
-    print('')
+    print("[DEBUG] Registry updated")

@@ -39,6 +39,6 @@ def LoadNodes(type, directory, module):
 # Load the output composite node
 from .core.output_node import OutputNode
 
-# Next, we load the core and custom nodes from the 'nodes' directory.
-LoadNodes("core", "nodes/corenodes", "nodes.corenodes")
+# Next, we load the custom nodes from the 'nodes' directory, the corenodes only need be loaded for nodes that must persist through each project.
+# LoadNodes("core", "nodes/corenodes", "nodes.corenodes")
 LoadNodes("custom", "nodes/customnodes", "nodes.customnodes")

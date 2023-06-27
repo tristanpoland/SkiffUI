@@ -23,8 +23,8 @@ from gimelstudio.datafiles import GIMEL_STUDIO_SPLASH
 class StartupSplashScreen(wx.adv.SplashScreen):
     def __init__(self):
         _bmp = GIMEL_STUDIO_SPLASH.GetBitmap()
-        print(_bmp.GetWidth())
-        print(_bmp.GetHeight())
+        print("[DEBUG] ", _bmp.GetWidth())
+        print("[DEBUG] ", _bmp.GetHeight())
         bmp = wx.Image.ConvertToBitmap(
             wx.Bitmap.ConvertToImage(_bmp).Scale(
                 _bmp.GetWidth() / 2,

@@ -114,7 +114,7 @@ class ProjectFileIO(object):
                 # Create the node object
                 node = nodegraph.AddNode(node_data["idname"], 
                                          pos=node_data["pos"], 
-                                         nodeid=node_id,
+                                         node_id=node_id,
                                          location="POSITION")
 
                 # Create the node properties
@@ -156,7 +156,7 @@ class ProjectFileIO(object):
             with open(file_path, "w") as file:
                 json.dump(contents, file, indent=4)
         except Exception as error:
-            print(error)
+            print("[Error] Failed to save file: ", error)
         return file_path
 
     def OpenFile(self, file_path):

@@ -14,6 +14,22 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# SkiffUI Copyright 2020-2023 by Gameplex Software and contributors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ----------------------------------------------------------------------------
+
 import wx
 import uuid
 
@@ -124,11 +140,11 @@ class NodeGraphPanel(PanelBase):
 
         def _on_node_added(self, node):
             # Code to execute when a node is added to the graph
-            print("Node {node.id} was added to the graph!")
+            print("[DEBUG] Node {node.id} was added to the graph!")
 
         def _on_node_deleted(self, node):
             # Code to execute when a node is deleted from the graph
-            print("Node {node.id} was deleted from the graph!")
+            print("[DEBUG] Node {node.id} was deleted from the graph!")
 
     @property
     def AUIManager(self):
@@ -204,6 +220,7 @@ class NodeGraphPanel(PanelBase):
                                         text=_("Node Context Menu"))
         self.Statusbar.PushMessage(_("Node Graph Area"))
         self.Statusbar.UpdateStatusBar()
+        # AddNodeMenu.on_close()
 
     def OnAddNodeMenu(self, event):
         pos = wx.GetMousePosition()

@@ -28,25 +28,25 @@ class DockerNode(api.Node):
     @property
     def NodeMeta(self):
         meta_info = {
-            "label": "{{image_name}}",
+            "label": "<Image: 'netdata/netdata:edge'>",
             "author": "Gameplex Software",
             "version": (0, 0, 1),
             "category": "FILTER",
-            "description": "Show {{image_name}} image on the node graph",
+            "description": "Show <Image: 'netdata/netdata:edge'> image on the node graph",
         }
         return meta_info
 
     def NodeInitProps(self):
         image_id = api.LabelProp(
             idname="image_id",
-            default="{{image_id}}",
+            default="f46601cc78b76070a8937ab0768d92616509a753d4f03037c0a8d6a31fb37aac",
             fpb_label="Image ID"
         )
         self.NodeAddProp(image_id)
 
         image_status = api.LabelProp(
             idname="image_status",
-            default="{{image_status}}",
+            default="On host disk",
             fpb_label="Status"
         )
         self.NodeAddProp(image_status)
@@ -61,4 +61,4 @@ class DockerNode(api.Node):
         render_image = api.RenderImage()
         return render_image
 
-api.RegisterNode(DockerNode, "{{image_id}}")
+api.RegisterNode(DockerNode, "f46601cc78b76070a8937ab0768d92616509a753d4f03037c0a8d6a31fb37aac")

@@ -71,7 +71,7 @@ def OnRemoteConnect():
         remote_address = text.GetValue()
         remote_type = type_choices[type_dropdown.GetCurrentSelection()]
         remote_security = security_choices[security_dropdown.GetCurrentSelection()]
-        print(remote_address, remote_type, remote_security)
+        print("[DEBUG] Fetched data: " ,remote_address, remote_type, remote_security)
     # Destroy dialog box
     dialog.Destroy()
     # Run wxPython event loop

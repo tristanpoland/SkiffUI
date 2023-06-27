@@ -14,6 +14,22 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# SkiffUI Copyright 2020-2023 by Gameplex Software and contributors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ----------------------------------------------------------------------------
+
 import os.path
 import wx
 from gsnodegraph import NodeBase as NodeView
@@ -36,7 +52,7 @@ class Node(NodeView):
         self.edited_flag = False
         self.shader_cache = None
         self.shader_cache_enabled = True
-        print(self.GetCategory())
+        print("[DEBUG] Added node with type ", self.GetCategory()," to graph")
         if self.GetCategory() == "FILTER":
             # Add the "Edit Container" button to the sidebar
             container_edit = ActionProp(
@@ -55,12 +71,12 @@ class Node(NodeView):
             self.NodeInitProps()
 
     def EditContainer(self, event=None):
-        print("Opening container editor")
+        print("[DEBUG] Opening container editor")
         try:
             dialog = ContainerEditor(self.id)
             dialog.ShowModal()
         except Exception as e:
-            print("Error opening container editor", e)
+            print("[ERROR] Error opening container editor", e)
 
     def _WidgetEventHook(self, idname, value, render):
         """ Internal dispatcher method for the Property widget
