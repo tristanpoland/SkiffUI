@@ -733,7 +733,7 @@ class NodeGraph(wx.ScrolledCanvas):
                 }
                 print("Got container heartbeat with status:", ctr_stats)
         except:
-            print("SkiffUI is still starting! Skipping docker processing")
+            print("[DEBUG] SkiffUI is still starting! Skipping docker processing")
 
         node = self.node_registry[idname](self, node_id)
         node.Init(idname)
@@ -758,7 +758,7 @@ class NodeGraph(wx.ScrolledCanvas):
         """
         output_node = self.GetOutputNode()
 
-        # We assume there is only one input (for now)
+        # We assume there is only one input for each output node (for now)
         output_node_socket = output_node.GetSockets()[0]
 
         # Disconnect any previous connections

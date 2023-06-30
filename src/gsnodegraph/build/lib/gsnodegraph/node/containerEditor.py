@@ -15,10 +15,46 @@
 # ----------------------------------------------------------------------------
 
 import wx, subprocess
+import wx.grid
 from shiphelm import helm
 
 helm = helm.helm()
 helm.set_engine_manual(engine_select="docker")
+
+
+class PortsTable(wx.grid.Grid):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.CreateGrid(1, 3)
+
+        self.SetColLabelValue(0, "Internal Port")
+        self.SetColLabelValue(1, "External Port")
+        self.SetColLabelValue(2, "Remove port")
+
+        self.SetColSize(0, 100)
+        self.SetColSize(1, 100)
+        self.SetColSize(2, 100)
+
+        self.SetDefaultCellAlignment(wx.ALIGN_CENTER, wx.ALIGN_CENTER)
+
+        self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK, self.on_left_click)
+
+        self.Bind(wx.grid.EVT_GRID_LABEL_LEFT_CLICK, self.on_label_left_click)
+
+        self.SetRowLabelSize(0)
+        self.AutoSize()
+
+    def on_left_click(self, event):
+        row = event.GetRow()
+        col = event.GetCol()
+        if col == 2:
+            self.DeleteRows(row)
+
+    def on_label_left_click(self, event):
+        col = event.GetCol()
+        if col == 2:
+            for row in range(self.GetNumberRows()):
+                self.DeleteRows(row)
 
 
 class ContainerEditor(wx.Dialog):
@@ -95,17 +131,15 @@ class ContainerEditor(wx.Dialog):
         self.ports_tab.SetSizer(volume_sizer)
 
     # ports tab
+        self.ports_table = PortsTable(self.ports_tab)
+        self.add_row_button = wx.Button(self.ports_tab, label="Add Row")
+        self.add_row_button.Bind(wx.EVT_BUTTON, self.on_add_row)
 
-        # create a sizer for the Ports tab
-        port_sizer = wx.BoxSizer(wx.VERTICAL)
+        ports_sizer = wx.BoxSizer(wx.VERTICAL)
+        ports_sizer.Add(self.ports_table, 1, wx.EXPAND | wx.ALL, 5)
+        ports_sizer.Add(self.add_row_button, 0, wx.ALIGN_RIGHT | wx.ALL, 5)
 
-        # Add a static box with some widgets
-        static_box = wx.StaticBox(self.ports_tab, label="Container Ports")
-        static_box_sizer = wx.StaticBoxSizer(static_box, wx.VERTICAL)
-
-        port_sizer.Add(static_box_sizer, 0, wx.ALL | wx.EXPAND, 5)
-
-        self.ports_tab.SetSizer(port_sizer)
+        self.ports_tab.SetSizer(ports_sizer)
 
     # Environment tab
 
@@ -194,3 +228,7 @@ class ContainerEditor(wx.Dialog):
 
     def on_cancel(self, event):
         self.EndModal(wx.ID_CANCEL)
+
+    def on_add_row(self, event):
+        num_rows = self.ports_table.GetNumberRows()
+        self.ports_table.InsertRows(num_rows)
