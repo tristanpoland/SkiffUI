@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "7d6c7421-3611-4f7e-86b0-5df1315babe4": {
+            "167d2695-7a25-4325-9d17-7032f320396b": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,73 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "netdata"
+                        "value": "keen_almeida"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "45932289-91a7-4366-bd13-1728c8cf7043": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "blissful_mccarthy"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "f60bcecc-ded2-4de8-82c8-45db18c0d389": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "inspiring_heisenberg"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "becc8e2f-0634-46e5-8b3a-d98d9c1dfb84": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "priceless_dewdney"
                     },
                     "status": {
                         "idname": "status",
