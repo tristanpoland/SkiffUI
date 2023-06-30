@@ -130,9 +130,9 @@ class ContainerEditor(wx.Dialog):
 
         self.ports_tab.SetSizer(volume_sizer)
 
-    # ports tab
+    # Ports tab
         self.ports_table = PortsTable(self.ports_tab)
-        self.add_row_button = wx.Button(self.ports_tab, label="Add Row")
+        self.add_row_button = wx.Button(self.ports_tab, label="Add Rule")
         self.add_row_button.Bind(wx.EVT_BUTTON, self.on_add_row)
 
         ports_sizer = wx.BoxSizer(wx.VERTICAL)
