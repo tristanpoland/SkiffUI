@@ -5,7 +5,7 @@ from shiphelm import helm
 helm = helm.helm()
 helm.set_engine_manual(engine_select="docker")
 
-
+#Table controls for posts tab
 class PortsTable(wx.grid.Grid):
     def __init__(self, parent):
         super().__init__(parent)
@@ -39,6 +39,42 @@ class PortsTable(wx.grid.Grid):
         if col == 2:
             for row in range(self.GetNumberRows()):
                 self.DeleteRows(row)
+
+#Table controls for Volumes tab
+class VolumesTable(wx.grid.Grid):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.CreateGrid(1, 3)
+
+        self.SetColLabelValue(0, "Host Path")
+        self.SetColLabelValue(1, "Virtual Path")
+        self.SetColLabelValue(2, "Remove Volume")
+
+        self.SetColSize(0, 100)
+        self.SetColSize(1, 100)
+        self.SetColSize(2, 100)
+
+        self.SetDefaultCellAlignment(wx.ALIGN_CENTER, wx.ALIGN_CENTER)
+
+        self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK, self.on_left_click)
+
+        self.Bind(wx.grid.EVT_GRID_LABEL_LEFT_CLICK, self.on_label_left_click)
+
+        self.SetRowLabelSize(0)
+        self.AutoSize()
+
+    def on_left_click(self, event):
+        row = event.GetRow()
+        col = event.GetCol()
+        if col == 2:
+            self.DeleteRows(row)
+
+    def on_label_left_click(self, event):
+        col = event.GetCol()
+        if col == 2:
+            for row in range(self.GetNumberRows()):
+                self.DeleteRows(row)
+
 
 
 class ContainerEditor(wx.Dialog):

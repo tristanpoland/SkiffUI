@@ -6,7 +6,7 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "1aaef1ee-6e51-4181-8110-d64836cb9e88": {
+            "796b7ebc-1256-46ed-832f-ce28557d597f": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -20,7 +20,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "funny_kirch"
+                        "value": "great_gould"
                     },
                     "status": {
                         "idname": "status",
@@ -28,7 +28,7 @@
                     }
                 }
             },
-            "06d3256b-4239-4250-a7f8-3149dfa572a4": {
+            "6dc9c2af-7dec-4e04-b39a-d239287cb5b7": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -42,7 +42,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "exciting_mayer"
+                        "value": "trusting_galileo"
                     },
                     "status": {
                         "idname": "status",
@@ -50,7 +50,7 @@
                     }
                 }
             },
-            "f573774a-b696-4557-aea8-04ac6d67951c": {
+            "618304b7-acd8-422f-8fad-ccea468f6631": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
@@ -64,205 +64,7 @@
                 "properties": {
                     "name": {
                         "idname": "name",
-                        "value": "goofy_agnesi"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "563d0bd3-6ca5-4842-8a3e-f9170527e76d": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "dreamy_hoover"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "277347e5-71e5-4d6c-bf55-af1a553bf5dc": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "fervent_lalande"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "ac87de04-f5ef-4d86-a5a4-6d3d19aee158": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "quizzical_agnesi"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "6f07e224-cad3-4530-a79c-096f120f87a4": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "stupefied_joliot"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "6027adee-a38f-491d-a7e5-550d8340eac7": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "recursing_haslett"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "e5146d00-9709-48ce-9db5-0f971347763d": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "busy_cerf"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "ce9b8d92-0c54-4365-908b-92cccfdf8b44": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "gallant_fermat"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "3ac24c38-037b-4e3b-8cca-af2ac883e1b7": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "eager_williams"
-                    },
-                    "status": {
-                        "idname": "status",
-                        "value": "running"
-                    }
-                }
-            },
-            "6dab72c3-1984-4049-8faf-6d486703bb24": {
-                "idname": "DockerNode",
-                "pos": [
-                    0,
-                    0
-                ],
-                "muted": false,
-                "selected": false,
-                "active": false,
-                "expanded": false,
-                "parameters": {},
-                "properties": {
-                    "name": {
-                        "idname": "name",
-                        "value": "ecstatic_chandrasekhar"
+                        "value": "gifted_gates"
                     },
                     "status": {
                         "idname": "status",
