@@ -699,7 +699,7 @@ class NodeGraph(wx.ScrolledCanvas):
         if node.IsOutputNode() is not True:
             duplicate_node = self.AddNode(node.GetIdname(), location="CURSOR")
 
-            # TODO: Assign the same properties to the duplicate node object
+            # TODO: Assign the same properties to the duplicate node object and make a duplicate docker container to link to the new node.
 
             self.UpdateNodeGraph()
             return duplicate_node
