@@ -54,6 +54,7 @@ except Exception:
 # _ (underscore) to the value of the last evaluated expression.
 # If we don't do this, our mapping of _ to gettext can get overwritten.
 # This is useful/needed in interactive debugging with PyShell.
+
 def _displayHook(obj):
     """ Custom display hook to prevent Python stealing '_'. """
 
