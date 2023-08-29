@@ -82,7 +82,11 @@ class MainApp(wx.App):
 
         # Controls the current interface language
         self.language_prefix = "LANGUAGE_"
-        self.language = self.language_prefix + self.app_config.Config(keys=("Settings", "Interface", "Language")).upper()
+        try:
+            self.language = self.language_prefix + self.app_config.Config(keys=("Settings", "Interface", "Language")).upper()
+        except:
+            print("Failed to fetch language config for this device, defaulting to US english")
+            self.language = "LANGUAGE_ENGLISH"
 
         # Setup the Locale
         self.InitI18n()

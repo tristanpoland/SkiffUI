@@ -76,12 +76,16 @@ class AppConfiguration(AppData):
                     default_config = f.read()
 
                 with open(self.app_config_file, "w+") as f:
-                    f.write(default_config)
+                    try:
+                        f.write(default_config)
+                    except:
+                        print("[WARN] Error writing config file defaults,. Here be dragons")
 
             with open(self.app_config_file, "r") as file:
                 self.prefs = json.load(file)
-        except IOError:
-            pass  # Just use default
+        except IOError: 
+            # Just use default
+            print(default_config)
 
     def Save(self):
         # Add app version to file

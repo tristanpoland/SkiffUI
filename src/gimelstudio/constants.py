@@ -56,7 +56,7 @@ APP_YOUTUBE_URL = ""
 
 APP_FULL_TITLE = "{0} v{1}".format(APP_NAME, APP_VERSION_FULL)
 
-APP_CONFIG_FILE = os.path.expanduser("~/.gimelstudio/pre-a2-config.json")
+APP_CONFIG_FILE = os.path.expanduser("~/.Skiffui/pre-a2-config.json")
 
 # File system
 SUPPORTED_FT_OPEN_LIST = [
