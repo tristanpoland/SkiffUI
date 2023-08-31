@@ -15,9 +15,15 @@
 # ----------------------------------------------------------------------------
 
 from .output_eval import OutputNodeEval
+from shiphelm.helm import helm
 
 try:
-    hd = helmdocker() # create an instance of helmdocker
+    # create an instance of helmdocker
+    hd = helm()
+    
+    #TODO: Make this automatically select the proper engine
+    helm.set_engine_manual(engine_select="docker")
+
 except:
     print("[WARN] Docker is not running or could not be located on the local system (If you are using SkiffUI with a remote host this is probably fine)")
 

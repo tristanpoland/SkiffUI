@@ -57,13 +57,13 @@ class OutputNode(api.Node):
         return meta_info
 
     def NodeInitProps(self):
-        self.export_button = api.ActionProp(
-            idname="export",
-            fpb_label="Export",
-            btn_label="Export Image",
-            action=self.OnExportButtonPressed
-        )
-        self.NodeAddProp(self.export_button)
+#        self.export_button = api.ActionProp(
+#            idname="export",
+#            fpb_label="Export",
+#            btn_label="Export Image",
+#            action=self.OnExportButtonPressed
+#        )
+#        self.NodeAddProp(self.export_button)
 
         self.port_out = api.PositiveIntegerProp(
             idname="p0",
@@ -73,6 +73,14 @@ class OutputNode(api.Node):
             default=8080
         )
         self.NodeAddProp(self.port_out)
+
+        self.protocols = api.ChoiceProp(
+            idname="proto",
+            default="Both",
+            choices=["Both", "TCP", "UDP"],
+            fpb_label="Protocols"
+        )
+        self.NodeAddProp(self.protocols)
 
     def NodeInitParams(self):
         p0 = api.RenderImageParam('Image', 'Forward port')

@@ -33,6 +33,7 @@
 import wx
 import wx.lib.agw.aui as aui
 import wx.lib.agw.flatmenu as flatmenu
+import webbrowser
 
 from gimelstudio.constants import (APP_FULL_TITLE, AREA_TOPBAR_COLOR, DARK_COLOR, 
                                    PROJECT_FILE_WILDCARD)
@@ -229,7 +230,7 @@ class ApplicationFrame(wx.Frame):
         self.toggleautonetwork_menuitem = flatmenu.FlatMenuItem(
             network_menu,
             id=wx.ID_ANY,
-            label=_("Auto Refresh Networks"),
+            label=_("Auto Refresh Map"),
             helpString=_("Enable auto rendering after editing node properties, connections, etc"),
             kind=wx.ITEM_CHECK,
             subMenu=None
@@ -238,7 +239,7 @@ class ApplicationFrame(wx.Frame):
         self.renderimage_menuitem = flatmenu.FlatMenuItem(
             network_menu,
             id=wx.ID_ANY,
-            label="{0}{1}".format(_("Recalculate Network"), "\tF12"),
+            label="{0}{1}".format(_("Recalculate Map"), "\tF12"),
             helpString=_("Force an immediate, updated render of the current node graph"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
@@ -268,7 +269,7 @@ class ApplicationFrame(wx.Frame):
         self.onlinemanual_menuitem = flatmenu.FlatMenuItem(
             help_menu,
             id=wx.ID_ANY,
-            label=_("Online Manual"),
+            label=_("Skiff Academy"),
             helpString=_("Open the online SkiffUI manual in your browser"),
             kind=wx.ITEM_NORMAL,
             subMenu=None,
@@ -350,7 +351,7 @@ class ApplicationFrame(wx.Frame):
         self.menubar.Append(view_menu, _("View"))
         self.menubar.Append(window_menu, _("Window"))
         self.menubar.Append(connect_menu, _("Remote"))
-        self.menubar.Append(network_menu, _("Network"))
+        self.menubar.Append(network_menu, _("Node Map"))
         self.menubar.Append(engine_menu, _("Engine"))
         self.menubar.Append(help_menu, _("Help"))
         
@@ -628,7 +629,7 @@ class ApplicationFrame(wx.Frame):
         self.Maximize()
 
     def OnOnlineManual(self, event):
-        url = ("https://github.com/Gameplex-Software/SkiffUI/wiki")
+        url = ("https://gameplexsoftware.com/skiffui/academy")
         webbrowser.open(url)
 
     def OnReportABug(self, event):

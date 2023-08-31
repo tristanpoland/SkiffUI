@@ -10,9 +10,6 @@ space_gray = '#3F4146'
 dark_charcoal = '#242528'
 accent_color = '#5173b5'
 
-#TODO: Make this automatically select the proper engine
-helm.set_engine_manual(engine_select="docker")
-
 #Table controls for posts tab
 class PortsTable(wx.grid.Grid):
     def __init__(self, parent):
