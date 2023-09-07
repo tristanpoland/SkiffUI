@@ -86,7 +86,7 @@ class MainApp(wx.App):
         try:
             self.language = self.language_prefix + self.app_config.Config(keys=("Settings", "Interface", "Language")).upper()
         except:
-            print("Failed to fetch language config for this device, defaulting to US english")
+            print("[WARN] Failed to fetch language config for this device, defaulting to US english.")
             self.language = "LANGUAGE_ENGLISH"
 
         # Setup the Locale
@@ -106,7 +106,7 @@ class MainApp(wx.App):
 
     def InitI18n(self):
         self.locale = wx.Locale(getattr(wx, self.language))
-        path = os.path.abspath("./gimelstudio/locale") + os.path.sep
+        path = os.path.abspath("./Skiffui/locale") + os.path.sep
         self.locale.AddCatalogLookupPathPrefix(path)
         self.locale.AddCatalog(self.GetAppName())
 
