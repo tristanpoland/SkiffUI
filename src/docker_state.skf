@@ -6,7 +6,51 @@
     "app_version_full": "0.0.1 pre-alpha 1",
     "node_graph": {
         "nodes": {
-            "10e067ea-a7e5-4c8d-99d4-ed908b28b53c": {
+            "16d18f2b-54df-4de1-9797-c9f4b3629593": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "zealous_driscoll"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "cb1466ac-1dfb-44c7-84e7-8d20e646e076": {
+                "idname": "DockerNode",
+                "pos": [
+                    0,
+                    0
+                ],
+                "muted": false,
+                "selected": false,
+                "active": false,
+                "expanded": false,
+                "parameters": {},
+                "properties": {
+                    "name": {
+                        "idname": "name",
+                        "value": "amazing_ardinghelli"
+                    },
+                    "status": {
+                        "idname": "status",
+                        "value": "running"
+                    }
+                }
+            },
+            "9d871e49-03a5-4ac3-a495-ac10908b1b90": {
                 "idname": "DockerNode",
                 "pos": [
                     0,
