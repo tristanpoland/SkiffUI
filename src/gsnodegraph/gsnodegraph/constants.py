@@ -49,15 +49,15 @@ WIRE_ACTIVE_COLOR = (210, 210, 210, 255)
 DEFAULT_WIRE_CURVATURE = 40
 
 NODE_HEADER_CATEGORY_COLORS = {
-    "INPUT": "#498DB8",  # Burgendy
-    "DRAW": "#AF4467",  # Pink
-    "MASK": "#084D4D",  # Blue-green
-    "CONVERT": "#564B7C",  # Purple
-    "FILTER": "#878aad",  # Green
-    "BLEND": "#558333",  # Light blue
-    "COLOR": "#C2AF3A",  # Yellow
-    "TRANSFORM": "#6B8B8B", # Blue-grey
-    "OUTPUT": "#7176bf"  # Blue
+    "INPUT": "#10AAFF",
+    "DRAW": "#10AAFF",
+    "MASK": "#10AAFF",
+    "CONVERT": "#10AAFF",
+    "FILTER": "#10AAFF",
+    "BLEND": "#10AAFF",
+    "COLOR": "#10AAFF",
+    "TRANSFORM": "#10AAFF",
+    "OUTPUT": "#10AAFF" 
 }
 NODE_HEADER_MUTED_COLOR = (70, 70, 70, 255)
 
@@ -66,7 +66,7 @@ NODE_SELECTED_COLOR = (63, 66, 70, 255)
 NODE_MUTED_COLOR = (63, 66, 70, 90)
 
 NODE_BORDER_NORMAL_COLOR = (46,60,81, 255)
-NODE_BORDER_SELECTED_COLOR = (255, 255, 255, 255)
+NODE_BORDER_SELECTED_COLOR = (16 ,170 ,255 , 255)
 
 NODE_THUMB_BORDER_COLOR = (27, 28, 30, 255)
 
