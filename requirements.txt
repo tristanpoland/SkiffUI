@@ -45,7 +45,7 @@ opencv-python==4.7.0.72
 packaging==23.0
 pefile==2023.2.7
 pexpect==4.8.0
-Pillow==9.4.0
+Pillow==10.0.1
 pipdeptree==2.5.2
 pluggy==1.0.0
 protobuf==3.20.3
