@@ -160,7 +160,7 @@ def UpdateForSearch(self, search_string):
     self.parent._nodeRegistryMapping = {}
 
     i = 0
-    for item in self.NodeRegistry:
+    for item in self.NodeRegistry: #TODO: This searches the node registry, pretty sure we need to instead search the list content
         if item != "corenode_outputcomposite":
             lbl = self.NodeRegistry[item](None, None).GetLabel()
             if self.SearchNodeRegistry(lbl, search_string):
@@ -198,7 +198,7 @@ class AddNodeMenu(wx.PopupWindow):
         main_sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Label
-        main_sizer.AddSpacer(25)
+        main_sizer.AddSpacer(25) #TODO Experiment with spacing and spacer thickness/contrast
         header_lbl = wx.StaticText(self, wx.ID_ANY, _("Add Node"))
         header_lbl.SetForegroundColour(wx.Colour("#fff"))
         header_lbl.SetFont(self.GetFont().MakeBold())
@@ -211,7 +211,9 @@ class AddNodeMenu(wx.PopupWindow):
         # self.refresh_btn = Button(self, label="Refresh")
         # self.Bind(wx.EVT_BUTTON, self.on_refresh, self.refresh_btn)
 
+        #TODO: Replace this code with a close whenever the windows looses focus
         self.close_btn = Button(self, label="Close")
+
         self.Bind(wx.EVT_BUTTON, self.on_close, self.close_btn)
 
         main_sizer.Add(self.search_bar, flag=wx.EXPAND | wx.ALL, border=5)
@@ -243,8 +245,9 @@ class AddNodeMenu(wx.PopupWindow):
         return self.parent
 
     def OnDoSearch(self, event):
-    #    """ Event handler for when something is typed into the search bar, etc. """
+        # Event handler for when something is typed into the search bar, etc.
         self.nodes_listbox.UpdateForSearch(event.GetString())
 
     def OnClickSelectItem(self, event):
+        print("Item selected")
         pass
