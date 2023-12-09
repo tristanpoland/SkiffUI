@@ -53,7 +53,7 @@ psutil==5.9.5
 psycopg2==2.9.5
 ptyprocess==0.7.0
 pycparser==2.21
-pyinstaller==5.9.0
+pyinstaller==5.13.1
 pyinstaller-hooks-contrib==2023.1
 pyparsing==3.1.0
 pypiwin32==223
